@@ -4,6 +4,8 @@ import net.sgtp.fun.dataInspector.io.clParser
 import net.sgtp.fun.dataInspector.body.endpointSelector
 import net.sgtp.fun.dataInspector.body.endpointAnalyzer
 import net.sgtp.fun.dataInspector.body.counters
+import net.sgtp.fun.dataInspector.body.analysisWorkflow
+
 
 import scala.concurrent.{Await, Future}
 import scala.collection.parallel._
@@ -57,22 +59,15 @@ res0: scala.collection.parallel.mutable.ParArray[Int] = ParArray(2, 3, 4)
   
   parExp.foreach(ep=>{initialOptions.searchStrings.foreach(
       str=>{
-    singleEndpointExecution(ep:String,str:String)
+        val aWorkflow=new analysisWorkflow(initialOptions.verbose,ep,str,initialOptions.queryTimeOut1,initialOptions.queryTimeOut2)
+        counters.endPointCounter+=1
     
   }
   )
   })
    
       
-def singleEndpointExecution(ep:String,str:String)={
     
-        val res=endpointAnalyzer.retrieveRoughResultsAndBroadCast(initialOptions.verbose,ep,str,initialOptions.queryTimeOut1,initialOptions.queryTimeOut2)
-        
-       
-        counters.endPointCounter+=1
-        println("Done endpoint "+counters.endPointCounter+" ("+ep+" no. of queries executed = "+counters.queriesExecuted+")")
-  
-  }      
   
   
 }
