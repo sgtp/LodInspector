@@ -1,0 +1,98 @@
+<html>
+<head><script src="cytoscape.min.js"></script></head>
+
+<body>
+<h1>YummyData Playground</h1>
+<div id="output"></div>
+<div id="cy" style="height: 500px;"></div>
+<div id="form">
+<form id="searchForm" name="searchForm">
+	<input size="120" type="text" id="entities" name="entities" placeholder="List a set of things you know or are interested in"></input>
+        <button>Go!</button>
+    </form>
+</div>
+
+<script type='text/javascript'>
+cy = cytoscape({
+  container: document.getElementById('cy'), // container to render in
+
+  elements: [ // list of graph elements to start with
+    { // node a
+      data: { id: 'a' }
+    },
+    { // node b
+      data: { id: 'b' }
+    },
+    { // edge ab
+      data: { id: 'ab', source: 'a', target: 'b' }
+    }
+  ],
+
+  style: [ // the stylesheet for the graph
+    {
+      selector: 'node',
+      style: {
+        'background-color': '#666',
+        'label': 'data(id)'
+      }
+    },
+
+    {
+      selector: 'edge',
+      style: {
+        'width': 3,
+        'line-color': '#ccc',
+        'target-arrow-color': '#ccc',
+        'target-arrow-shape': 'triangle'
+      }
+    }
+  ],
+
+  layout: {
+    name: 'grid',
+    rows: 1
+  }
+  
+
+});
+
+document.write("Graph rendering function called");
+
+</script>
+
+<script type='text/javascript'>
+
+var cc=1;
+var lastId='a'
+function myTimer() {
+	cc=cc+1;
+	var nId='n'+cc;
+	
+    cy.add({
+    group: 'nodes',
+    data: { id: nId }
+	});
+	cy.add({ group: 'edges', data: { id: 'e'+cc, source: lastId, target: nId } });
+	lastId=nId;
+	var layout = cy.layout({
+  		name: 'cose'
+	});
+
+	layout.run();
+}
+
+var myVar = setInterval(myTimer, 1000);
+
+
+</script>
+
+</body>
+</html>
+
+
+  
+
+
+
+  
+

@@ -1,0 +1,19 @@
+plain	node1
+plain	node2
+plain	node3
+edge	node1	e1	node2
+attr	node2	YoB
+class	node2	Person
+focus	node1	
+attrdr	ndode2	YoB	perc	25
+attrdr	ndode2	YoB	example	node4
+inst	node5
+link	node5	type	node2
+class	node6
+rel		node2	hasFather	node6
+relattr node2	hasFather	node6	percS	30
+relattr node2	hasFather	node6	percT	50
+
+
+
+	
