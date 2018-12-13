@@ -19,8 +19,24 @@ object helper {
         println(e.getMessage)
       }
       m}}
-    
-    
-  
   }
+  
+  def slectSingleValueQuery(verbose:Boolean=false,endpoint:String,queryString:String,queryTimeout1:Int,queryTimeout2:Int):Int={
+    val query=QueryFactory.create(queryString)  
+    val qexec = QueryExecutionFactory.sparqlService(endpoint, query)
+    try {
+      val resSet=qexec.execSelect()
+      if(resSet.hasNext()) resSet.next().getLiteral("res").getInt
+      else 0
+    }
+    catch {
+      case e=>{
+       if(verbose) {
+          println(endpoint+"\t: is not viable for "+queryString)
+          println(e.getMessage)
+      }
+      0
+      }
+    }
+   }
 }

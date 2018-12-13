@@ -2,19 +2,71 @@
 <head>
 <script src="cytoscape.min.js"></script>
 <script src="jquery-3.3.1.min.js"></script>
+<style rel='stylesheet' type='text/css'>
+div#page { 	
+    width: 1000px;
+    height: 800px;
+}
+div#header {  	
+    width: 1000px;
+    height: 130px;
+    background: #FFFFFF;
+    
+}
+
+div#container {
+    clear: both;
+}
+
+div#cy { 	
+  	float: left;   	
+  	height: 620px;   	
+  	overflow: hidden;   	  	
+  	width: 700px;
+  	background: #F0F0F0;
+}
+div#legenda {
+    float: left;   	
+  	height: 620px;   	
+  	overflow: hidden;   	  	
+  	width: 300px;
+  	background: #E0E0E0;
+}
+div#footer {
+	clear: both;
+    float: left;   	
+  	height: 50px;   	
+  	overflow: hidden;   	  	
+  	width: 1000px;
+  	background: #FFFFFF;
+}
+
+      
+</style>
 </head>
 
 <body>
-<h1>YummyData Playground</h1>
-<div id="output" style="height: 50px; width:1000px; background-color: #f3f3f3"></div>
-<div id='legenda' style="height: 100px; width:700px; background-color: #f5f5f5; "></div>
-<div id="cy" style="height: 500px; width:700px; background-color: #f4f4f4;  "></div>
-<div id="form" style="height: 50px; width:800px; background-color: #f6f6f6">
-<form id="searchForm" name="searchForm">
-	<input size="120" type="text" id="entities" name="entities" placeholder="List a set of things you know or are interested in"></input>
-        <button>Go!</button>
-    </form>
+<div id="page">
+	<div id="header">
+		<h1>YummyData Playground</h1>
+		<form id="searchForm" name="searchForm">
+			<input size="120" type="text" id="entities" name="entities" placeholder="List a set of things you know or are interested in" disabled /><br/>
+			<i>only a view on the server script now!</i>
+			<button type="button" disabled>Go!</button> 
+			<button type="button" id="refresh" onclick="parseGraph()">Load</button> 
+			<button type="button" id="auto" onclick="setAutoGraph()">Auto</button>  
+			<button type="button" id="stop" onclick="stopAutoGraph()">Stop</button>
+		</form>
+	</div>
+	<div id="container">
+		<div id="cy"></div>
+		<div id='legenda'></div>
+	</div>
+	<div id="footer"> &copy; 2018 BH</a>
 </div>
+
+
+
 
 <script type='text/javascript'>
 
@@ -32,6 +84,16 @@ function class2Shape(cl) {
 	else return('star');	
 }
 
+function nodeSize(size) {
+	if(size==0) {
+		return 10;
+	}
+	else {
+		alert(size+" -> "+Math.sqrt(size))
+		return Math.sqrt(size);
+	}
+}
+
 cy = cytoscape({
   container: document.getElementById('cy'), // container to render in
 
@@ -41,7 +103,9 @@ cy = cytoscape({
         'background-color': '#666',
         'label': 'data(name)',
         'shape': function( ele ){  return class2Shape(ele.data('type'));},
-        'background-color' : function(ele) { return endpointsCMap[ele.data('endpoint')];}
+        'background-color' : function(ele) { return endpointsCMap[ele.data('endpoint')];},
+        'width': function(ele) {return nodeSize(ele.data('size'));},
+        'height': function(ele) {return nodeSize(ele.data('size'));}
       }
     )
 	.selector('edge')
@@ -70,7 +134,7 @@ function getRandomColor() {
 
 var endpointsCMap={};
 	
-document.write("Graph rendering function called");
+//document.write("Graph rendering function called");
 
 </script>
 
@@ -125,6 +189,7 @@ function processPlain(ep,elements) {
 function processClass(ep,elements) {
 	nodeId=elements[2];
 	nodeName=elements[3];	
+	console.log('Process class: '+nodeId)
 	node=cy.getElementById(nodeId);
 	if(node.length=='') {
 		//alert('Adding class node '+nodeId+' ('+ep+')') // test
@@ -139,16 +204,28 @@ function processClass(ep,elements) {
 	}
 }
 
+function setAttribute(ep,elements) {
+	nodeId=elements[2];
+	attribute=elements[2];	
+	value=elements[3];
+	console.log('Process attr for: '+nodeId)
+	node=cy.getElementById(nodeId);
+	if(node.length>0) {
+		node[0].data({attribute:value});
+	}
+}
+
+
 function processInstance(ep,elements) {
 //http://dbpedia.org/sparql	inst	node5	node2	name_node2
-	alert('Instance');
+	//alert('Instance');
 	nodeId=elements[2];
 	classId=elements[3];
 	nodeName=elements[4];
-	nodeName=elements[5];
+	
 	node=cy.getElementById(nodeId);
 	if(node.length==0) {
-		alert('Adding instance node '+nodeId+' ('+ep+')') // test
+		//alert('Adding instance node '+nodeId+' ('+ep+')') // test
 		cy.add({
     		group: 'nodes',
     		data: { endpoint: ep , id: nodeId, type: 'instance', name: nodeName}
@@ -161,10 +238,10 @@ function processInstance(ep,elements) {
 	//Same for class
 	nodeC=cy.getElementById(classId);
 	if(nodeC.length==0) {
-		alert('Adding class node '+classId+' ('+ep+')') // test
+		//alert('Adding class node '+classId+' ('+ep+')') // test
 		cy.add({
     		group: 'nodes',
-    		data: { endpoint: ep , id: classId, type: 'class', name: className}
+    		data: { endpoint: ep , id: classId, type: 'class', name: classId}
 	  	})
 	}
 	else {
@@ -172,45 +249,64 @@ function processInstance(ep,elements) {
 		nodeC[0].data({type:'class'});
 	}
 	//Same for link
-	rel=cy.edges('[source = '+nodeId+'] [target = '+classId+'] []');
+	rel=cy.edges('edge[source = \"'+nodeId+'\"][target = \"'+classId+'\"][type=\"instanceOf\"]');
 	if(rel.length==0) {
+		console.log('edge found');
 		cy.add({
     		group: 'edges',
     		data: { id: nodeId+'_instOf_'+classId, endpoint: ep , source: nodeId, target: classId, type: 'instanceOf', name: 'instanceOf'}
 	  	})
 	}
+	else {
+		console.log('edge not found');	
+	}
 }
 
 
 parseGraph = function (){
-  $.ajaxSetup({ cache: false });	
-  $.ajax({
-    //url:'demodata.txt?' + new Date().getTime(),
-    url:'outCy.txt?' + new Date().getTime(),
-    success: function (data){
-      var commands=data.split('\n'); 
-      var cl;
-	  for (cl = 0; cl < commands.length; cl++) { 
-	  	elements=commands[cl].split('\t');
-	  	ep=elements[0];
-	  	updateEndpoint(ep);
-	  	command=elements[1];
+	cy.startBatch();
+  	$.ajaxSetup({ cache: false });	
+  	$.ajax({
+    	//url:'demodata.txt?' + new Date().getTime(),
+    	url:'outCy.txt?' + new Date().getTime(),
+    	success: function (data){
+      		var commands=data.split('\n'); 
+      		var cl;
+	  		for (cl = 0; cl < commands.length; cl++) { 
+	  			elements=commands[cl].split('\t');
+	  			ep=elements[0];
+	  			updateEndpoint(ep);
+	  			command=elements[1];
 	  	
-	  	if(command=='plain') { processPlain(ep,elements); }
-	 	if(command=='class') { processClass(ep,elements); } 
-	 	if(command=='inst') {processInstance(ep,elements);}
+	  			if(command=='plain') { processPlain(ep,elements); }
+	 			if(command=='class') { processClass(ep,elements); } 
+	 			if(command=='inst') {processInstance(ep,elements);}
+	 			if(command=='set') {setAttribute(ep,elements);}
 	 		
-	  	//test
-	  	var layout = cy.layout({
-  			name: 'cose'
-		});
-		layout.run();
-	  }   
-    }
-  });
+	
+	  		}   
+    	}
+    	
+  	});
+	console.log("endAdding");
+	cy.endBatch();
+	console.log("endBatch");
+ 	var layout = cy.layout({
+  		name: 'cose'
+   	});
+   	layout.run();
+   	console.log("endLayout");
 }
-parseGraph()
-var myVar = setInterval(parseGraph, 10000);
+//parseGraph()
+
+var myVar;
+function setAutoGraph() {
+	myVar = setInterval(parseGraph, 30000);
+}
+function stopAutoGraph() {
+	clearInterval(myVar);
+}
+ 
 
 </script>
 </script>

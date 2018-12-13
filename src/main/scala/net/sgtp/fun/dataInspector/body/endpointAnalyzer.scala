@@ -1,6 +1,6 @@
 package net.sgtp.fun.dataInspector.body
 
-import net.sgtp.fun.dataInspector.model.roughTriplesResult
+import net.sgtp.fun.dataInspector.model._
 import org.apache.jena.query._;
 import org.apache.jena.rdf.model._
 import org.apache.jena.rdf._
@@ -19,6 +19,12 @@ class endpointAnalyzer(verbose:Boolean,endpoint:String,queryTimeout1:Int,queryTi
       rRes
     
     
+  }
+  
+  def countInstances(classURI:String):Int={
+   val queryString=queries.countInstancesPerClass(classURI)
+   val count=helper.slectSingleValueQuery(verbose,endpoint,queryString,queryTimeout1,queryTimeout2)
+   count
   }
   
   

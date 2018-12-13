@@ -9,7 +9,7 @@ object queries {
   def searchForPropertiesForLiteral(value:String)="construct {?s ?p ?o} where { ?s ?p ?o . FILTER (strends (str(?s), \""+value+"\"))}"
   def searchForResourcesForLiteral(value:String)="construct {?s ?p ?o} where { ?s ?p ?o . FILTER (strends (str(?p), \""+value+"\"))}"
 
-
+  def countInstancesPerClass(value:String)="select (count(distinct(?s)) as ?res) where {?s a <"+value+">}"
   
   //val totalEntities="select (count(distinct(?x)) as ?nrow) where {?x ?p ?o}"
   //val typedEntities="select (count(distinct(?x)) as ?nrow) where {?x a ?o}"

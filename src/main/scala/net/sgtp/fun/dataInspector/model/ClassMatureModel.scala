@@ -1,5 +1,8 @@
 package net.sgtp.fun.dataInspector.model
 
+import net.sgtp.fun.dataInspector.body.endpointAnalyzer
+
+
 class ClassMatureModel  (
   val ep:String,
   val classId:String,
@@ -23,9 +26,17 @@ class ClassMatureModel  (
   
   
   def getCySer:List[String]={
-    val res=endpoint+"\tclass\t"+uri+"\t"+nodeName
+    val nodeDisplay=if(nodeName.equals("")) uri
+    else nodeName
+    val res=endpoint+"\tclass\t"+uri+"\t"+nodeDisplay
     val res2=endpoint+"\tfocus\t"+uri
     if(isFocus) List(res,res2)
     else List(res)
+  }
+  
+  def getProfiled(ea:endpointAnalyzer)={
+    println("PROFILING: "+uri)
+    val nOfNodes=ea.countInstances(uri)
+    new ProfiledClassMatureModel(ep,uri,nodeName,classNameProp,focusRes,focusAttr,isFocus,nOfNodes);
   }
 }

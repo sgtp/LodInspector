@@ -1,7 +1,7 @@
 package net.sgtp.fun.dataInspector.body
 
-import net.sgtp.fun.dataInspector.model._
 import net.sgtp.fun.dataInspector.io.simpleCyFileOut
+import net.sgtp.fun.dataInspector.model._
 
 class analysisWorkflow (verbose:Boolean,endpoint:String,searchString:String,queryTimeout1:Int,queryTimeout2:Int) {
   val eAnalyzer=new endpointAnalyzer(verbose,endpoint,queryTimeout1,queryTimeout2); 
@@ -17,6 +17,7 @@ class analysisWorkflow (verbose:Boolean,endpoint:String,searchString:String,quer
        if(verbose) println("Found triples "+roughResult.triples.size+" in "+roughResult.endpoint+" for "+roughResult.query)
        val matureNodes=NodeFactory.extractFromRoughResults(roughResult);
        matureNodes.foreach(mn=>{simpleCyFileOut.process(mn)})
+       matureNodes.foreach(x=>{val pm=x.getProfiled(eAnalyzer); simpleCyFileOut.process(pm) })
       }
      //val matureResult=new MatureResult(roughResult)
      

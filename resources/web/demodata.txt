@@ -18,6 +18,7 @@ http://dbpedia.org/sparql	relattr node2	hasFather	node6	percT	50
 http://bogus.org/sparql		inst	nodeB	nodeA	name_nodeB	name_nodeB_class	 
 http://bogus.org/sparql	plain	nodeC	name_nodeC
 
+//endpoint set classURI attr value
 
 
 	
