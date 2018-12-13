@@ -185,7 +185,8 @@ function processInstance(ep,elements) {
 parseGraph = function (){
   $.ajaxSetup({ cache: false });	
   $.ajax({
-    url:'demodata.txt?' + new Date().getTime(),
+    //url:'demodata.txt?' + new Date().getTime(),
+    url:'outCy.txt?' + new Date().getTime(),
     success: function (data){
       var commands=data.split('\n'); 
       var cl;
@@ -208,8 +209,9 @@ parseGraph = function (){
     }
   });
 }
-
 parseGraph()
+var myVar = setInterval(parseGraph, 10000);
+
 </script>
 </script>
 </body>
