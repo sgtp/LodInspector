@@ -29,7 +29,7 @@ class ClassMatureModel  (
     val nodeDisplay=if(nodeName.equals("")) uri
     else nodeName
     val res=endpoint+"\tclass\t"+uri+"\t"+nodeDisplay
-    val res2=endpoint+"\tfocus\t"+uri
+    val res2=endpoint+"\tset\t"+uri+"\tfocus\t"+1
     if(isFocus) List(res,res2)
     else List(res)
   }

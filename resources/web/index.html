@@ -99,6 +99,24 @@ function nodeSize(size) {
 	}
 }
 
+function nodeBorderWidth(focus) {
+	if (typeof focus == 'undefined') {
+		return 1;
+	}
+	else {
+		return 3;
+	}
+}
+
+function nodeBorderStyle(focus) {
+	if (typeof focus == 'undefined') {
+		return 'solid';
+	}
+	else {
+		return 'dashed';
+	}
+}
+
 cy = cytoscape({
   container: document.getElementById('cy'), // container to render in
 
@@ -110,7 +128,9 @@ cy = cytoscape({
         'shape': function( ele ){  return class2Shape(ele.data('type'));},
         'background-color' : function(ele) { return endpointsCMap[ele.data('endpoint')];},
         'width': function(ele) {return nodeSize(ele.data('size'));},
-        'height': function(ele) {return nodeSize(ele.data('size'));}
+        'height': function(ele) {return nodeSize(ele.data('size'));},
+        'border-width': function(ele) {return nodeBorderWidth(ele.data('focus'));},
+        'border-style': function(ele) {return nodeBorderStyle(ele.data('focus'));}
       }
     )
 	.selector('edge')

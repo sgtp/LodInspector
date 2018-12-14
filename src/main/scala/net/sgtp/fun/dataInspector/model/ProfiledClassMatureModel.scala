@@ -20,7 +20,7 @@ class ProfiledClassMatureModel(
     else nodeDisplay1
     val res=endpoint+"\tclass\t"+uri+"\t"+nodeDisplay2
     val res2=endpoint+"\tset\t"+uri+"\tsize\t"+size
-    val res3=endpoint+"\tfocus\t"+uri
+    val res3=endpoint+"\tset\t"+uri+"\tfocus\t"+1
     if(isFocus) List(res,res2,res3)
     else List(res,res2)
     
