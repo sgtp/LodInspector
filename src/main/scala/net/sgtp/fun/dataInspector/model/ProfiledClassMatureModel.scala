@@ -13,7 +13,7 @@ class ProfiledClassMatureModel(
 ) extends ClassMatureModel(ep2,classId2,className2,classNameProp2,focusRes2,focusAttr2,isFocus2){
 
   override def getCySer:List[String]={
-    //TODO to reffactor with proper inhertance
+    //TODO to refactor with proper inheritance
     val nodeDisplay1=if(nodeName.equals("")) uri
     else nodeName
     val nodeDisplay2=if(size>0) nodeDisplay1+"_("+size+")"

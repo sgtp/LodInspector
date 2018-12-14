@@ -69,6 +69,8 @@ div#footer {
 
 
 <script type='text/javascript'>
+var maxNodeSize=200;
+var maxNodeRecorded=200;
 
 function class2Shape(cl) {
 	
@@ -85,12 +87,15 @@ function class2Shape(cl) {
 }
 
 function nodeSize(size) {
-	if(size==0) {
-		return 10;
+	if (typeof size == 'undefined') {
+		return 20;
 	}
 	else {
-		alert(size+" -> "+Math.sqrt(size))
-		return Math.sqrt(size);
+		sizeToRecord=Math.sqrt(size);
+		if(maxNodeRecorded<sizeToRecord) maxNodeRecorded=sizeToRecord;
+		scalingFactor=maxNodeRecorded/maxNodeSize;
+		console.log("LAYOUT: "+size+" -> "+Math.max(Math.sqrt(size))/scalingFactor);
+		return Math.max(Math.sqrt(size)/scalingFactor,20);
 	}
 }
 
@@ -206,12 +211,14 @@ function processClass(ep,elements) {
 
 function setAttribute(ep,elements) {
 	nodeId=elements[2];
-	attribute=elements[2];	
-	value=elements[3];
-	console.log('Process attr for: '+nodeId)
+	attribute=elements[3];	
+	value=elements[4];
+	console.log('Process attr '+attribute+' for: '+nodeId)
 	node=cy.getElementById(nodeId);
 	if(node.length>0) {
-		node[0].data({attribute:value});
+		valueBit={};
+		valueBit[attribute]=value;
+		node[0].data(valueBit);
 	}
 }
 
@@ -289,13 +296,15 @@ parseGraph = function (){
     	
   	});
 	console.log("endAdding");
-	cy.endBatch();
-	console.log("endBatch");
+
  	var layout = cy.layout({
   		name: 'cose'
    	});
    	layout.run();
-   	console.log("endLayout");
+   	cy.endBatch();
+
+	console.log("endBatch");
+   	
 }
 //parseGraph()
 
