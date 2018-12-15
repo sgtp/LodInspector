@@ -35,7 +35,7 @@ object NodeFactory {
             val classes=triples.listObjectsOfProperty(in._2, typeProp).filter(x=>x.isURIResource()).map(y=>y.asResource()).toList
             val classesURIs=classes.map(x=>x.getURI)
             val head=List(new InstMatureModel(endpoint,in._2.getURI,nodeName,nodeNameProp,classesURIs,true))
-            val tail=classes.map(cl=>{new ClassMatureModel(endpoint,cl.getURI,"","","","",true)})
+            val tail=classes.map(cl=>{new ClassMatureModel(endpoint,cl.getURI,"","","","",false)})
             head++tail
           }
           case "plain" =>List(new PlainMatureModel(endpoint,in._2.getURI,nodeName,nodeNameProp,true))

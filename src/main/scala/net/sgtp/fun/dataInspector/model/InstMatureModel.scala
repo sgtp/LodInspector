@@ -14,7 +14,7 @@ class InstMatureModel(
 
   def getCySer:List[String]={
     val res=classIds.map(classId=>endpoint+"\tinst\t"+uri+"\t"+classId+"\t"+nodeName)
-    val res2=endpoint+"\tfocus\t"+uri
+    val res2=endpoint+"\tset\t"+uri+"\tfocus\t"+1
     if(isFocus) res ++ List(res2)
     else res
   }
