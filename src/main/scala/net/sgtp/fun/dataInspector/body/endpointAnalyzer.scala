@@ -14,7 +14,6 @@ class endpointAnalyzer(verbose:Boolean,endpoint:String,queryTimeout1:Int,queryTi
     }  
      //println("Query: "+queryString)
      val triples=helper.getTriplesPerQuery(verbose,endpoint,queryString,queryTimeout1,queryTimeout2)
-      counters.queriesExecuted+=1
       val rRes=new roughTriplesResult(endpoint,searchString,location,triples)
       rRes
     

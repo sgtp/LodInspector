@@ -37,6 +37,7 @@ object cliViewOnCytoWeb extends App {
   if(initialOptions.verbose) {
     println("Endpoints (after optional Umaka expansion):")
     availableEndpoints.foreach(println)
+    println("Total no. "+availableEndpoints.size)
     println
   }
   
@@ -53,17 +54,21 @@ pc.tasksupport: scala.collection.parallel.TaskSupport = scala.collection.paralle
 scala> pc map { _ + 1 }
 res0: scala.collection.parallel.mutable.ParArray[Int] = ParArray(2, 3, 4)
    */
-  val forkJoinPool = new java.util.concurrent.ForkJoinPool(100)
+  val forkJoinPool = new java.util.concurrent.ForkJoinPool(200)
   val parExp=availableEndpoints.par
   parExp.tasksupport=new ForkJoinTaskSupport(forkJoinPool)
   
-  parExp.foreach(ep=>{initialOptions.searchStrings.foreach(
+  parExp.foreach(ep=>{
+      counters.endPointOpened+=1;
+      initialOptions.searchStrings.par.foreach(
       str=>{
+        
         val aWorkflow=new analysisWorkflow(initialOptions.verbose,ep,str,initialOptions.queryTimeOut1,initialOptions.queryTimeOut2)
-        counters.endPointCounter+=1
+        
     
   }
   )
+  counters.endPointTerminated+=1
   })
    
       

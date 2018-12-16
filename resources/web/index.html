@@ -2,14 +2,27 @@
 <head>
 <script src="cytoscape.min.js"></script>
 <script src="jquery-3.3.1.min.js"></script>
+
+<script type='text/javascript'>
+var maxNodeSize=200;
+var maxNodeRecorded=200;
+var	eo=0;
+var	ec=0;
+var nq=0;
+var nqr=0;
+var nqn=0;
+var nqf=0;
+</script>
+
+
 <style rel='stylesheet' type='text/css'>
 div#page { 	
     width: 1000px;
-    height: 800px;
+    height: 820px;
 }
 div#header {  	
     width: 1000px;
-    height: 130px;
+    height: 150px;
     background: #FFFFFF;
     
 }
@@ -50,13 +63,23 @@ div#footer {
 	<div id="header">
 		<h1>YummyData Playground</h1>
 		<form id="searchForm" name="searchForm">
-			<input size="120" type="text" id="entities" name="entities" placeholder="List a set of things you know or are interested in" disabled /><br/>
+			<input size="100" type="text" id="entities" name="entities" placeholder="List a set of things you know or are interested in" disabled /><br/>
 			<i>only a view on the server script now!</i>
 			<button type="button" disabled>Go!</button> 
 			<button type="button" id="refresh" onclick="parseGraph()">Load</button> 
 			<button type="button" id="auto" onclick="setAutoGraph()">Auto</button>  
 			<button type="button" id="stop" onclick="stopAutoGraph()">Stop</button>
 		</form>
+		<table>
+		<tr>
+			<td>Endpoints investigated: </td><td id="eo"></td>
+			<td>Completed: </td><td id="ec"></td>
+			<td>Queries run: </td><td id="nq"></td>
+			<td>with results: </td><td id="nqr"></td>
+			<td>No res: </td><td id="nqn"></td>			
+			<td>Failed: </td><td id="nqf"></td>
+		</tr>
+		</table>
 	</div>
 	<div id="container">
 		<div id="cy"></div>
@@ -69,8 +92,7 @@ div#footer {
 
 
 <script type='text/javascript'>
-var maxNodeSize=200;
-var maxNodeRecorded=200;
+
 
 function class2Shape(cl) {
 	
@@ -190,6 +212,16 @@ var myVar = setInterval(myTimer, 1000);
 </script -->
 <script type='text/javascript'>
 
+
+function paintStats() {
+	document.getElementById('eo').innerHTML=eo;
+	document.getElementById('ec').innerHTML=ec;
+	document.getElementById('nq').innerHTML=nq;
+	document.getElementById('nqr').innerHTML=nqr;
+	document.getElementById('nqn').innerHTML=nqn;
+	document.getElementById('nqf').innerHTML=nqf;
+}
+
 function updateEndpoint(ep) {
 	if(!endpointsCMap.hasOwnProperty(ep)) {
 		endpointsCMap[ep]=getRandomColor();
@@ -301,15 +333,25 @@ parseGraph = function (){
       		var cl;
 	  		for (cl = 0; cl < commands.length; cl++) { 
 	  			elements=commands[cl].split('\t');
-	  			ep=elements[0];
-	  			updateEndpoint(ep);
-	  			command=elements[1];
+	  			if(elements[0]==='#') {
+	  				if(elements[1]=="eo") { eo=elements[2]; }	
+	  				if(elements[1]=="ec") { ec=elements[2]; }	
+	  				if(elements[1]=="nq") { nq=elements[2]; }	
+	  				if(elements[1]=="nqr") { nqr=elements[2]; }	
+	  				if(elements[1]=="nqn") { nqn=elements[2]; }	
+	  				if(elements[1]=="nqf") { nqf=elements[2]; }	
+					paintStats();
+	  			}
+	  			else {
+	  				ep=elements[0];
+	  				updateEndpoint(ep);
+	  				command=elements[1];
 	  	
-	  			if(command=='plain') { processPlain(ep,elements); }
-	 			if(command=='class') { processClass(ep,elements); } 
-	 			if(command=='inst') {processInstance(ep,elements);}
-	 			if(command=='set') {setAttribute(ep,elements);}
-	 		
+	  				if(command=='plain') { processPlain(ep,elements); }
+	 				if(command=='class') { processClass(ep,elements); } 
+	 				if(command=='inst') {processInstance(ep,elements);}
+	 				if(command=='set') {setAttribute(ep,elements);}
+	  			}
 	
 	  		}   
     	}
