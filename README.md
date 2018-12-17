@@ -8,3 +8,4 @@ This is a simple hack developed at the BioHackathon 2016. Given a search string,
 
 It's crude and done in an hurry ;) Also text-search/overlap is extremely rude. It's a hackathon, let's say it's the idea that matters.
 
+At the 2018 Hackathon, some more work was done to provide some profiling and and visual interface (overlap analsyis and the re-querying of datasets for expanded labels have been temporarily removed).
