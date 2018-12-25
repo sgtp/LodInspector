@@ -15,7 +15,8 @@ import collection.JavaConversions._
  */
 class simpleCyFileOut(whereToWrite:String) {
   val nodes: ConcurrentHashMap[String,CommonMatureNode] = new ConcurrentHashMap  
-  
+  println("Simple writer to: "+whereToWrite)
+  dump()
   def process(mn:CommonMatureNode)={
     if(!nodes.containsKey(mn.uri)) {
       nodes.put(mn.uri,mn)

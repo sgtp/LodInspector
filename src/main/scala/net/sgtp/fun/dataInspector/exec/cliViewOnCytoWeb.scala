@@ -5,7 +5,7 @@ import net.sgtp.fun.dataInspector.body.endpointSelector
 import net.sgtp.fun.dataInspector.body.endpointAnalyzer
 import net.sgtp.fun.dataInspector.body.counters
 import net.sgtp.fun.dataInspector.body.analysisWorkflow
-
+import net.sgtp.fun.dataInspector.io.simpleCyFileOut
 
 import scala.concurrent.{Await, Future}
 import scala.collection.parallel._
@@ -63,7 +63,7 @@ res0: scala.collection.parallel.mutable.ParArray[Int] = ParArray(2, 3, 4)
       initialOptions.searchStrings.par.foreach(
       str=>{
         
-        val aWorkflow=new analysisWorkflow(initialOptions.verbose,ep,str,initialOptions.queryTimeOut1,initialOptions.queryTimeOut2)
+        val aWorkflow=new analysisWorkflow(initialOptions.verbose,ep,str,initialOptions.queryTimeOut1,initialOptions.queryTimeOut2, new  simpleCyFileOut("resources/web/outCy.txt"))
         
     
   }

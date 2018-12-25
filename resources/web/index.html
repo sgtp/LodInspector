@@ -12,6 +12,28 @@ var nq=0;
 var nqr=0;
 var nqn=0;
 var nqf=0;
+var resultUrl="";
+
+function submitFunction() {
+	searchText=document.getElementById("entities").value;
+	searchUrl="params?search="+searchText;
+	//alert(searchUrl);
+	resultUrl=httpGet(searchUrl)
+	//alert(res)
+}
+
+//from: https://stackoverflow.com/questions/10642289/return-html-content-as-a-string-given-url-javascript-function
+ function httpGet(theUrl)
+  {
+    var xmlHttp = null;
+
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false );
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+  }
+  
+  
 </script>
 
 
@@ -63,9 +85,9 @@ div#footer {
 	<div id="header">
 		<h1>YummyData Playground</h1>
 		<form id="searchForm" name="searchForm">
-			<input size="100" type="text" id="entities" name="entities" placeholder="List a set of things you know or are interested in" disabled /><br/>
+			<input size="100" type="text" id="entities" name="entities" placeholder="List a set of things you know or are interested in"  /><br/>
 			<i>only a view on the server script now!</i>
-			<button type="button" disabled>Go!</button> 
+			<button type="button" onclick="submitFunction()">Go!</button> 
 			<button type="button" id="refresh" onclick="parseGraph()">Load</button> 
 			<button type="button" id="auto" onclick="setAutoGraph()">Auto</button>  
 			<button type="button" id="stop" onclick="stopAutoGraph()">Stop</button>
@@ -323,11 +345,12 @@ function processInstance(ep,elements) {
 
 
 parseGraph = function (){
+	//alert()
 	cy.startBatch();
   	$.ajaxSetup({ cache: false });	
   	$.ajax({
     	//url:'demodata.txt?' + new Date().getTime(),
-    	url:'outCy.txt?' + new Date().getTime(),
+    	url:resultUrl+'?' + new Date().getTime(),
     	success: function (data){
       		var commands=data.split('\n'); 
       		var cl;

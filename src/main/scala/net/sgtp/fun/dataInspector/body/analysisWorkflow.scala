@@ -3,8 +3,8 @@ package net.sgtp.fun.dataInspector.body
 import net.sgtp.fun.dataInspector.io.simpleCyFileOut
 import net.sgtp.fun.dataInspector.model._
 
-class analysisWorkflow (verbose:Boolean,endpoint:String,searchString:String,queryTimeout1:Int,queryTimeout2:Int) {
-  val serializer=new simpleCyFileOut("resources/web/outCy.txt")
+class analysisWorkflow (verbose:Boolean,endpoint:String,searchString:String,queryTimeout1:Int,queryTimeout2:Int,serializer:simpleCyFileOut) {
+  //val serializer=new simpleCyFileOut("resources/web/outCy.txt")
   val eAnalyzer=new endpointAnalyzer(verbose,endpoint,queryTimeout1,queryTimeout2); 
   val queryToProcess=List(
        ("value",searchString),
