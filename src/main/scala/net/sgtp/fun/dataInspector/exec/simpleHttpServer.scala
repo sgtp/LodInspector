@@ -21,27 +21,17 @@ import net.sgtp.fun.dataInspector.body.counters
 import net.sgtp.fun.dataInspector.body.analysisWorkflow
 import scala.collection.parallel._
 
-//Note: adapted from https://doc.akka.io/docs/akka-http/current/routing-dsl/overview.html
+/** 
+ * Very simple server to support the Data Inspector
+ * Note: adapted from https://doc.akka.io/docs/akka-http/current/routing-dsl/overview.html
+ * TODO this was done in a hurry without really knowing the logic of Akka/Http. 
+ * Should double check if what is below is correct: 
+ * 1) are all errors handled properly?
+ * 2) is there some issue with buffers/memory leaks?
+ * 3) should all be based on actors?
+ * 4) should 
+ */
 object simpleServer extends App {
-
-  /// from: https://stackoverflow.com/questions/49011621/how-to-send-a-file-as-a-response-using-akka-http
-  /*
-  val fileContentsSource : (String, String) => Source[ChunkStreamPart, _] =
-  (fileName, enc) =>
-    Source
-      .fromIterator( io.Source.fromFile(fileName, enc).getLines )
-      .map(ChunkStreamPart.apply)
-
-
-val fileEntityResponse : (String, String) => HttpResponse =
-  (fileName, enc) => 
-    HttpResponse(entity = Chunked(ContentTypes.`text/plain(UTF-8)`,
-                                  fileContentsSource(fileName, enc)))
-  
-   * ///                                
-   */
-                                  
-  
   
   override def main(args: Array[String]) {
     implicit val system = ActorSystem()

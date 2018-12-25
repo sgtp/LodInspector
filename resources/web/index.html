@@ -16,7 +16,8 @@ var resultUrl="";
 
 function submitFunction() {
 	searchText=document.getElementById("entities").value;
-	searchUrl="params?search="+searchText;
+	encodedSearchText=encodeURI(searchText);
+	searchUrl="params?search="+encodedSearchText;
 	//alert(searchUrl);
 	resultUrl=httpGet(searchUrl)
 	//alert(res)
@@ -89,8 +90,9 @@ div#footer {
 			<i>only a view on the server script now!</i>
 			<button type="button" onclick="submitFunction()">Go!</button> 
 			<button type="button" id="refresh" onclick="parseGraph()">Load</button> 
-			<button type="button" id="auto" onclick="setAutoGraph()">Auto</button>  
-			<button type="button" id="stop" onclick="stopAutoGraph()">Stop</button>
+			<button type="button" id="auto" onclick="setAutoGraph()">Autoload</button>  
+			<button type="button" id="stop" onclick="stopAutoGraph()">Stop autoload</button>
+			<button type="button" id="reset" >Reset</button>
 		</form>
 		<table>
 		<tr>

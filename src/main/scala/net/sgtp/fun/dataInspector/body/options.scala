@@ -4,6 +4,7 @@ package net.sgtp.fun.dataInspector.body
  */
 
 object options{
+  val defaultVerbose=true
   val defaultYummyScore=75       // Filter cutoff for calls to YummyData
   val defaultExpTimeout1=3000    // ?
   val defaultExpTimeout2=6000    // ?
