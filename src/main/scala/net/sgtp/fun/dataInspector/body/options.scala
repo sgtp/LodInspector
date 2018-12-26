@@ -10,34 +10,24 @@ object options{
   val defaultExpTimeout2=6000    // ?
   val defaultQueryTimeout1=3000   // ?
   val defaultQueryTimeout2=6000   // ?
+  val defaultPort=8090
+  val defaultWebDir="resources/web/"
 }
 
-class options(
-    val verbose:Boolean,
-    val searchStep:Boolean,
-        endpoint:String,
-    val yummyScore:Int,    
-    val searchStrings:Array[String],
-    val expansionTimeOut1:Int,
-    val expansionTimeOut2:Int,
-    val queryTimeOut1:Int,
-    val queryTimeOut2:Int) {
-     val endpoints= endpoint.length() match {
-        case 0 =>  Array[String] ()
-        case _ =>  Array(endpoint)
-      }
-     
+class options {
+  
+    var verbose:Boolean= options.defaultVerbose
+    var yummyScore:Int=options.defaultYummyScore
+    var queryTimeOut1:Int=options.defaultQueryTimeout1
+    var queryTimeOut2:Int=options.defaultQueryTimeout2
+    var port:Int=options.defaultPort
+    var webDir:String=options.defaultWebDir
+    
+    
     def print()={
-     
-      System.out.println("Options")
-      System.out.println("verbose "+verbose);
-      System.out.println("SearchStep "+searchStep)
-      if(!searchStep) {
-        System.out.println("endpoints:")
-        endpoints.foreach(x=>println("\t"+x))
-      }
-      System.out.println("queryTimeOut1 "+queryTimeOut1)
-      System.out.println("queryTimeOut2 "+queryTimeOut2)
-      System.out.println("Search for: "+searchStrings.mkString(" "))
+      println("Options:")
+      println("verbose "+verbose)
+      println("queryTimeOut1 "+queryTimeOut1)
+      println("queryTimeOut2 "+queryTimeOut2)
     }
 }

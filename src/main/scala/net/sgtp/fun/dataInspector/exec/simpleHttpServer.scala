@@ -20,6 +20,10 @@ import net.sgtp.fun.dataInspector.body.endpointSelector
 import net.sgtp.fun.dataInspector.body.counters
 import net.sgtp.fun.dataInspector.body.analysisWorkflow
 import scala.collection.parallel._
+import net.sgtp.fun.dataInspector.io.OptionsParser
+import net.sgtp.fun.dataInspector.body.Manifest
+import java.net.URLDecoder
+
 
 /** 
  * Very simple server to support the Data Inspector
@@ -34,46 +38,48 @@ import scala.collection.parallel._
 object simpleServer extends App {
   
   override def main(args: Array[String]) {
+    println("Starting "+Manifest.projectName+" v."+Manifest.version+" (web server interface)")
+    
+    //TODO however this works...
     implicit val system = ActorSystem()
     implicit val materializer = ActorMaterializer()
-    
     // needed for the future map/flatmap in the end
     implicit val executionContext = system.dispatcher
 
-    //val addThenDouble: (Int, Int) => Int = (x,y) => {
+    val ops=OptionsParser.parseCli(args)
+    
     val requestHandler: HttpRequest => HttpResponse = hr => {
-      println(hr.uri.path.toString())
+      if(ops.verbose) println("URL reuqest:  "+hr.uri.path.toString())
       hr match {
         case HttpRequest(GET, Uri.Path("/params"), _, _, _) =>  {
            val query=hr.uri.query(java.nio.charset.Charset.defaultCharset(), Uri.ParsingMode.Strict)
-           //query.toMap.foreach(x=>println(x._1+" => "+x._2))
-           val searchString=query.toMap.get("search").get
-           val searchStrings=searchString.split("_") //TODO uredecode and split
+           val myArgs=query.toMap
+           OptionsParser.parseArgsMapAndAdd(myArgs, ops)
+           val searchStrings=URLDecoder.decode(myArgs.get("search").get).split(" ").map(x=>x.replaceAll("_", " "))
            val randomDir=Random.alphanumeric.take(10).mkString("")
-           //TODO here we should start the asynch thing...
-           val dataFile="resources/web/temp/"+randomDir+"/outCy.txt"
-           new java.io.File("resources/web/temp/"+randomDir).mkdirs
+           val dataFile=ops.webDir+"temp/"+randomDir+"/outCy.txt"
+           new java.io.File(ops.webDir+"temp/"+randomDir).mkdirs
            val dataUrl="/temp/"+randomDir+"/outCy.txt"
-           Future {
-               ///temp/90CUqsE6kL/outCy.txt
-               //resources/web/temp/90CUqsE6kL/outCy.txt
-               
+           if(ops.verbose) {
+             println("Starting computation for search strings:")
+             searchStrings.foreach(println)
+             ops.print()
+           }
+           //Asynch block
+           Future {             
                val cyOut=new simpleCyFileOut(dataFile)
-               val availableEndpoints= endpointSelector.listUpInUmaka(75)
+               val availableEndpoints= if(myArgs.contains("e")) List[String](myArgs.get("e").get)
+               else endpointSelector.listUpInUmaka(ops.yummyScore).toList
                availableEndpoints.foreach(println)
-                val forkJoinPool = new java.util.concurrent.ForkJoinPool(200)
-                val parExp=availableEndpoints.par
-                parExp.tasksupport=new ForkJoinTaskSupport(forkJoinPool)
-  
-                parExp.foreach(ep=>{
+               val forkJoinPool = new java.util.concurrent.ForkJoinPool(200)
+               val parExp=availableEndpoints.par
+               parExp.tasksupport=new ForkJoinTaskSupport(forkJoinPool)
+               parExp.foreach(ep=>{
                    counters.endPointOpened+=1;
                    searchStrings.par.foreach(
                    str=>{
-        
-              val aWorkflow=new analysisWorkflow(true,ep,str,6000,6000,cyOut)
-        
-    
-                    }
+                     val aWorkflow=new analysisWorkflow(true,ep,str,6000,6000,cyOut)
+                   }
                 )
               counters.endPointTerminated+=1
             })
@@ -84,64 +90,29 @@ object simpleServer extends App {
         case HttpRequest(GET, _, _, _, _) => {
           val file="resources/web"+hr.uri.path.toString()
           println(file)
-          //sys.props.foreach(println)
+         
           
           val fileContent= scala.io.Source.fromFile(file, "UTF8").mkString
           println(fileContent)
-          //val httpResp : HttpResponse = fileEntityResponse(file, "UTF8")
-          //httpResp
           
           HttpResponse(entity = HttpEntity.fromFile(ContentTypes.`text/html(UTF-8)`, new File(file), 4096))
-          //val contentNotSureWhy = Source.single(ByteString(fileContent))
-          //HttpResponse(entity = HttpEntity.Chunked.fromData(ContentTypes.`application/octet-stream`, contentNotSureWhy))
-          //println(fileContent)
-          //
-          //HttpResponse(404,entity=file)
+          
         }
          
        /*
         * https://stackoverflow.com/questions/49011621/how-to-send-a-file-as-a-response-using-akka-http
         * 
-        * 
-        * def handleCall(request:HttpRequest):HttpResponse = {
-  logger.info("Request is {}",request)
-  val uri:String = request.getUri().path()
-  if(uri == "/download"){
-    val f = new File("/1000.txt")
-    logger.info("file download")
-    return HttpEntity(
-    //What should i put here if i want to return a text file.
-    )
-}
-
-
-
-val str2 = scala.io.Source.fromFile("/tmp/t.log", "UTF8").mkString
-val str = Source.single(ByteString(str2))
-HttpResponse(entity = HttpEntity.Chunked.fromData(ContentTypes.`application/octet-stream`, str))
-
 
         */
-        case HttpRequest(GET, Uri.Path("/web"), _, _, _) =>{
-          
-          HttpResponse(entity = HttpEntity(
-            // Get the file
-          ContentTypes.`text/html(UTF-8)`,
-          "<html><body>Hi!</body></html>"))
-          }
-			
-         
-
-      //case HttpRequest(GET, Uri.Path("/crash"), _, _, _) =>
-          //Get the string
-       // sys.error("BOOM!")
+      
+    
         
       case r: HttpRequest =>
         r.discardEntityBytes() // important to drain incoming HTTP Entity stream
         HttpResponse(404, entity = "Unknown resource!")
     }
     }
-    val bindingFuture = Http().bindAndHandleSync(requestHandler, "localhost", 8090)
+    val bindingFuture = Http().bindAndHandleSync(requestHandler, "localhost", ops.port)
     println(s"Server online at http://localhost:8090/\nPress RETURN to stop...")
    
 
