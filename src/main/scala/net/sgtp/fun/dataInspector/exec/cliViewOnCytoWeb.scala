@@ -4,8 +4,8 @@ import net.sgtp.fun.dataInspector.io.OptionsParser
 import net.sgtp.fun.dataInspector.body.endpointSelector
 import net.sgtp.fun.dataInspector.body.endpointAnalyzer
 import net.sgtp.fun.dataInspector.body.counters
-import net.sgtp.fun.dataInspector.body.analysisWorkflow
-import net.sgtp.fun.dataInspector.io.simpleCyFileOut
+import net.sgtp.fun.dataInspector.body.NetworkSeeder
+import net.sgtp.fun.dataInspector.io.NodesMemory
 
 import scala.concurrent.{Await, Future}
 import scala.collection.parallel._
@@ -39,27 +39,16 @@ object cliViewOnCytoWeb extends App {
     println
   }
   
-  val searchTerms=args.slice(args.indexOf("-search")+1, args.size).map(x=>x.replaceAll("_", " "))
+  val searchTerms=args.slice(args.indexOf("-search")+1, args.size).map(x=>x.replaceAll("_", " ")).toList
   //Search in each endpoints for relevant leads
   if(ops.verbose) println("Searching each endpoint for: "+searchTerms.mkString(" "))
   
- 
-  val forkJoinPool = new java.util.concurrent.ForkJoinPool(200)
-  val parExp=endpoints.par
-  parExp.tasksupport=new ForkJoinTaskSupport(forkJoinPool)
+   val cyOut=new NodesMemory("resources/web/outCy.txt")
+   val seeder=new NetworkSeeder(endpoints,searchTerms,ops,cyOut)
+   seeder.exec()
   
-  parExp.foreach(ep=>{
-      counters.endPointOpened+=1;
-      searchTerms.par.foreach(
-      str=>{
-        
-        val aWorkflow=new analysisWorkflow(ops.verbose,ep,str,ops.queryTimeOut1,ops.queryTimeOut2, new  simpleCyFileOut("resources/web/outCy.txt"))
-        
-    
-  }
-  )
-  counters.endPointTerminated+=1
-  })
+  
+  
    
       
     

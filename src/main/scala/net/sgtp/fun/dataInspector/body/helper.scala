@@ -4,7 +4,7 @@ import org.apache.jena.query._;
 import org.apache.jena.rdf.model._
 
 object helper {
-  def getTriplesPerQuery(verbose:Boolean=false,endpoint:String,queryString:String,queryTimeout1:Int,queryTimeout2:Int):Model={endpoint
+  def getTriplesPerQuery(verbose:Boolean=false,endpoint:String,queryString:String,queryTimeout1:Int,queryTimeout2:Int,counters:counters):Model={
     counters.recordOpen()
     val m=ModelFactory.createDefaultModel()
     val query=QueryFactory.create(queryString)
@@ -25,7 +25,7 @@ object helper {
       m}}
   }
   
-  def slectSingleValueQuery(verbose:Boolean=false,endpoint:String,queryString:String,queryTimeout1:Int,queryTimeout2:Int):Int={
+  def slectSingleValueQuery(verbose:Boolean=false,endpoint:String,queryString:String,queryTimeout1:Int,queryTimeout2:Int,counters:counters):Int={
     counters.recordOpen()
     val query=QueryFactory.create(queryString)  
     val qexec = QueryExecutionFactory.sparqlService(endpoint, query)

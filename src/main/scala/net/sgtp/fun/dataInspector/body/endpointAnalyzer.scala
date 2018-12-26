@@ -5,7 +5,7 @@ import org.apache.jena.query._;
 import org.apache.jena.rdf.model._
 import org.apache.jena.rdf._
 
-class endpointAnalyzer(verbose:Boolean,endpoint:String,queryTimeout1:Int,queryTimeout2:Int) {
+class endpointAnalyzer(verbose:Boolean,endpoint:String,queryTimeout1:Int,queryTimeout2:Int,counters:counters) {
   def retrieveRoughResults(location:String,searchString:String)={
     val queryString=location match {
       case "value" => queries.searchForValueWithLiteral(searchString)
@@ -13,7 +13,7 @@ class endpointAnalyzer(verbose:Boolean,endpoint:String,queryTimeout1:Int,queryTi
       case "prop" =>queries.searchForPropertiesForLiteral(searchString)
     }  
      //println("Query: "+queryString)
-     val triples=helper.getTriplesPerQuery(verbose,endpoint,queryString,queryTimeout1,queryTimeout2)
+     val triples=helper.getTriplesPerQuery(verbose,endpoint,queryString,queryTimeout1,queryTimeout2,counters)
       val rRes=new roughTriplesResult(endpoint,searchString,location,triples)
       rRes
     
@@ -22,7 +22,7 @@ class endpointAnalyzer(verbose:Boolean,endpoint:String,queryTimeout1:Int,queryTi
   
   def countInstances(classURI:String):Int={
    val queryString=queries.countInstancesPerClass(classURI)
-   val count=helper.slectSingleValueQuery(verbose,endpoint,queryString,queryTimeout1,queryTimeout2)
+   val count=helper.slectSingleValueQuery(verbose,endpoint,queryString,queryTimeout1,queryTimeout2,counters)
    count
   }
   

@@ -12,6 +12,7 @@ object options{
   val defaultQueryTimeout2=6000   // ?
   val defaultPort=8090
   val defaultWebDir="resources/web/"
+  val parThreads=300
 }
 
 class options {
@@ -22,6 +23,7 @@ class options {
     var queryTimeOut2:Int=options.defaultQueryTimeout2
     var port:Int=options.defaultPort
     var webDir:String=options.defaultWebDir
+    var parThreads:Int=options.parThreads
     
     
     def print()={

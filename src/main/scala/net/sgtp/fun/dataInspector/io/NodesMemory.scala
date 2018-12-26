@@ -13,25 +13,28 @@ import collection.JavaConversions._
  * 
  * 
  */
-class simpleCyFileOut(whereToWrite:String) {
+class NodesMemory(whereToWrite:String) {
+  val counters=new counters()
   val nodes: ConcurrentHashMap[String,CommonMatureNode] = new ConcurrentHashMap  
   //println("Simple writer to: "+whereToWrite)
   dump()
-  def process(mn:CommonMatureNode)={
+  def process(mn:CommonMatureNode):Boolean={
     if(!nodes.containsKey(mn.uri)) {
       nodes.put(mn.uri,mn)
-      dump()
+      true
     }
     else {
       val oldN=nodes.get(mn.uri)
       if(!oldN.equals(mn)) {
          nodes.put(mn.uri,mn) 
-         dump()
+         true
       }
+      else false
     }
   }
   
   def dump() {
+    //TODO use the strihg from below and write to file
     (new File(whereToWrite)).delete()
     val writer = new PrintWriter(new File(whereToWrite))  
     writer.write("#\teo\t"+counters.endPointOpened+"\n")
@@ -45,6 +48,19 @@ class simpleCyFileOut(whereToWrite:String) {
       writer.write(text.mkString("\n")+"\n")
       })
     writer.close()
+    //println(dumpToString)
+  }
+  
+  def dumpToString():String ={
+    val resHeader="#\teo\t"+counters.endPointOpened+"\n"+
+                  "#\tec\t"+counters.endPointTerminated+"\n"+
+                  "#\tnq\t"+counters.queriesIssued+"\n"+
+                  "#\tnqr\t"+counters.queriesWithResults+"\n"+
+                  "#\tnqn\t"+counters.queriesNoResult+"\n"+
+                  "#\tnqf\t"+counters.queriesFailed+"\n"
+                  
+     val resBody=nodes.elements.map(el=>el.getCySer.mkString("\n")).mkString("\n")
+     resHeader+resBody
   }
   //resources/web/outCy.txt
   

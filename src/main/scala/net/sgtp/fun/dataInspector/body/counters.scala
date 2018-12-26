@@ -1,6 +1,6 @@
 package net.sgtp.fun.dataInspector.body
 
-object counters {
+class counters {
   var queriesIssued=0
   var queriesCompleted=0
   var queriesWithResults=0

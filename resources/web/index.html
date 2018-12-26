@@ -347,12 +347,14 @@ function processInstance(ep,elements) {
 
 
 parseGraph = function (){
-	//alert()
+	//alert('results?seed='+resultUrl+'&x=' + new Date().getTime())
 	cy.startBatch();
   	$.ajaxSetup({ cache: false });	
   	$.ajax({
     	//url:'demodata.txt?' + new Date().getTime(),
-    	url:resultUrl+'?' + new Date().getTime(),
+    	//url:resultUrl+'?' + new Date().getTime(),
+    	
+    	url:'results?seed='+resultUrl+'&x=' + new Date().getTime(),
     	success: function (data){
       		var commands=data.split('\n'); 
       		var cl;

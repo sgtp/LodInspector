@@ -15,10 +15,10 @@ import akka.stream.scaladsl.Source
 import akka.http.scaladsl.model.HttpEntity.{Chunked, ChunkStreamPart}
 import java.io.File
 import scala.concurrent.Future
-import net.sgtp.fun.dataInspector.io.simpleCyFileOut
+import net.sgtp.fun.dataInspector.io.NodesMemory
 import net.sgtp.fun.dataInspector.body.endpointSelector
+import net.sgtp.fun.dataInspector.body.NetworkSeeder
 import net.sgtp.fun.dataInspector.body.counters
-import net.sgtp.fun.dataInspector.body.analysisWorkflow
 import scala.collection.parallel._
 import net.sgtp.fun.dataInspector.io.OptionsParser
 import net.sgtp.fun.dataInspector.body.Manifest
@@ -39,7 +39,7 @@ object simpleServer extends App {
   
   override def main(args: Array[String]) {
     println("Starting "+Manifest.projectName+" v."+Manifest.version+" (web server interface)")
-    
+    val sessionMaps=collection.mutable.Map[String, NodesMemory]()
     //TODO however this works...
     implicit val system = ActorSystem()
     implicit val materializer = ActorMaterializer()
@@ -55,11 +55,13 @@ object simpleServer extends App {
            val query=hr.uri.query(java.nio.charset.Charset.defaultCharset(), Uri.ParsingMode.Strict)
            val myArgs=query.toMap
            OptionsParser.parseArgsMapAndAdd(myArgs, ops)
-           val searchStrings=URLDecoder.decode(myArgs.get("search").get).split(" ").map(x=>x.replaceAll("_", " "))
+           val searchStrings=URLDecoder.decode(myArgs.get("search").get).split(" ").map(x=>x.replaceAll("_", " ")).toList
            val randomDir=Random.alphanumeric.take(10).mkString("")
            val dataFile=ops.webDir+"temp/"+randomDir+"/outCy.txt"
            new java.io.File(ops.webDir+"temp/"+randomDir).mkdirs
            val dataUrl="/temp/"+randomDir+"/outCy.txt"
+           val cyOut=new NodesMemory(dataFile)
+           sessionMaps.put(randomDir, cyOut)
            if(ops.verbose) {
              println("Starting computation for search strings:")
              searchStrings.foreach(println)
@@ -67,26 +69,26 @@ object simpleServer extends App {
            }
            //Asynch block
            Future {             
-               val cyOut=new simpleCyFileOut(dataFile)
+               
                val availableEndpoints= if(myArgs.contains("e")) List[String](myArgs.get("e").get)
                else endpointSelector.listUpInUmaka(ops.yummyScore).toList
                availableEndpoints.foreach(println)
-               val forkJoinPool = new java.util.concurrent.ForkJoinPool(200)
-               val parExp=availableEndpoints.par
-               parExp.tasksupport=new ForkJoinTaskSupport(forkJoinPool)
-               parExp.foreach(ep=>{
-                   counters.endPointOpened+=1;
-                   searchStrings.par.foreach(
-                   str=>{
-                     val aWorkflow=new analysisWorkflow(true,ep,str,6000,6000,cyOut)
-                   }
-                )
-              counters.endPointTerminated+=1
-            })
-           }
+               val seeder=new NetworkSeeder(availableEndpoints,searchStrings,ops,cyOut)
+               seeder.exec()
+               
+            }
+           
            println("writing to: "+dataFile)
-           HttpResponse(entity = dataUrl)
+           //HttpResponse(entity = dataUrl)
+           HttpResponse(entity = randomDir)
           }
+         case HttpRequest(GET, Uri.Path("/results"), _, _, _) =>  {
+           val query=hr.uri.query(java.nio.charset.Charset.defaultCharset(), Uri.ParsingMode.Strict)
+           val myArgs=query.toMap
+           val seed=query.get("seed").get
+           HttpResponse(entity = sessionMaps.get(seed).get.dumpToString())
+    
+      } 
         case HttpRequest(GET, _, _, _, _) => {
           val file="resources/web"+hr.uri.path.toString()
           println(file)
@@ -104,9 +106,7 @@ object simpleServer extends App {
         * 
 
         */
-      
-    
-        
+
       case r: HttpRequest =>
         r.discardEntityBytes() // important to drain incoming HTTP Entity stream
         HttpResponse(404, entity = "Unknown resource!")
