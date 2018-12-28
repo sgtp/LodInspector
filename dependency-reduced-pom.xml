@@ -5,7 +5,7 @@
   <artifactId>LODInspector</artifactId>
   <version>0.0.3-SNAPSHOT</version>
   <build>
-    <sourceDirectory>src</sourceDirectory>
+    <sourceDirectory>src/main/scala</sourceDirectory>
     <resources>
       <resource>
         <directory>src</directory>
@@ -15,6 +15,18 @@
       </resource>
     </resources>
     <plugins>
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>3.2.2</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.3</version>
@@ -38,6 +50,28 @@
           <transformers>
             <transformer />
           </transformers>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass>net.sgtp.fun.dataInspector.exec.simpleHttpServer</mainClass>
+            </manifest>
+          </archive>
         </configuration>
       </plugin>
     </plugins>

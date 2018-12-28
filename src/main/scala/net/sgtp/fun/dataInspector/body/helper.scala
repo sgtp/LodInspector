@@ -25,7 +25,7 @@ object helper {
       m}}
   }
   
-  def slectSingleValueQuery(verbose:Boolean=false,endpoint:String,queryString:String,queryTimeout1:Int,queryTimeout2:Int,counters:counters):Int={
+  def selectSingleValueQuery(verbose:Boolean=false,endpoint:String,queryString:String,queryTimeout1:Int,queryTimeout2:Int,counters:counters):Int={
     counters.recordOpen()
     val query=QueryFactory.create(queryString)  
     val qexec = QueryExecutionFactory.sparqlService(endpoint, query)
@@ -48,6 +48,33 @@ object helper {
           println(e.getMessage)
       }
       0
+      }
+    }
+   }
+  
+   def selectSingleLiteral(verbose:Boolean=false,endpoint:String,queryString:String,queryTimeout1:Int,queryTimeout2:Int,counters:counters):String={
+    counters.recordOpen()
+    val query=QueryFactory.create(queryString)  
+    val qexec = QueryExecutionFactory.sparqlService(endpoint, query)
+    try {
+      val resSet=qexec.execSelect()
+      if(resSet.hasNext()) {
+        counters.recordSuccessWithResults()
+        resSet.next().getLiteral("res").getString
+      }
+      else {
+        counters.recordSucessNoResult() 
+        ""
+      }
+    }
+    catch {
+      case e=>{
+       if(verbose) {
+          println(endpoint+"\t: is not viable for "+queryString)
+          counters.recordFailue()
+          println(e.getMessage)
+      }
+      ""
       }
     }
    }

@@ -12,13 +12,13 @@ class InstMatureModel(
   val instanceName:String,
   val instanceNameProp:String,
   val classIds:List[String],
-  val isFocus:Boolean=false
-) extends AbstractNode(dist,compl,canBeDeleted,instanceId,ep,instanceName,instanceNameProp) {
+) extends AbstractNode(dist,compl,canBeDeleted,ep,instanceId) {
 
+  //TODO name as Future?
   def getCySer:List[String]={
-    val res=classIds.map(classId=>endpoint+"\tinst\t"+uri+"\t"+classId+"\t"+nodeName)
+    val res=classIds.map(classId=>endpoint+"\tinst\t"+uri+"\t"+classId+"\t"+instanceName)
     val res2=endpoint+"\tset\t"+uri+"\tfocus\t"+1
-    if(isFocus) res ++ List(res2)
+    if(distance==0) res ++ List(res2)
     else res
   }
   def getProfiled(ea:endpointAnalyzer)={this} //TODO
