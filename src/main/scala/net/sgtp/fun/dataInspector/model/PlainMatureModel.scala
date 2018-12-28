@@ -4,13 +4,16 @@ import net.sgtp.fun.dataInspector.body.endpointAnalyzer
 
 
 class PlainMatureModel(
+   distance:Int,
+   completed:Boolean,
+   canBeDeleted:Boolean,
    nodeId:String,
    ep:String,
    name:String,
    nameProp:String,
    isFocus:Boolean
 
-) extends CommonMatureNode(nodeId,ep,name,nameProp) {
+) extends AbstractNode(distance, completed,canBeDeleted,nodeId,ep,name,nameProp) {
    
   def getCySer:List[String]={
     val res=endpoint+"\tplain\t"+uri+"\t"+nodeName
@@ -19,6 +22,7 @@ class PlainMatureModel(
     else List(res)
   } 
   
-  def getProfiled(ea:endpointAnalyzer):CommonMatureNode={this}
+  def getProfiled(ea:endpointAnalyzer):AbstractNode={this}
 }
 
+////

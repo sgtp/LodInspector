@@ -2,6 +2,9 @@ package net.sgtp.fun.dataInspector.model
 
 import org.apache.jena.rdf.model._
 import collection.JavaConversions._
+import net.sgtp.fun.dataInspector.io.NodesMemory
+import net.sgtp.fun.dataInspector.body.endpointAnalyzer
+
 
 object NodeFactory {
   def typeProp=ResourceFactory.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
@@ -9,7 +12,7 @@ object NodeFactory {
   def rdfClassRes=ResourceFactory.createResource("http://www.w3.org/2000/01/rdf-schema#Class")
   def statRes=ResourceFactory.createResource("http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement")
   
-  def extractFromRoughResults(rRes:roughTriplesResult):List[CommonMatureNode]={
+  def extractFromRoughResults(ea:endpointAnalyzer,rRes:roughTriplesResult,cyOut:NodesMemory):List[AbstractNode]={
     //Common preps
     val endpoint=rRes.endpoint
     val locationFound=rRes.locationFound
@@ -30,22 +33,23 @@ object NodeFactory {
       val nodeNameProp=""
       val res=resourceNodesWithType.flatMap(in=>{
         in._1 match {
-          case "class" =>List(new ClassMatureModel(endpoint,in._2.getURI,nodeName,nodeNameProp,"","",true))
+          case "class" =>List(ClassMatureModel.create(ea,0,false,endpoint,in._2.getURI,nodeName,nodeNameProp))
           case "inst" =>{
             val classes=triples.listObjectsOfProperty(in._2, typeProp).filter(x=>x.isURIResource()).map(y=>y.asResource()).toList
             val classesURIs=classes.map(x=>x.getURI)
-            val head=List(new InstMatureModel(endpoint,in._2.getURI,nodeName,nodeNameProp,classesURIs,true))
-            val tail=classes.map(cl=>{new ClassMatureModel(endpoint,cl.getURI,"","","","",false)})
+            val head=List(new InstMatureModel(0,false,false,endpoint,in._2.getURI,nodeName,nodeNameProp,classesURIs,true))
+            val tail=classes.map(cl=>{ClassMatureModel.create(ea,1,false,endpoint,cl.getURI,"","")})
             head++tail
           }
-          case "plain" =>List(new PlainMatureModel(endpoint,in._2.getURI,nodeName,nodeNameProp,true))
+          case "plain" =>List(new PlainMatureModel(0,false,false,endpoint,in._2.getURI,nodeName,nodeNameProp,true))
         }
       })
       res
     }
     else {
-      List[CommonMatureNode]()
+      List[AbstractNode]()
     }
+    
     //Can be an instance -> NodeId, NodeName, ClassId (fill with ClassName) -> Out class
     
     //Can be plain -> NodeId, NodeName

@@ -4,13 +4,16 @@ import java.net.URL
 import net.sgtp.fun.dataInspector.body.endpointAnalyzer
 
 class InstMatureModel(
+  val dist:Int,
+  val compl:Boolean,
+  canBeDeleted:Boolean,
   val ep:String,
   val instanceId:String,
   val instanceName:String,
   val instanceNameProp:String,
   val classIds:List[String],
   val isFocus:Boolean=false
-) extends CommonMatureNode(instanceId,ep,instanceName,instanceNameProp) {
+) extends AbstractNode(dist,compl,canBeDeleted,instanceId,ep,instanceName,instanceNameProp) {
 
   def getCySer:List[String]={
     val res=classIds.map(classId=>endpoint+"\tinst\t"+uri+"\t"+classId+"\t"+nodeName)

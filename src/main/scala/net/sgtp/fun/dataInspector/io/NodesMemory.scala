@@ -15,10 +15,10 @@ import collection.JavaConversions._
  */
 class NodesMemory(whereToWrite:String) {
   val counters=new counters()
-  val nodes: ConcurrentHashMap[String,CommonMatureNode] = new ConcurrentHashMap  
+  val nodes: ConcurrentHashMap[String,AbstractNode] = new ConcurrentHashMap  
   //println("Simple writer to: "+whereToWrite)
   dump()
-  def process(mn:CommonMatureNode):Boolean={
+  def process(mn:AbstractNode):Boolean={
     if(!nodes.containsKey(mn.uri)) {
       nodes.put(mn.uri,mn)
       true
