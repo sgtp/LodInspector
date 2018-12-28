@@ -1,0 +1,902 @@
+@prefix oma:   <http://omabrowser.org/ontology/oma#> .
+@prefix ns1:   <https://omabrowser.org/oma/info/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix obo:   <http://purl.obolibrary.org/obo/> .
+@prefix orth:  <http://purl.org/net/orth#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix lscr:  <http://purl.org/lscr#> .
+@prefix sio:   <http://semanticscience.org/resource/> .
+@prefix ns9:   <https://www.ncbi.nlm.nih.gov/protein/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ns12:  <http://rdf.ebi.ac.uk/resource/ensembl.transcript/> .
+@prefix ns10:  <http://purl.uniprot.org/uniprot/> .
+@prefix ns11:  <http://rdf.ebi.ac.uk/resource/ensembl.protein/> .
+
+ns1:PAPAN14350  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:HGNC:6005]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=PAPAN14350> ;
+        obo:RO_0001018              oma:PapioanubisfromENSEMBLv77 ;
+        dct:identifier              "ENSPANT00000020668" , "Interleukin" , "ENSPANP00000005986" , "PAPAN14350" , "ENSPANG00000008600" ;
+        lscr:xrefEnsemblProtein     ns11:ENSPANP00000005986 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSPANT00000020668 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_003899202 ;
+        lscr:xrefUniprot            ns10:A0A096N144 ;
+        orth:organism               oma:ORGANISM_9555 ;
+        sio:SIO_010079              oma:GENE_ENSPANG00000008600 .
+
+ns1:ANAPL01855  a                   orth:Protein ;
+        rdfs:comment                "Interleukin-21 [Source:UniProtKB/TrEMBL;Acc:R0K2N2]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=ANAPL01855> ;
+        obo:RO_0001018              oma:AnasplatyrhynchosfromENSEMBLv73 ;
+        dct:identifier              "ENSAPLP00000006533" , "ENSAPLG00000006911" , "ENSAPLT00000007179" , "ANAPL01855" , "Interleukin" , "EOB04296.1" ;
+        lscr:xrefEnsemblProtein     ns11:ENSAPLP00000006533 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSAPLT00000007179 ;
+        lscr:xrefNCBIProtein        ns9:EOB04296.1 ;
+        lscr:xrefUniprot            ns10:U3IH11 ;
+        orth:organism               oma:ORGANISM_8839 ;
+        sio:SIO_010079              oma:GENE_ENSAPLG00000006911 .
+
+ns1:CHICK10168  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15  [Source:RefSeq peptide;Acc:NP_989902]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=CHICK10168> ;
+        obo:RO_0001018              oma:GallusgallusfromENSEMBLv75 ;
+        dct:identifier              "CHICK10168" , "Interleukin" , "ENSGALP00000037845" , "ENSGALG00000009870" , "ENSGALT00000038637" ;
+        lscr:xrefEnsemblProtein     ns11:ENSGALP00000037845 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSGALT00000038637 ;
+        lscr:xrefUniprot            ns10:F1NZN5 ;
+        orth:organism               oma:ORGANISM_9031 ;
+        sio:SIO_010079              oma:GENE_ENSGALG00000009870 .
+
+ns1:PIGXX17620  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:HGNC:5977]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=PIGXX17620> ;
+        obo:RO_0001018              oma:SusscrofafromENSEMBLv86 ;
+        dct:identifier              "Interleukin" , "ENSSSCT00000009912.2" , "ENSSSCP00000009657.2" , "ENSSSCG00000009051.3" , "PIGXX17620" ;
+        lscr:xrefEnsemblProtein     ns11:ENSSSCP00000009657 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSSSCT00000009912 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_005666908 , ns9:XP_013834324 , ns9:XP_013834323 , ns9:XP_005666910 , ns9:XP_020956139 , ns9:XP_013834326 , ns9:XP_013834325 , ns9:XP_005666909 ;
+        lscr:xrefUniprot            ns10:K7GNZ5 ;
+        orth:organism               oma:ORGANISM_9823 ;
+        sio:SIO_010079              oma:GENE_ENSSSCG00000009051 .
+
+ns1:TAKRU14116  rdfs:comment        "interleukin-2 precursor  [Source:RefSeq peptide;Acc:NP_001033083]" ;
+        rdfs:label                  "IL-2" ;
+        dct:identifier              "ENSTRUT00000021990" , "Interleukin" , "ENSTRUP00000021900" , "ENSTRUG00000008720" ;
+        lscr:xrefEnsemblProtein     ns11:ENSTRUP00000021900 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSTRUT00000021990 ;
+        lscr:xrefUniprot            ns10:H2TB60 ;
+        sio:SIO_010079              oma:GENE_ENSTRUG00000008720 .
+
+ns1:NOMLE03236  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:HGNC:5977]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=NOMLE03236> ;
+        obo:RO_0001018              oma:NomascusleucogenysfromENSEMBLv80 ;
+        dct:identifier              "ENSNLEG00000005257" , "Interleukin" , "NOMLE03236" , "ENSNLEP00000006380" , "ENSNLET00000006706" ;
+        lscr:xrefEnsemblProtein     ns11:ENSNLEP00000006380 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSNLET00000006706 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_003257798 , ns9:XP_003257797 , ns9:XP_012363436 ;
+        lscr:xrefUniprot            ns10:G1QZK9 ;
+        orth:organism               oma:ORGANISM_61853 ;
+        sio:SIO_010079              oma:GENE_ENSNLEG00000005257 .
+
+ns1:FICAL03136  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:5977]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=FICAL03136> ;
+        obo:RO_0001018              oma:FicedulaalbicollisfromENSEMBLv73 ;
+        dct:identifier              "ENSFALT00000005180" , "ENSFALG00000004958" , "Interleukin" , "ENSFALP00000005155" , "FICAL03136" ;
+        lscr:xrefEnsemblProtein     ns11:ENSFALP00000005155 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSFALT00000005180 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_005044745 , ns9:XP_005044747 , ns9:XP_005044748 , ns9:XP_016153323 , ns9:XP_005044746 ;
+        lscr:xrefUniprot            ns10:U3JQV1 ;
+        orth:organism               oma:ORGANISM_59894 ;
+        sio:SIO_010079              oma:GENE_ENSFALG00000004958 .
+
+ns1:PELSI08399  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:5977]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=PELSI08399> ;
+        obo:RO_0001018              oma:PelodiscussinensisfromENSEMBLv68 ;
+        dct:identifier              "ENSPSIP00000019416" , "ENSPSIG00000017230" , "Interleukin" , "ENSPSIT00000019507" , "PELSI08399" ;
+        lscr:xrefEnsemblProtein     ns11:ENSPSIP00000019416 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSPSIT00000019507 ;
+        lscr:xrefUniprot            ns10:K7GGK5 ;
+        orth:organism               oma:ORGANISM_13735 ;
+        sio:SIO_010079              oma:GENE_ENSPSIG00000017230 .
+
+ns1:CHICK10439  a                   orth:Protein ;
+        rdfs:comment                "Gallus gallus interleukin 2 (IL2), mRNA.  [Source:RefSeq mRNA;Acc:NM_204153]" ;
+        rdfs:label                  "INTERLEUKIN-2" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=CHICK10439> ;
+        obo:RO_0001018              oma:GallusgallusfromENSEMBLv75 ;
+        dct:identifier              "IL2" , "AAQ72783.1" , "AAK37775.1" , "CAA12025.1" , "Q6UG48" , "ENSGALP00000019308" , "ENSGALG00000011849" , "Interleukin" , "ENSGALT00000019334" , "CHICK10439" , "AAV35055.1" , "ACN29619.1" , "ADU60332.1" , "AAM70082.1" , "AAC96064.1" , "O73883" ;
+        lscr:xrefEnsemblProtein     ns11:ENSGALP00000019308 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSGALT00000019334 ;
+        lscr:xrefNCBIProtein        ns9:AAQ72783.1 , ns9:AAK37775.1 , ns9:ADU60332.1 , ns9:AAC96064.1 , ns9:AAV35055.1 , ns9:ACN29619.1 , ns9:AAM70082.1 , ns9:CAA12025.1 ;
+        lscr:xrefUniprot            ns10:O73883 , ns10:Q6UG48 ;
+        orth:organism               oma:ORGANISM_9031 ;
+        sio:SIO_010079              oma:GENE_ENSGALG00000011849 .
+
+ns1:SHEEP07210  a                   orth:Protein ;
+        rdfs:comment                "Ovis aries interleukin 21 (IL21), mRNA.  [Source:RefSeq mRNA;Acc:NM_001256817]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=SHEEP07210> ;
+        obo:RO_0001018              oma:OvisariesfromENSEMBLv74 ;
+        dct:identifier              "ENSOARG00000017881" , "ENSOART00000019456" , "ENSOARP00000019188" , "SHEEP07210" , "CCF72065.1" , "Interleukin" ;
+        lscr:xrefEnsemblProtein     ns11:ENSOARP00000019188 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSOART00000019456 ;
+        lscr:xrefNCBIProtein        ns9:CCF72065.1 ;
+        lscr:xrefNCBIRefSeq         ns9:NP_001243746 ;
+        lscr:xrefUniprot            ns10:H6SGV5 ;
+        orth:organism               oma:ORGANISM_9940 ;
+        sio:SIO_010079              oma:GENE_ENSOARG00000017881 .
+
+ns1:GORGO15186  a                   orth:Protein ;
+        rdfs:comment                "Interleukin  [Source:UniProtKB/TrEMBL;Acc:G3QY93]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=GORGO15186> ;
+        obo:RO_0001018              oma:GorillagorillafromENSEMBLv75 ;
+        dct:identifier              "GORGO15186" , "ENSGGOG00000008002" , "ENSGGOT00000008035" , "ENSGGOP00000007823" , "Interleukin" , "G3QY93" ;
+        lscr:xrefEnsemblProtein     ns11:ENSGGOP00000007823 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSGGOT00000008035 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_004040403 ;
+        lscr:xrefUniprot            ns10:G3QY93 ;
+        orth:organism               oma:ORGANISM_9595 ;
+        sio:SIO_010079              oma:GENE_ENSGGOG00000008002 .
+
+ns1:CANLF06227  a                   orth:Protein ;
+        rdfs:comment                "interleukin-15  [Source:RefSeq peptide;Acc:NP_001184117]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=CANLF06227> ;
+        obo:RO_0001018              oma:CanisfamiliarisfromENSEMBLv70 ;
+        dct:identifier              "ENSCAFT00000005832" , "CANLF06227" , "ENSCAFG00000003626" , "ENSCAFP00000005401" , "Interleukin" ;
+        lscr:xrefEnsemblProtein     ns11:ENSCAFP00000005401 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSCAFT00000005832 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_849146 , ns9:NP_001184117 , ns9:XP_022261569 ;
+        lscr:xrefUniprot            ns10:F1PI19 ;
+        orth:organism               oma:ORGANISM_9615 ;
+        sio:SIO_010079              oma:GENE_ENSCAFG00000003626 .
+
+ns1:MONDO09283  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:HGNC:6005]" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=MONDO09283> ;
+        obo:RO_0001018              oma:MonodelphisdomesticafromENSEMBLv80 ;
+        dct:identifier              "ENSMODP00000023584" , "MONDO09283" , "ENSMODT00000024003" , "Interleukin" , "ENSMODG00000018903" ;
+        lscr:xrefEnsemblProtein     ns11:ENSMODP00000023584 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSMODT00000024003 ;
+        lscr:xrefUniprot            ns10:F7C7H2 ;
+        orth:organism               oma:ORGANISM_13616 ;
+        sio:SIO_010079              oma:GENE_ENSMODG00000018903 .
+
+ns1:ICTTR11347  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:6005]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=ICTTR11347> ;
+        obo:RO_0001018              oma:SpermophilustridecemlineatusfromENSEMBLv67 ;
+        dct:identifier              "ENSSTOG00000012108" , "ENSSTOT00000012115" , "ENSSTOP00000010864" , "ICTTR11347" , "Interleukin" ;
+        lscr:xrefEnsemblProtein     ns11:ENSSTOP00000010864 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSSTOT00000012115 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_005336589 ;
+        lscr:xrefUniprot            ns10:I3MIK7 ;
+        orth:organism               oma:ORGANISM_43179 ;
+        sio:SIO_010079              oma:GENE_ENSSTOG00000012108 .
+
+ns1:ANAPL01854  a                   orth:Protein ;
+        rdfs:comment                "Interleukin  [Source:UniProtKB/TrEMBL;Acc:Q8JFF4]" ;
+        rdfs:label                  "IL-2" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=ANAPL01854> ;
+        obo:RO_0001018              oma:AnasplatyrhynchosfromENSEMBLv73 ;
+        dct:identifier              "ENSAPLP00000006460" , "EOB04307.1" , "AAV70981.1" , "ENSAPLT00000007106" , "AAO46162.1" , "ANAPL01854" , "AAW47260.1" , "Interleukin" , "AAM73552.1" , "ENSAPLG00000006840" , "AAO20087.1" , "AFR11495.1" , "Q8JFF4" , "ADU60336.1" , "AAM73551.1" ;
+        lscr:xrefEnsemblProtein     ns11:ENSAPLP00000006460 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSAPLT00000007106 ;
+        lscr:xrefNCBIProtein        ns9:AAO46162.1 , ns9:AAW47260.1 , ns9:AAM73552.1 , ns9:EOB04307.1 , ns9:AAV70981.1 , ns9:AAM73551.1 , ns9:AFR11495.1 , ns9:AAO20087.1 , ns9:ADU60336.1 ;
+        lscr:xrefNCBIRefSeq         ns9:NP_001297302 ;
+        lscr:xrefUniprot            ns10:Q8JFF4 ;
+        orth:organism               oma:ORGANISM_8839 ;
+        sio:SIO_010079              oma:GENE_ENSAPLG00000006840 .
+
+ns1:HORSE09192  a                   orth:Protein ;
+        rdfs:comment                "interleukin-15  [Source:RefSeq peptide;Acc:NP_001157458]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=HORSE09192> ;
+        obo:RO_0001018              oma:EquuscaballusfromENSEMBLv70 ;
+        dct:identifier              "ENSECAP00000012047" , "ENSECAT00000015025" , "Interleukin" , "ENSECAG00000014406" , "HORSE09192" ;
+        lscr:xrefEnsemblProtein     ns11:ENSECAP00000012047 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSECAT00000015025 ;
+        lscr:xrefNCBIRefSeq         ns9:NP_001157458 , ns9:XP_001915738 ;
+        lscr:xrefUniprot            ns10:F7CP74 ;
+        orth:organism               oma:ORGANISM_9796 ;
+        sio:SIO_010079              oma:GENE_ENSECAG00000014406 .
+
+ns1:RABIT05450  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:HGNC:6005]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=RABIT05450> ;
+        obo:RO_0001018              oma:OryctolaguscuniculusfromENSEMBLv84 ;
+        dct:identifier              "ENSOCUP00000013142.2" , "RABIT05450" , "ENSOCUG00000015304.2" , "Interleukin" , "ENSOCUT00000015297.2" ;
+        lscr:xrefEnsemblProtein     ns11:ENSOCUP00000013142 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSOCUT00000015297 ;
+        lscr:xrefUniprot            ns10:G1T948 ;
+        orth:organism               oma:ORGANISM_9986 ;
+        sio:SIO_010079              oma:GENE_ENSOCUG00000015304 .
+
+ns1:TAEGU09143  a                   orth:Protein ;
+        rdfs:comment                "Interleukin  [Source:UniProtKB/TrEMBL;Acc:H0YUU2]" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=TAEGU09143> ;
+        obo:RO_0001018              oma:TaeniopygiaguttatafromENSEMBLv70 ;
+        dct:identifier              "TAEGU09143" , "ENSTGUG00000001994" , "ENSTGUT00000002081" , "ENSTGUP00000002062" , "Interleukin" ;
+        lscr:xrefEnsemblProtein     ns11:ENSTGUP00000002062 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSTGUT00000002081 ;
+        lscr:xrefUniprot            ns10:H0YUU2 ;
+        orth:organism               oma:ORGANISM_59729 ;
+        sio:SIO_010079              oma:GENE_ENSTGUG00000001994 .
+
+ns1:PANTR34433  a                   orth:Protein ;
+        rdfs:comment                "transcript_id=ENSPTRT00000030528.3" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=PANTR34433> ;
+        obo:RO_0001018              oma:PantroglodytesfromEnsemblMain91 ;
+        dct:identifier              "Interleukin" , "ENSPTRT00000030528" , "ENSPTRG00000016419.3" , "H2QQ45" , "CK820_G0025875" , "ENSPTRP00000028194.2" , "PANTR34433" ;
+        lscr:xrefEnsemblProtein     ns11:ENSPTRP00000028194 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSPTRT00000030528 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_526677 ;
+        lscr:xrefUniprot            ns10:H2QQ45 ;
+        orth:organism               oma:ORGANISM_9598 ;
+        sio:SIO_010079              oma:GENE_ENSPTRG00000016419 .
+
+ns1:FELCA04416  a                   orth:Protein ;
+        rdfs:comment                "interleukin-15 precursor  [Source:RefSeq peptide;Acc:NP_001009207]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=FELCA04416> ;
+        obo:RO_0001018              oma:FeliscatusfromENSEMBLv70 ;
+        dct:identifier              "FELCA04416" , "ENSFCAT00000030819" , "Interleukin" , "ENSFCAG00000030158" , "ENSFCAP00000016509" ;
+        lscr:xrefEnsemblProtein     ns11:ENSFCAP00000016509 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSFCAT00000030819 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_006930893 , ns9:XP_006930892 ;
+        lscr:xrefUniprot            ns10:M3WQ79 ;
+        orth:organism               oma:ORGANISM_9685 ;
+        sio:SIO_010079              oma:GENE_ENSFCAG00000030158 .
+
+ns1:MUSPF06520  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:MGI Symbol;Acc:MGI:103014]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=MUSPF06520> ;
+        obo:RO_0001018              oma:MustelaputoriusfurofromENSEMBLv69 ;
+        dct:identifier              "ENSMPUG00000016096" , "ENSMPUP00000015989" , "MUSPF06520" , "Interleukin" , "ENSMPUT00000016233" ;
+        lscr:xrefEnsemblProtein     ns11:ENSMPUP00000015989 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSMPUT00000016233 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_004768507 , ns9:XP_004768503 , ns9:XP_004768504 , ns9:XP_012919973 , ns9:XP_012919975 , ns9:XP_012919974 , ns9:XP_004768510 ;
+        lscr:xrefUniprot            ns10:M3YXC9 ;
+        orth:organism               oma:ORGANISM_9669 ;
+        sio:SIO_010079              oma:GENE_ENSMPUG00000016096 .
+
+ns1:MELGA09676  a                   orth:Protein ;
+        rdfs:comment                "Interleukin  [Source:UniProtKB/TrEMBL;Acc:G1MW49]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=MELGA09676> ;
+        obo:RO_0001018              oma:MeleagrisgallopavofromENSEMBLv70 ;
+        dct:identifier              "MELGA09676" , "Interleukin" , "ENSMGAP00000002943" , "ENSMGAT00000003633" , "ENSMGAG00000003247" ;
+        lscr:xrefEnsemblProtein     ns11:ENSMGAP00000002943 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSMGAT00000003633 ;
+        lscr:xrefUniprot            ns10:G1MW49 ;
+        orth:organism               oma:ORGANISM_9103 ;
+        sio:SIO_010079              oma:GENE_ENSMGAG00000003247 .
+
+ns1:CHICK10438  a                   orth:Protein ;
+        rdfs:comment                "Gallus gallus interleukin 21 (IL21), mRNA.  [Source:RefSeq mRNA;Acc:NM_001024835]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=CHICK10438> ;
+        obo:RO_0001018              oma:GallusgallusfromENSEMBLv75 ;
+        dct:identifier              "CAO79601.1" , "ENSGALP00000019301" , "Q58IU6" , "ENSGALT00000019327" , "CHICK10438" , "Interleukin" , "AAX40651.1" , "ENSGALG00000011844" ;
+        lscr:xrefEnsemblProtein     ns11:ENSGALP00000019301 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSGALT00000019327 ;
+        lscr:xrefNCBIProtein        ns9:CAO79601.1 , ns9:AAX40651.1 ;
+        lscr:xrefNCBIRefSeq         ns9:NP_001020006 ;
+        lscr:xrefUniprot            ns10:Q58IU6 ;
+        orth:organism               oma:ORGANISM_9031 ;
+        sio:SIO_010079              oma:GENE_ENSGALG00000011844 .
+
+ns1:ORENI21022  a                   orth:Protein ;
+        rdfs:label                  "LOC102081732" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=ORENI21022> ;
+        obo:RO_0001018              oma:OreochromisniloticusfromENSEMBLv67 ;
+        dct:identifier              "Interleukin" , "ENSONIP00000021962" , "ORENI21022" , "ENSONIT00000021981" , "ENSONIG00000017414" ;
+        lscr:xrefEnsemblProtein     ns11:ENSONIP00000021962 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSONIT00000021981 ;
+        lscr:xrefUniprot            ns10:I3KLG7 ;
+        orth:organism               oma:ORGANISM_8128 ;
+        sio:SIO_010079              oma:GENE_ENSONIG00000017414 .
+
+ns1:MYOLU00481  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:HGNC:5977]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=MYOLU00481> ;
+        obo:RO_0001018              oma:MyotislucifugusfromENSEMBLv80 ;
+        dct:identifier              "ENSMLUP00000006950" , "ENSMLUG00000007618" , "Interleukin" , "MYOLU00481" , "ENSMLUT00000007614" ;
+        lscr:xrefEnsemblProtein     ns11:ENSMLUP00000006950 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSMLUT00000007614 ;
+        lscr:xrefUniprot            ns10:G1P9N5 ;
+        orth:organism               oma:ORGANISM_59463 ;
+        sio:SIO_010079              oma:GENE_ENSMLUG00000007618 .
+
+ns1:HUMAN22844  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:HGNC:6005]" ;
+        rdfs:label                  "IL-21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=HUMAN22844> ;
+        oma:swissProtId             "Q9HBE4" ;
+        obo:RO_0001018              oma:HomosapiensfromENSEMBLv86 ;
+        dct:identifier              "Interleukin" , "hCG_38188" , "ENST00000264497.7" , "ENSP00000264497.3" , "ENSG00000138684.7" , "HUMAN22844" , "IL21" ;
+        lscr:xrefEnsemblProtein     ns11:ENSP00000264497 ;
+        lscr:xrefEnsemblTranscript  ns12:ENST00000264497 ;
+        lscr:xrefNCBIRefSeq         ns9:NP_068575 ;
+        lscr:xrefUniprot            ns10:A0A224B028 ;
+        orth:organism               oma:ORGANISM_9606 ;
+        sio:SIO_010079              oma:GENE_ENSG00000138684 .
+
+ns1:XENTR15304  rdfs:comment        "interleukin-21 precursor  [Source:RefSeq peptide;Acc:NP_001120531]" ;
+        rdfs:label                  "IL-21" ;
+        dct:identifier              "ENSXETP00000063620" , "ENSXETT00000066056" , "il21" , "Interleukin" , "ABS50434.1" , "ENSXETG00000033769" , "B2BLM0" ;
+        lscr:xrefEnsemblProtein     ns11:ENSXETP00000063620 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSXETT00000066056 ;
+        lscr:xrefNCBIProtein        ns9:ABS50434.1 ;
+        lscr:xrefNCBIRefSeq         ns9:NP_001120531 ;
+        lscr:xrefUniprot            ns10:B2BLM0 ;
+        sio:SIO_010079              oma:GENE_ENSXETG00000033769 .
+
+ns1:DANRE16798  rdfs:comment        "transcript_id=ENSDART00000134222.1" ;
+        rdfs:label                  "IL15" ;
+        dct:identifier              "ENSDARP00000118478.1" , "ENSDARG00000052361.4" , "ENSDART00000134222" , "Q15KG7" , "Interleukin" ;
+        lscr:xrefEnsemblProtein     ns11:ENSDARP00000118478 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSDART00000134222 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_017212053 ;
+        lscr:xrefUniprot            ns10:Q15KG7 ;
+        sio:SIO_010079              oma:GENE_ENSDARG00000052361 .
+
+ns1:DANRE08064  a                   orth:Protein ;
+        rdfs:comment                "transcript_id=ENSDART00000011030.8" ;
+        rdfs:label                  "IL15L" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=DANRE08064> ;
+        obo:RO_0001018              oma:DanioreriofromEnsembl90 ;
+        dct:identifier              "Interleukin" , "DANRE08064" , "Q32PM5" , "ENSDART00000011030" , "ENSDARP00000027129.7" , "ENSDARG00000007743.9" ;
+        lscr:xrefEnsemblProtein     ns11:ENSDARP00000027129 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSDART00000011030 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_005157575 ;
+        lscr:xrefUniprot            ns10:Q32PM5 ;
+        orth:organism               oma:ORGANISM_7955 ;
+        sio:SIO_010079              oma:GENE_ENSDARG00000007743 .
+
+ns1:TAKRU02130  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15-like  [Source:RefSeq peptide;Acc:NP_001028812]" ;
+        rdfs:label                  "LOC613235" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=TAKRU02130> ;
+        obo:RO_0001018              oma:TakifugurubripesfromENSEMBLv70 ;
+        dct:identifier              "TAKRU02130" , "AAZ20137.1" , "ENSTRUG00000002243" , "Interleukin" , "ENSTRUP00000005143" , "ENSTRUT00000005173" , "Q3SCC7" ;
+        lscr:xrefEnsemblProtein     ns11:ENSTRUP00000005143 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSTRUT00000005173 ;
+        lscr:xrefNCBIProtein        ns9:AAZ20137.1 ;
+        lscr:xrefNCBIRefSeq         ns9:NP_001028812 ;
+        lscr:xrefUniprot            ns10:Q3SCC7 ;
+        orth:organism               oma:ORGANISM_31033 ;
+        sio:SIO_010079              oma:GENE_ENSTRUG00000002243 .
+
+ns1:TETNG19459  a                   orth:Protein ;
+        rdfs:comment                "Interleukin  [Source:UniProtKB/TrEMBL;Acc:H3C7G0]" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=TETNG19459> ;
+        obo:RO_0001018              oma:TetraodonnigroviridisfromENSEMBLv70 ;
+        dct:identifier              "ENSTNIP00000004182" , "ENSTNIT00000004316" , "AAR25702.1" , "CAG02109.1" , "Interleukin" , "TETNG19459" , "ENSTNIG00000011180" ;
+        lscr:xrefEnsemblProtein     ns11:ENSTNIP00000004182 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSTNIT00000004316 ;
+        lscr:xrefNCBIProtein        ns9:CAG02109.1 , ns9:AAR25702.1 ;
+        lscr:xrefUniprot            ns10:H3C7G0 ;
+        orth:organism               oma:ORGANISM_99883 ;
+        sio:SIO_010079              oma:GENE_ENSTNIG00000011180 .
+
+ns1:ORENI13678  a                   orth:Protein ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=ORENI13678> ;
+        obo:RO_0001018              oma:OreochromisniloticusfromENSEMBLv67 ;
+        dct:identifier              "Interleukin" , "ENSONIP00000001415" , "ORENI13678" , "ENSONIG00000001118" , "ENSONIT00000001414" ;
+        lscr:xrefEnsemblProtein     ns11:ENSONIP00000001415 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSONIT00000001414 ;
+        lscr:xrefUniprot            ns10:I3IXS5 ;
+        orth:organism               oma:ORGANISM_8128 ;
+        sio:SIO_010079              oma:GENE_ENSONIG00000001118 .
+
+ns1:CALJA13696  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:5977]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=CALJA13696> ;
+        obo:RO_0001018              oma:CallithrixjacchusfromENSEMBLv70 ;
+        dct:identifier              "ENSCJAG00000002909" , "ENSCJAP00000005290" , "CALJA13696" , "Interleukin" , "ENSCJAT00000005581" ;
+        lscr:xrefEnsemblProtein     ns11:ENSCJAP00000005290 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSCJAT00000005581 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_008990916 , ns9:XP_017825719 , ns9:XP_008990917 , ns9:XP_017825720 , ns9:XP_008990918 , ns9:XP_002745375 ;
+        lscr:xrefUniprot            ns10:F7HLQ0 ;
+        orth:organism               oma:ORGANISM_9483 ;
+        sio:SIO_010079              oma:GENE_ENSCJAG00000002909 .
+
+ns1:LEPOC12288  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:ZFIN;Acc:ZDB-GENE-120510-4]" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=LEPOC12288> ;
+        obo:RO_0001018              oma:LepisosteusoculatusfromENSEMBLv74 ;
+        dct:identifier              "ENSLOCP00000003360" , "LEPOC12288" , "ENSLOCT00000003367" , "Interleukin" , "ENSLOCG00000002859" ;
+        lscr:xrefEnsemblProtein     ns11:ENSLOCP00000003360 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSLOCT00000003367 ;
+        lscr:xrefUniprot            ns10:W5M4Q2 ;
+        orth:organism               oma:ORGANISM_7918 ;
+        sio:SIO_010079              oma:GENE_ENSLOCG00000002859 .
+
+ns1:FICAL10290  a                   orth:Protein ;
+        rdfs:label                  "LOC101807567" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=FICAL10290> ;
+        obo:RO_0001018              oma:FicedulaalbicollisfromENSEMBLv73 ;
+        dct:identifier              "Interleukin" , "FICAL10290" , "ENSFALG00000008216" , "ENSFALP00000008559" , "ENSFALT00000008597" ;
+        lscr:xrefEnsemblProtein     ns11:ENSFALP00000008559 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSFALT00000008597 ;
+        lscr:xrefUniprot            ns10:U3K0K5 ;
+        orth:organism               oma:ORGANISM_59894 ;
+        sio:SIO_010079              oma:GENE_ENSFALG00000008216 .
+
+ns1:MELGA09987  a                   orth:Protein ;
+        rdfs:comment                "Uncharacterized protein [Source:UniProtKB/TrEMBL;Acc:G1NDP6]" ;
+        rdfs:label                  "LOC100303688" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=MELGA09987> ;
+        obo:RO_0001018              oma:MeleagrisgallopavofromENSEMBLv70 ;
+        dct:identifier              "ENSMGAG00000010577" , "Interleukin" , "MELGA09987" , "ENSMGAP00000010991" , "ENSMGAT00000011859" ;
+        lscr:xrefEnsemblProtein     ns11:ENSMGAP00000010991 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSMGAT00000011859 ;
+        lscr:xrefUniprot            ns10:G1NDP6 ;
+        orth:organism               oma:ORGANISM_9103 ;
+        sio:SIO_010079              oma:GENE_ENSMGAG00000010577 .
+
+ns1:PANTR34544  rdfs:comment        "transcript_id=ENSPTRT00000030607.5" ;
+        rdfs:label                  "IL15" ;
+        dct:identifier              "Interleukin" , "CK820_G0042151" , "ENSPTRP00000028267.5" , "ENSPTRT00000030607" , "ENSPTRG00000016467.6" ;
+        lscr:xrefEnsemblProtein     ns11:ENSPTRP00000028267 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSPTRT00000030607 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_016807747 ;
+        lscr:xrefUniprot            ns10:A0A2J8K2Z1 ;
+        sio:SIO_010079              oma:GENE_ENSPTRG00000016467 .
+
+ns1:NOMLE11122  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:HGNC:6005]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=NOMLE11122> ;
+        obo:RO_0001018              oma:NomascusleucogenysfromENSEMBLv80 ;
+        dct:identifier              "ENSNLET00000012063" , "NOMLE11122" , "ENSNLEP00000011498" , "Interleukin" , "ENSNLEG00000009448" ;
+        lscr:xrefEnsemblProtein     ns11:ENSNLEP00000011498 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSNLET00000012063 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_003271399 ;
+        lscr:xrefUniprot            ns10:G1RE48 ;
+        orth:organism               oma:ORGANISM_61853 ;
+        sio:SIO_010079              oma:GENE_ENSNLEG00000009448 .
+
+ns1:DIPOR15305  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:MGI Symbol;Acc:MGI:103014]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=DIPOR15305> ;
+        obo:RO_0001018              oma:DipodomysordiifromENSEMBLv70 ;
+        dct:identifier              "Interleukin" , "ENSDORT00000014153" , "DIPOR15305" , "ENSDORG00000014153" , "ENSDORP00000013306" ;
+        lscr:xrefEnsemblProtein     ns11:ENSDORP00000013306 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSDORT00000014153 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_012884944 ;
+        lscr:xrefUniprot            ns10:A0A1S3G9L1 ;
+        orth:organism               oma:ORGANISM_10020 ;
+        sio:SIO_010079              oma:GENE_ENSDORG00000014153 .
+
+ns1:CHLSB16693  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:HGNC:5977]" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=CHLSB16693> ;
+        obo:RO_0001018              oma:ChlorocebussabaeusfromENSEMBLv77 ;
+        dct:identifier              "ENSCSAP00000014554" , "ENSCSAT00000001524" , "CHLSB16693" , "Interleukin" , "ENSCSAG00000003496" ;
+        lscr:xrefEnsemblProtein     ns11:ENSCSAP00000014554 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSCSAT00000001524 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_007998054 , ns9:XP_007998053 ;
+        lscr:xrefUniprot            ns10:A0A0D9S115 ;
+        orth:organism               oma:ORGANISM_60711 ;
+        sio:SIO_010079              oma:GENE_ENSCSAG00000003496 .
+
+ns1:OTOGA11655  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:5977]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=OTOGA11655> ;
+        obo:RO_0001018              oma:OtolemurgarnettiifromENSEMBLv70 ;
+        dct:identifier              "OTOGA11655" , "ENSOGAG00000011090" , "Interleukin" , "ENSOGAT00000030149" , "ENSOGAP00000019538" ;
+        lscr:xrefEnsemblProtein     ns11:ENSOGAP00000019538 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSOGAT00000030149 ;
+        lscr:xrefUniprot            ns10:H0XTU6 ;
+        orth:organism               oma:ORGANISM_30611 ;
+        sio:SIO_010079              oma:GENE_ENSOGAG00000011090 .
+
+ns1:LOXAF14292  a                   orth:Protein ;
+        rdfs:comment                "Interleukin  [Source:UniProtKB/TrEMBL;Acc:G3SXC9]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=LOXAF14292> ;
+        obo:RO_0001018              oma:LoxodontaafricanafromENSEMBLv70 ;
+        dct:identifier              "ENSLAFT00000006023" , "LOXAF14292" , "ENSLAFP00000005052" , "Interleukin" , "ENSLAFG00000006024" ;
+        lscr:xrefEnsemblProtein     ns11:ENSLAFP00000005052 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSLAFT00000006023 ;
+        lscr:xrefUniprot            ns10:G3SXC9 ;
+        orth:organism               oma:ORGANISM_9785 ;
+        sio:SIO_010079              oma:GENE_ENSLAFG00000006024 .
+
+ns1:PONAB11891  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:6005]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=PONAB11891> ;
+        obo:RO_0001018              oma:PongoabeliifromENSEMBLv70 ;
+        dct:identifier              "ENSPPYT00000017485" , "CR201_G0000379" , "PONAB11891" , "ENSPPYG00000015044" , "Interleukin" , "ENSPPYP00000016804" , "H2PE90" ;
+        lscr:xrefEnsemblProtein     ns11:ENSPPYP00000016804 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSPPYT00000017485 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_002815162 ;
+        lscr:xrefUniprot            ns10:H2PE90 ;
+        orth:organism               oma:ORGANISM_9601 ;
+        sio:SIO_010079              oma:GENE_ENSPPYG00000015044 .
+
+ns1:MONDO09785  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:HGNC:5977]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=MONDO09785> ;
+        obo:RO_0001018              oma:MonodelphisdomesticafromENSEMBLv80 ;
+        dct:identifier              "ENSMODT00000000292" , "ENSMODP00000000288" , "MONDO09785" , "ENSMODG00000000235" , "Interleukin" ;
+        lscr:xrefEnsemblProtein     ns11:ENSMODP00000000288 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSMODT00000000292 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_016278687 , ns9:XP_007496356 , ns9:XP_007496357 ;
+        lscr:xrefUniprot            ns10:F6SGE0 ;
+        orth:organism               oma:ORGANISM_13616 ;
+        sio:SIO_010079              oma:GENE_ENSMODG00000000235 .
+
+ns1:AILME08088  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:6005]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=AILME08088> ;
+        obo:RO_0001018              oma:AiluropodamelanoleucafromENSEMBLv70 ;
+        dct:identifier              "ENSAMEG00000005893" , "Interleukin" , "ENSAMET00000006470" , "ENSAMEP00000006216" , "AILME08088" ;
+        lscr:xrefEnsemblProtein     ns11:ENSAMEP00000006216 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSAMET00000006470 ;
+        lscr:xrefUniprot            ns10:G1LH25 ;
+        orth:organism               oma:ORGANISM_9646 ;
+        sio:SIO_010079              oma:GENE_ENSAMEG00000005893 .
+
+ns1:POEFO15280  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15, like [Source:ZFIN;Acc:ZDB-GENE- 041111-173]" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=POEFO15280> ;
+        obo:RO_0001018              oma:PoeciliaformosafromENSEMBLv77 ;
+        dct:identifier              "ENSPFOG00000011104" , "ENSPFOP00000011076" , "POEFO15280" , "ENSPFOT00000011092" , "Interleukin" ;
+        lscr:xrefEnsemblProtein     ns11:ENSPFOP00000011076 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSPFOT00000011092 ;
+        lscr:xrefUniprot            ns10:A0A087XZ73 ;
+        orth:organism               oma:ORGANISM_48698 ;
+        sio:SIO_010079              oma:GENE_ENSPFOG00000011104 .
+
+ns1:PAPAN14393  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:HGNC:5977]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=PAPAN14393> ;
+        obo:RO_0001018              oma:PapioanubisfromENSEMBLv77 ;
+        dct:identifier              "ENSPANT00000016133" , "ENSPANP00000007921" , "ENSPANG00000009677" , "Interleukin" , "PAPAN14393" ;
+        lscr:xrefEnsemblProtein     ns11:ENSPANP00000007921 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSPANT00000016133 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_021794511 , ns9:XP_021794513 , ns9:XP_017814027 , ns9:XP_021794512 ;
+        lscr:xrefUniprot            ns10:A0A096N634 ;
+        orth:organism               oma:ORGANISM_9555 ;
+        sio:SIO_010079              oma:GENE_ENSPANG00000009677 .
+
+ns1:MYOLU00436  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:HGNC:6005]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=MYOLU00436> ;
+        obo:RO_0001018              oma:MyotislucifugusfromENSEMBLv80 ;
+        dct:identifier              "ENSMLUT00000010925" , "ENSMLUG00000010923" , "MYOLU00436" , "ENSMLUP00000009958" , "Interleukin" ;
+        lscr:xrefEnsemblProtein     ns11:ENSMLUP00000009958 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSMLUT00000010925 ;
+        lscr:xrefUniprot            ns10:G1PH22 ;
+        orth:organism               oma:ORGANISM_59463 ;
+        sio:SIO_010079              oma:GENE_ENSMLUG00000010923 .
+
+ns1:CAVPO15624  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:6005]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=CAVPO15624> ;
+        obo:RO_0001018              oma:CaviaporcellusfromENSEMBLv70 ;
+        dct:identifier              "ENSCPOG00000012431" , "ENSCPOP00000011186" , "CAVPO15624" , "Interleukin" , "ENSCPOT00000012550" ;
+        lscr:xrefEnsemblProtein     ns11:ENSCPOP00000011186 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSCPOT00000012550 ;
+        lscr:xrefUniprot            ns10:H0VLF2 ;
+        orth:organism               oma:ORGANISM_10141 ;
+        sio:SIO_010079              oma:GENE_ENSCPOG00000012431 .
+
+ns1:SARHA05516  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:6005]" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=SARHA05516> ;
+        obo:RO_0001018              oma:SarcophilusharrisiifromENSEMBL ;
+        dct:identifier              "ENSSHAG00000003092" , "ENSSHAT00000003556" , "SARHA05516" , "ENSSHAP00000003520" , "Interleukin" ;
+        lscr:xrefEnsemblProtein     ns11:ENSSHAP00000003520 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSSHAT00000003556 ;
+        lscr:xrefUniprot            ns10:G3VK15 ;
+        orth:organism               oma:ORGANISM_9305 ;
+        sio:SIO_010079              oma:GENE_ENSSHAG00000003092 .
+
+ns1:MELGA09986  a                   orth:Protein ;
+        rdfs:comment                "Interleukin  [Source:UniProtKB/TrEMBL;Acc:G1NDN8]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=MELGA09986> ;
+        obo:RO_0001018              oma:MeleagrisgallopavofromENSEMBLv70 ;
+        dct:identifier              "ENSMGAP00000010981" , "Interleukin" , "MELGA09986" , "ENSMGAG00000010573" , "ENSMGAT00000011849" ;
+        lscr:xrefEnsemblProtein     ns11:ENSMGAP00000010981 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSMGAT00000011849 ;
+        lscr:xrefUniprot            ns10:G1NDN8 ;
+        orth:organism               oma:ORGANISM_9103 ;
+        sio:SIO_010079              oma:GENE_ENSMGAG00000010573 .
+
+ns1:BOVIN05714  a                   orth:Protein ;
+        rdfs:comment                "Interleukin-21  [Source:UniProtKB/Swiss- Prot;Acc:Q76LU5]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=BOVIN05714> ;
+        oma:swissProtId             "IL21_BOVIN" ;
+        obo:RO_0001018              oma:BostaurusfromENSEMBLv70 ;
+        dct:identifier              "ENSBTAG00000012368" , "ENSBTAT00000016413" , "BAC87747.1" , "BOVIN05714" , "ENSBTAP00000016413" , "Interleukin" ;
+        lscr:xrefEnsemblProtein     ns11:ENSBTAP00000016413 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSBTAT00000016413 ;
+        lscr:xrefNCBIProtein        ns9:BAC87747.1 ;
+        lscr:xrefUniprot            ns10:F1MZV7 ;
+        orth:organism               oma:ORGANISM_9913 ;
+        sio:SIO_010079              oma:GENE_ENSBTAG00000012368 .
+
+ns1:PANTR34543  a                   orth:Protein ;
+        rdfs:comment                "transcript_id=ENSPTRT00000095899.1" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=PANTR34543> ;
+        obo:RO_0001018              oma:PantroglodytesfromEnsemblMain91 ;
+        dct:identifier              "CK820_G0042151" , "ENSPTRG00000016467.6" , "PANTR34543" , "Interleukin" , "ENSPTRT00000095899" , "ENSPTRP00000068237.1" ;
+        lscr:xrefEnsemblProtein     ns11:ENSPTRP00000068237 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSPTRT00000095899 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_001140688 , ns9:XP_016807746 , ns9:XP_016807745 , ns9:XP_001140606 , ns9:XP_016807744 ;
+        lscr:xrefUniprot            ns10:A0A2I3RU68 ;
+        orth:organism               oma:ORGANISM_9598 ;
+        sio:SIO_010079              oma:GENE_ENSPTRG00000016467 .
+
+ns1:LOXAF06960  a                   orth:Protein ;
+        rdfs:comment                "Interleukin  [Source:UniProtKB/TrEMBL;Acc:G3T284]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=LOXAF06960> ;
+        obo:RO_0001018              oma:LoxodontaafricanafromENSEMBLv70 ;
+        dct:identifier              "LOXAF06960" , "ENSLAFT00000008638" , "ENSLAFP00000007256" , "ENSLAFG00000008638" , "Interleukin" ;
+        lscr:xrefEnsemblProtein     ns11:ENSLAFP00000007256 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSLAFT00000008638 ;
+        lscr:xrefUniprot            ns10:G3T284 ;
+        orth:organism               oma:ORGANISM_9785 ;
+        sio:SIO_010079              oma:GENE_ENSLAFG00000008638 .
+
+ns1:GASAC16276  a                   orth:Protein ;
+        rdfs:label                  "IL-15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=GASAC16276> ;
+        obo:RO_0001018              oma:GasterosteusaculeatusfromENSEMBLv70 ;
+        dct:identifier              "Interleukin" , "ENSGACP00000022805" , "GASAC16276" , "ENSGACG00000017271" , "il-15" , "ENSGACT00000022848" ;
+        lscr:xrefEnsemblProtein     ns11:ENSGACP00000022805 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSGACT00000022848 ;
+        lscr:xrefNCBIRefSeq         ns9:NP_001254613 ;
+        lscr:xrefUniprot            ns10:B2BHG3 ;
+        orth:organism               oma:ORGANISM_69293 ;
+        sio:SIO_010079              oma:GENE_ENSGACG00000017271 .
+
+ns1:ANAPL13562  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:5977]" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=ANAPL13562> ;
+        obo:RO_0001018              oma:AnasplatyrhynchosfromENSEMBLv73 ;
+        dct:identifier              "ENSAPLG00000004865" , "ENSAPLT00000005020" , "Interleukin" , "ENSAPLP00000004404" , "ANAPL13562" ;
+        lscr:xrefEnsemblProtein     ns11:ENSAPLP00000004404 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSAPLT00000005020 ;
+        lscr:xrefUniprot            ns10:U3IAY2 ;
+        orth:organism               oma:ORGANISM_8839 ;
+        sio:SIO_010079              oma:GENE_ENSAPLG00000004865 .
+
+ns1:CALJA13753  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:6005]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=CALJA13753> ;
+        obo:RO_0001018              oma:CallithrixjacchusfromENSEMBLv70 ;
+        dct:identifier              "Interleukin" , "CALJA13753" , "ENSCJAT00000005286" , "ENSCJAG00000002755" , "ENSCJAP00000005017" ;
+        lscr:xrefEnsemblProtein     ns11:ENSCJAP00000005017 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSCJAT00000005286 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_002745477 ;
+        lscr:xrefUniprot            ns10:F7I3A3 ;
+        orth:organism               oma:ORGANISM_9483 ;
+        sio:SIO_010079              oma:GENE_ENSCJAG00000002755 .
+
+ns1:TAEGU09145  rdfs:comment        "interleukin 21 [Source:HGNC Symbol;Acc:6005]" ;
+        dct:identifier              "ENSTGUT00000002086" , "ENSTGUP00000002067" , "Interleukin" , "ENSTGUG00000002007" ;
+        lscr:xrefEnsemblProtein     ns11:ENSTGUP00000002067 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSTGUT00000002086 ;
+        lscr:xrefUniprot            ns10:H0YUU7 ;
+        sio:SIO_010079              oma:GENE_ENSTGUG00000002007 .
+
+ns1:GORGO15233  a                   orth:Protein ;
+        rdfs:comment                "Interleukin  [Source:UniProtKB/TrEMBL;Acc:G3R6N8]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=GORGO15233> ;
+        obo:RO_0001018              oma:GorillagorillafromENSEMBLv75 ;
+        dct:identifier              "Interleukin" , "ENSGGOP00000011003" , "ENSGGOT00000011327" , "ENSGGOG00000011285" , "GORGO15233" ;
+        lscr:xrefEnsemblProtein     ns11:ENSGGOP00000011003 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSGGOT00000011327 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_004040467 , ns9:XP_004040468 ;
+        lscr:xrefUniprot            ns10:A0A2I2Z0S9 ;
+        orth:organism               oma:ORGANISM_9595 ;
+        sio:SIO_010079              oma:GENE_ENSGGOG00000011285 .
+
+ns1:SARHA07301  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:5977]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=SARHA07301> ;
+        obo:RO_0001018              oma:SarcophilusharrisiifromENSEMBL ;
+        dct:identifier              "SARHA07301" , "Interleukin" , "ENSSHAG00000016440" , "ENSSHAT00000019512" , "ENSSHAP00000019355" ;
+        lscr:xrefEnsemblProtein     ns11:ENSSHAP00000019355 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSSHAT00000019512 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_012407654 ;
+        lscr:xrefUniprot            ns10:G3WVA0 ;
+        orth:organism               oma:ORGANISM_9305 ;
+        sio:SIO_010079              oma:GENE_ENSSHAG00000016440 .
+
+ns1:MACMU18081  a                   orth:Protein ;
+        rdfs:comment                "interleukin-21 precursor  [Source:RefSeq peptide;Acc:NP_001181171]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=MACMU18081> ;
+        obo:RO_0001018              oma:MacacamulattafromENSEMBLv70 ;
+        dct:identifier              "ENSMMUG00000003346" , "MACMU18081" , "ENSMMUT00000004728" , "Interleukin" , "EHH26169.1" , "ENSMMUP00000004457" , "EGK_16068" ;
+        lscr:xrefEnsemblProtein     ns11:ENSMMUP00000004457 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSMMUT00000004728 ;
+        lscr:xrefNCBIProtein        ns9:EHH26169.1 ;
+        lscr:xrefNCBIRefSeq         ns9:NP_001181171 , ns9:XP_001103613 ;
+        lscr:xrefUniprot            ns10:F7EGQ8 ;
+        orth:organism               oma:ORGANISM_9544 ;
+        sio:SIO_010079              oma:GENE_ENSMMUG00000003346 .
+
+ns1:CHLSB16650  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:HGNC:6005]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=CHLSB16650> ;
+        obo:RO_0001018              oma:ChlorocebussabaeusfromENSEMBLv77 ;
+        dct:identifier              "ENSCSAP00000000033" , "ENSCSAT00000001695" , "CHLSB16650" , "ENSCSAG00000003662" , "Interleukin" ;
+        lscr:xrefEnsemblProtein     ns11:ENSCSAP00000000033 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSCSAT00000001695 ;
+        lscr:xrefUniprot            ns10:A0A0D9QUJ4 ;
+        orth:organism               oma:ORGANISM_60711 ;
+        sio:SIO_010079              oma:GENE_ENSCSAG00000003662 .
+
+ns1:HORSE09245  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:6005]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=HORSE09245> ;
+        obo:RO_0001018              oma:EquuscaballusfromENSEMBLv70 ;
+        dct:identifier              "ENSECAG00000015501" , "ENSECAT00000016317" , "HORSE09245" , "Interleukin" , "ENSECAP00000013179" ;
+        lscr:xrefEnsemblProtein     ns11:ENSECAP00000013179 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSECAT00000016317 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_001503063 ;
+        lscr:xrefUniprot            ns10:F6TDR4 ;
+        orth:organism               oma:ORGANISM_9796 ;
+        sio:SIO_010079              oma:GENE_ENSECAG00000015501 .
+
+ns1:FELCA04459  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:HGNC Symbol;Acc:6005]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=FELCA04459> ;
+        obo:RO_0001018              oma:FeliscatusfromENSEMBLv70 ;
+        dct:identifier              "ENSFCAP00000005670" , "ENSFCAT00000006103" , "Interleukin" , "FELCA04459" , "ENSFCAG00000006101" ;
+        lscr:xrefEnsemblProtein     ns11:ENSFCAP00000005670 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSFCAT00000006103 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_003985079 ;
+        lscr:xrefUniprot            ns10:M3W5A3 ;
+        orth:organism               oma:ORGANISM_9685 ;
+        sio:SIO_010079              oma:GENE_ENSFCAG00000006101 .
+
+ns1:PONAB11933  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:5977]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=PONAB11933> ;
+        obo:RO_0001018              oma:PongoabeliifromENSEMBLv70 ;
+        dct:identifier              "ENSPPYP00000016851" , "PONAB11933" , "ENSPPYT00000017532" , "Interleukin" , "CR201_G0000175" , "ENSPPYG00000015085" ;
+        lscr:xrefEnsemblProtein     ns11:ENSPPYP00000016851 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSPPYT00000017532 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_002815214 , ns9:XP_002815213 ;
+        lscr:xrefUniprot            ns10:A0A2J8XP28 ;
+        orth:organism               oma:ORGANISM_9601 ;
+        sio:SIO_010079              oma:GENE_ENSPPYG00000015085 .
+
+ns1:SHEEP07158  a                   orth:Protein ;
+        rdfs:comment                "Ovis aries interleukin 15 (IL15), mRNA.  [Source:RefSeq mRNA;Acc:NM_001009734]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=SHEEP07158> ;
+        obo:RO_0001018              oma:OvisariesfromENSEMBLv74 ;
+        dct:identifier              "SHEEP07158" , "ENSOARG00000012119" , "ENSOARP00000012994" , "ENSOART00000013183" , "Interleukin" ;
+        lscr:xrefEnsemblProtein     ns11:ENSOARP00000012994 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSOART00000013183 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_011952663 , ns9:XP_011952664 , ns9:XP_011952665 ;
+        lscr:xrefUniprot            ns10:W5PRB6 ;
+        orth:organism               oma:ORGANISM_9940 ;
+        sio:SIO_010079              oma:GENE_ENSOARG00000012119 .
+
+ns1:TAEGU09193  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:5977]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=TAEGU09193> ;
+        obo:RO_0001018              oma:TaeniopygiaguttatafromENSEMBLv70 ;
+        dct:identifier              "ENSTGUP00000002439" , "TAEGU09193" , "ENSTGUT00000002463" , "Interleukin" , "ENSTGUG00000002368" ;
+        lscr:xrefEnsemblProtein     ns11:ENSTGUP00000002439 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSTGUT00000002463 ;
+        lscr:xrefUniprot            ns10:H0YVW7 ;
+        orth:organism               oma:ORGANISM_59729 ;
+        sio:SIO_010079              oma:GENE_ENSTGUG00000002368 .
+
+ns1:TAKRU19520  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15  [Source:RefSeq peptide;Acc:NP_001028220]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=TAKRU19520> ;
+        obo:RO_0001018              oma:TakifugurubripesfromENSEMBLv70 ;
+        dct:identifier              "ENSTRUG00000013746" , "TAKRU19520" , "Q3SCC9" , "AAZ20135.1" , "ENSTRUT00000035236" , "ENSTRUP00000035108" , "Interleukin" ;
+        lscr:xrefEnsemblProtein     ns11:ENSTRUP00000035108 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSTRUT00000035236 ;
+        lscr:xrefNCBIProtein        ns9:AAZ20135.1 ;
+        lscr:xrefNCBIRefSeq         ns9:NP_001028220 ;
+        lscr:xrefUniprot            ns10:Q3SCC9 ;
+        orth:organism               oma:ORGANISM_31033 ;
+        sio:SIO_010079              oma:GENE_ENSTRUG00000013746 .
+
+ns1:TETNG07093  a                   orth:Protein ;
+        rdfs:comment                "Interleukin  [Source:UniProtKB/TrEMBL;Acc:H3C5V2]" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=TETNG07093> ;
+        obo:RO_0001018              oma:TetraodonnigroviridisfromENSEMBLv70 ;
+        dct:identifier              "Interleukin" , "ENSTNIP00000001808" , "ENSTNIG00000000036" , "AAZ23017.1" , "ENSTNIT00000003154" , "TETNG07093" , "Q1AN26" ;
+        lscr:xrefEnsemblProtein     ns11:ENSTNIP00000001808 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSTNIT00000003154 ;
+        lscr:xrefNCBIProtein        ns9:AAZ23017.1 ;
+        lscr:xrefUniprot            ns10:Q1AN26 ;
+        orth:organism               oma:ORGANISM_99883 ;
+        sio:SIO_010079              oma:GENE_ENSTNIG00000000036 .
+
+ns1:DANRE08066  rdfs:comment        "transcript_id=ENSDART00000161047.1" ;
+        rdfs:label                  "IL15L" ;
+        dct:identifier              "ENSDART00000161047" , "ENSDART00000062666" , "Interleukin" , "IL-15_1" , "ENSDARP00000134586.1" , "Q5W7F5" , "ENSDARP00000062665.5" , "ENSDARG00000007743.9" ;
+        lscr:xrefEnsemblProtein     ns11:ENSDARP00000062665 , ns11:ENSDARP00000134586 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSDART00000062666 , ns12:ENSDART00000161047 ;
+        lscr:xrefNCBIRefSeq         ns9:NP_001009558 ;
+        lscr:xrefUniprot            ns10:Q5W7F5 ;
+        sio:SIO_010079              oma:GENE_ENSDARG00000007743 .
+
+ns1:XENTR01016  rdfs:comment        "interleukin 15  [Source:RefSeq peptide;Acc:NP_001120530]" ;
+        rdfs:label                  "IL15" ;
+        dct:identifier              "ENSXETP00000063968" , "ABS44963.1" , "ENSXETG00000031411" , "ENSXETT00000066124" , "Interleukin" , "ABS44952.1" ;
+        lscr:xrefEnsemblProtein     ns11:ENSXETP00000063968 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSXETT00000066124 ;
+        lscr:xrefNCBIProtein        ns9:ABS44952.1 , ns9:ABS44963.1 ;
+        lscr:xrefUniprot            ns10:F7ER44 ;
+        sio:SIO_010079              oma:GENE_ENSXETG00000031411 .
+
+ns1:AILME07844  a                   orth:Protein ;
+        rdfs:comment                "interleukin 15 [Source:HGNC Symbol;Acc:5977]" ;
+        rdfs:label                  "IL15" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=AILME07844> ;
+        obo:RO_0001018              oma:AiluropodamelanoleucafromENSEMBLv70 ;
+        dct:identifier              "ENSAMEG00000008060" , "Interleukin" , "AILME07844" , "EFB16162.1" , "ENSAMET00000008826" , "ENSAMEP00000008470" ;
+        lscr:xrefEnsemblProtein     ns11:ENSAMEP00000008470 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSAMET00000008826 ;
+        lscr:xrefNCBIProtein        ns9:EFB16162.1 ;
+        lscr:xrefUniprot            ns10:G1LN44 ;
+        orth:organism               oma:ORGANISM_9646 ;
+        sio:SIO_010079              oma:GENE_ENSAMEG00000008060 .
+
+ns1:MUSPF15408  a                   orth:Protein ;
+        rdfs:comment                "interleukin 21 [Source:MGI Symbol;Acc:MGI:1890474]" ;
+        rdfs:label                  "IL21" ;
+        rdfs:seeAlso                <http://omabrowser.org/cgi-bin/gateway.pl?f=DisplayEntry&p1=MUSPF15408> ;
+        obo:RO_0001018              oma:MustelaputoriusfurofromENSEMBLv69 ;
+        dct:identifier              "Interleukin" , "MUSPF15408" , "ENSMPUT00000017537" , "ENSMPUG00000017391" , "ENSMPUP00000017281" ;
+        lscr:xrefEnsemblProtein     ns11:ENSMPUP00000017281 ;
+        lscr:xrefEnsemblTranscript  ns12:ENSMPUT00000017537 ;
+        lscr:xrefNCBIRefSeq         ns9:XP_004748025 ;
+        lscr:xrefUniprot            ns10:M3Z119 ;
+        orth:organism               oma:ORGANISM_9669 ;
+        sio:SIO_010079              oma:GENE_ENSMPUG00000017391 .

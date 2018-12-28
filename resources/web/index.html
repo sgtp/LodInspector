@@ -1,0 +1,420 @@
+<html>
+<head>
+<script src="cytoscape.min.js"></script>
+<script src="jquery-3.3.1.min.js"></script>
+
+<script type='text/javascript'>
+var maxNodeSize=200;
+var maxNodeRecorded=200;
+var	eo=0;
+var	ec=0;
+var nq=0;
+var nqr=0;
+var nqn=0;
+var nqf=0;
+var resultUrl="";
+
+function submitFunction() {
+	searchText=document.getElementById("entities").value;
+	encodedSearchText=encodeURI(searchText);
+	searchUrl="params?search="+encodedSearchText;
+	//alert(searchUrl);
+	resultUrl=httpGet(searchUrl)
+	//alert(res)
+}
+
+//from: https://stackoverflow.com/questions/10642289/return-html-content-as-a-string-given-url-javascript-function
+ function httpGet(theUrl)
+  {
+    var xmlHttp = null;
+
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false );
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+  }
+  
+  
+</script>
+
+
+<style rel='stylesheet' type='text/css'>
+div#page { 	
+    width: 1000px;
+    height: 820px;
+}
+div#header {  	
+    width: 1000px;
+    height: 150px;
+    background: #FFFFFF;
+    
+}
+
+div#container {
+    clear: both;
+}
+
+div#cy { 	
+  	float: left;   	
+  	height: 620px;   	
+  	overflow: hidden;   	  	
+  	width: 700px;
+  	background: #F0F0F0;
+}
+div#legenda {
+    float: left;   	
+  	height: 620px;   	
+  	overflow: hidden;   	  	
+  	width: 300px;
+  	background: #E0E0E0;
+}
+div#footer {
+	clear: both;
+    float: left;   	
+  	height: 50px;   	
+  	overflow: hidden;   	  	
+  	width: 1000px;
+  	background: #FFFFFF;
+}
+
+      
+</style>
+</head>
+
+<body>
+<div id="page">
+	<div id="header">
+		<h1>YummyData Playground</h1>
+		<form id="searchForm" name="searchForm">
+			<input size="100" type="text" id="entities" name="entities" placeholder="List a set of things you know or are interested in"  /><br/>
+			<i>only a view on the server script now!</i>
+			<button type="button" onclick="submitFunction()">Go!</button> 
+			<button type="button" id="refresh" onclick="parseGraph()">Load</button> 
+			<button type="button" id="auto" onclick="setAutoGraph()">Autoload</button>  
+			<button type="button" id="stop" onclick="stopAutoGraph()">Stop autoload</button>
+			<button type="button" id="reset" >Reset</button>
+		</form>
+		<table>
+		<tr>
+			<td>Endpoints investigated: </td><td id="eo"></td>
+			<td>Completed: </td><td id="ec"></td>
+			<td>Queries run: </td><td id="nq"></td>
+			<td>with results: </td><td id="nqr"></td>
+			<td>No res: </td><td id="nqn"></td>			
+			<td>Failed: </td><td id="nqf"></td>
+		</tr>
+		</table>
+	</div>
+	<div id="container">
+		<div id="cy"></div>
+		<div id='legenda'></div>
+	</div>
+	<div id="footer"> &copy; 2018 BH</a>
+</div>
+
+
+
+
+<script type='text/javascript'>
+
+
+function class2Shape(cl) {
+	
+	if(cl==='class') {
+		return('ellipse');
+	}
+	else if(cl==='instance') {
+		return('round-rectangle');
+	}
+	else if(cl==='plain') {
+		return('star');
+	}
+	else return('star');	
+}
+
+function nodeSize(size) {
+	if (typeof size == 'undefined') {
+		return 20;
+	}
+	else {
+		sizeToRecord=Math.sqrt(size);
+		if(maxNodeRecorded<sizeToRecord) maxNodeRecorded=sizeToRecord;
+		scalingFactor=maxNodeRecorded/maxNodeSize;
+		console.log("LAYOUT: "+size+" -> "+Math.max(Math.sqrt(size))/scalingFactor);
+		return Math.max(Math.sqrt(size)/scalingFactor,20);
+	}
+}
+
+function nodeBorderWidth(focus) {
+	if (typeof focus == 'undefined') {
+		return 1;
+	}
+	else {
+		return 3;
+	}
+}
+
+function nodeBorderStyle(focus) {
+	if (typeof focus == 'undefined') {
+		return 'dashed';
+	}
+	else {
+		return 'solid';
+	}
+}
+
+cy = cytoscape({
+  container: document.getElementById('cy'), // container to render in
+
+  style: cytoscape.stylesheet()
+ 	.selector('node')
+      .style({
+        'background-color': '#666',
+        'label': 'data(name)',
+        'shape': function( ele ){  return class2Shape(ele.data('type'));},
+        'background-color' : function(ele) { return endpointsCMap[ele.data('endpoint')];},
+        'width': function(ele) {return nodeSize(ele.data('size'));},
+        'height': function(ele) {return nodeSize(ele.data('size'));},
+        'border-width': function(ele) {return nodeBorderWidth(ele.data('focus'));},
+        'border-style': function(ele) {return nodeBorderStyle(ele.data('focus'));}
+      }
+    )
+	.selector('edge')
+      .style({
+        'width': 3,
+        'line-color': '#ccc',
+        'target-arrow-color': '#ccc',
+        'target-arrow-shape': 'triangle'
+      })
+    
+  
+
+  
+
+});
+
+// from: https://stackoverflow.com/questions/1484506/random-color-generator
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+var endpointsCMap={};
+	
+//document.write("Graph rendering function called");
+
+</script>
+
+<!-- script type='text/javascript'>
+
+var cc=1;
+var lastId='a'
+function myTimer() {
+	cc=cc+1;
+	var nId='n'+cc;
+	
+    cy.add({
+    group: 'nodes',
+    data: { id: nId }
+	});
+	cy.add({ group: 'edges', data: { id: 'e'+cc, source: lastId, target: nId } });
+	lastId=nId;
+	var layout = cy.layout({
+  		name: 'cose'
+	});
+
+	layout.run();
+}
+
+var myVar = setInterval(myTimer, 1000);
+
+
+</script -->
+<script type='text/javascript'>
+
+
+function paintStats() {
+	document.getElementById('eo').innerHTML=eo;
+	document.getElementById('ec').innerHTML=ec;
+	document.getElementById('nq').innerHTML=nq;
+	document.getElementById('nqr').innerHTML=nqr;
+	document.getElementById('nqn').innerHTML=nqn;
+	document.getElementById('nqf').innerHTML=nqf;
+}
+
+function updateEndpoint(ep) {
+	if(!endpointsCMap.hasOwnProperty(ep)) {
+		endpointsCMap[ep]=getRandomColor();
+		document.getElementById('legenda').innerHTML += '<font color='+endpointsCMap[ep]+'>'+ep+'</font></br>';
+	
+	}
+}
+
+function processPlain(ep,elements) {
+	nodeId=elements[2];	
+	nodeName=elements[3];	
+	//alert('Adding plain node '+nodeId+' ('+ep+')') //test
+	node=cy.getElementById(nodeId);
+	if(node.length=='') {
+		cy.add({
+    		group: 'nodes',
+    		data: { endpoint: ep , id: nodeId, type: 'instance', name: nodeName}
+	  	})
+	}	
+}
+
+function processClass(ep,elements) {
+	nodeId=elements[2];
+	nodeName=elements[3];	
+	console.log('Process class: '+nodeId)
+	node=cy.getElementById(nodeId);
+	if(node.length=='') {
+		//alert('Adding class node '+nodeId+' ('+ep+')') // test
+		cy.add({
+    		group: 'nodes',
+    		data: { endpoint: ep , id: nodeId, type: 'class', name: nodeName}
+	  	})
+	}
+	else {
+		//alert('Changing type to class for node '+nodeId+' ('+ep+')') //test
+		node[0].data({type:'class'});
+	}
+}
+
+function setAttribute(ep,elements) {
+	nodeId=elements[2];
+	attribute=elements[3];	
+	value=elements[4];
+	console.log('Process attr '+attribute+' for: '+nodeId)
+	node=cy.getElementById(nodeId);
+	if(node.length>0) {
+		valueBit={};
+		valueBit[attribute]=value;
+		node[0].data(valueBit);
+	}
+}
+
+
+function processInstance(ep,elements) {
+//http://dbpedia.org/sparql	inst	node5	node2	name_node2
+	//alert('Instance');
+	nodeId=elements[2];
+	classId=elements[3];
+	nodeName=elements[4];
+	
+	node=cy.getElementById(nodeId);
+	if(node.length==0) {
+		//alert('Adding instance node '+nodeId+' ('+ep+')') // test
+		cy.add({
+    		group: 'nodes',
+    		data: { endpoint: ep , id: nodeId, type: 'instance', name: nodeName}
+	  	})
+	}
+	else {
+		//alert('Changing type to class for node '+nodeId+' ('+ep+')') //test
+		node[0].data({type:'instance'});
+	}
+	//Same for class
+	nodeC=cy.getElementById(classId);
+	if(nodeC.length==0) {
+		//alert('Adding class node '+classId+' ('+ep+')') // test
+		cy.add({
+    		group: 'nodes',
+    		data: { endpoint: ep , id: classId, type: 'class', name: classId}
+	  	})
+	}
+	else {
+		//alert('Changing type to class for node '+classId+' ('+ep+')') //test
+		nodeC[0].data({type:'class'});
+	}
+	//Same for link
+	rel=cy.edges('edge[source = \"'+nodeId+'\"][target = \"'+classId+'\"][type=\"instanceOf\"]');
+	if(rel.length==0) {
+		console.log('edge found');
+		cy.add({
+    		group: 'edges',
+    		data: { id: nodeId+'_instOf_'+classId, endpoint: ep , source: nodeId, target: classId, type: 'instanceOf', name: 'instanceOf'}
+	  	})
+	}
+	else {
+		console.log('edge not found');	
+	}
+}
+
+
+parseGraph = function (){
+	//alert('results?seed='+resultUrl+'&x=' + new Date().getTime())
+	cy.startBatch();
+  	$.ajaxSetup({ cache: false });	
+  	$.ajax({
+    	//url:'demodata.txt?' + new Date().getTime(),
+    	//url:resultUrl+'?' + new Date().getTime(),
+    	
+    	url:'results?seed='+resultUrl+'&x=' + new Date().getTime(),
+    	success: function (data){
+      		var commands=data.split('\n'); 
+      		var cl;
+	  		for (cl = 0; cl < commands.length; cl++) { 
+	  			elements=commands[cl].split('\t');
+	  			if(elements[0]==='#') {
+	  				if(elements[1]=="eo") { eo=elements[2]; }	
+	  				if(elements[1]=="ec") { ec=elements[2]; }	
+	  				if(elements[1]=="nq") { nq=elements[2]; }	
+	  				if(elements[1]=="nqr") { nqr=elements[2]; }	
+	  				if(elements[1]=="nqn") { nqn=elements[2]; }	
+	  				if(elements[1]=="nqf") { nqf=elements[2]; }	
+					paintStats();
+	  			}
+	  			else {
+	  				ep=elements[0];
+	  				updateEndpoint(ep);
+	  				command=elements[1];
+	  	
+	  				if(command=='plain') { processPlain(ep,elements); }
+	 				if(command=='class') { processClass(ep,elements); } 
+	 				if(command=='inst') {processInstance(ep,elements);}
+	 				if(command=='set') {setAttribute(ep,elements);}
+	  			}
+	
+	  		}   
+    	}
+    	
+  	});
+	console.log("endAdding");
+
+ 	var layout = cy.layout({
+  		name: 'cose'
+   	});
+   	layout.run();
+   	cy.endBatch();
+
+	console.log("endBatch");
+   	
+}
+//parseGraph()
+
+var myVar;
+function setAutoGraph() {
+	myVar = setInterval(parseGraph, 30000);
+}
+function stopAutoGraph() {
+	clearInterval(myVar);
+}
+ 
+
+</script>
+</script>
+</body>
+</html>
+
+
+  
+
+
+
+  
+

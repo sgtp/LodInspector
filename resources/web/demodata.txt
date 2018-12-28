@@ -1,0 +1,24 @@
+http://bogus.org/sparql	plain	node100	name_node100
+http://bogus.org/sparql	plain	nodeE	name_nodeE
+http://dbpedia.org/sparql	plain	node1	name_node1
+http://dbpedia.org/sparql	plain	node2	name_node2
+http://dbpedia.org/sparql	plain	node3	name_node3
+http://bogus.org/sparql	class	nodeA	name_nodeA
+http://dbpedia.org/sparql	edge	node1	e1	node2	name_edge1
+http://dbpedia.org/sparql	attr	node2	YoB	
+http://dbpedia.org/sparql	class	node2	Person
+http://dbpedia.org/sparql	focus	node1	
+http://dbpedia.org/sparql	attrdr	ndode2	YoB	perc	25
+http://dbpedia.org/sparql	attrdr	ndode2	YoB	example	node4
+http://dbpedia.org/sparql	inst	node5	node2	name_node5	name_node2_class
+http://dbpedia.org/sparql	class	node6	name_node6
+http://dbpedia.org/sparql	rel		node2	hasFather	node6
+http://dbpedia.org/sparql	relattr node2	hasFather	node6	percS	30
+http://dbpedia.org/sparql	relattr node2	hasFather	node6	percT	50
+http://bogus.org/sparql		inst	nodeB	nodeA	name_nodeB	name_nodeB_class	 
+http://bogus.org/sparql	plain	nodeC	name_nodeC
+
+//endpoint set classURI attr value
+
+
+	

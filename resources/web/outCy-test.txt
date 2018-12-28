@@ -1,0 +1,377 @@
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/FICAL10290	https://omabrowser.org/oma/info/FICAL10290	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/FICAL10290
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/TETNG19459	https://omabrowser.org/oma/info/TETNG19459	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/TETNG19459
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G1QZK9	http://identifiers.org/uniprot/G1QZK9	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G1QZK9
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/Q15KG7	http://identifiers.org/uniprot/Q15KG7	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/Q15KG7
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/MELGA09986	https://omabrowser.org/oma/info/MELGA09986	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/MELGA09986
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H2RYC3	http://identifiers.org/uniprot/H2RYC3	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H2RYC3
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/MELGA09987	https://omabrowser.org/oma/info/MELGA09987	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/MELGA09987
+http://data.allie.dbcls.jp/sparql	inst	http://purl.org/allie/id/longform/308049	http://purl.org/allie/id/longform/308049	http://purl.org/allie/ontology/201108#LongForm	Interleukin
+http://data.allie.dbcls.jp/sparql	focus	http://purl.org/allie/id/longform/308049
+http://sparql.hegroup.org/sparql/	focus	http://purl.obolibrary.org/obo/NCIT_C20497
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/U3IH11	http://identifiers.org/uniprot/U3IH11	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/U3IH11
+https://query.wikidata.org/sparql	focus	http://schema.org/Article
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/R4GD88	http://identifiers.org/uniprot/R4GD88	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/R4GD88
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G1P9N5	http://identifiers.org/uniprot/G1P9N5	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G1P9N5
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F7ILX5	http://identifiers.org/uniprot/F7ILX5	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F7ILX5
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/ORENI13678	https://omabrowser.org/oma/info/ORENI13678	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/ORENI13678
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/L5L163	http://identifiers.org/uniprot/L5L163	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/L5L163
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/PAPAN14350	https://omabrowser.org/oma/info/PAPAN14350	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/PAPAN14350
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/SARHA07301	https://omabrowser.org/oma/info/SARHA07301	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/SARHA07301
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/DIPOR15305	https://omabrowser.org/oma/info/DIPOR15305	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/DIPOR15305
+http://sparql.orthodb.org/sparql	inst	http://purl.uniprot.org/uniprot/A0A0F4YV54	http://purl.uniprot.org/uniprot/A0A0F4YV54	http://purl.orthodb.org/Uniprot	Pathway
+http://sparql.orthodb.org/sparql	focus	http://purl.uniprot.org/uniprot/A0A0F4YV54
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F1RQN2	http://identifiers.org/uniprot/F1RQN2	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F1RQN2
+http://sparql.orthodb.org/sparql	focus	http://purl.orthodb.org/Gene
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/TAEGU09193	https://omabrowser.org/oma/info/TAEGU09193	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/TAEGU09193
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/MACMU18081	https://omabrowser.org/oma/info/MACMU18081	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/MACMU18081
+http://www.wikidata.org/entity/Q1984527	plain	https://query.wikidata.org/sparql	Pathway
+http://www.wikidata.org/entity/Q1984527	focus	https://query.wikidata.org/sparql
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H2QQ76	http://identifiers.org/uniprot/H2QQ76	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H2QQ76
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/ANAPL01854	https://omabrowser.org/oma/info/ANAPL01854	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/ANAPL01854
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/ANAPL01855	https://omabrowser.org/oma/info/ANAPL01855	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/ANAPL01855
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/LEPOC12288	https://omabrowser.org/oma/info/LEPOC12288	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/LEPOC12288
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/CHLSB16693	https://omabrowser.org/oma/info/CHLSB16693	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/CHLSB16693
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/U3K0K3	http://identifiers.org/uniprot/U3K0K3	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/U3K0K3
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F1NZN5	http://identifiers.org/uniprot/F1NZN5	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F1NZN5
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/CHICK10168	https://omabrowser.org/oma/info/CHICK10168	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/CHICK10168
+http://sparql.orthodb.org/sparql	inst	http://purl.orthodb.org/odbgene/1408163_1_00114f	http://purl.orthodb.org/odbgene/1408163_1_00114f	http://purl.orthodb.org/Gene	Pathway
+http://sparql.orthodb.org/sparql	focus	http://purl.orthodb.org/odbgene/1408163_1_00114f
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F6TDR4	http://identifiers.org/uniprot/F6TDR4	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F6TDR4
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G7P6C1	http://identifiers.org/uniprot/G7P6C1	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G7P6C1
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H2PED5	http://identifiers.org/uniprot/H2PED5	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H2PED5
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/TAKRU19520	https://omabrowser.org/oma/info/TAKRU19520	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/TAKRU19520
+http://sparql.uniprot.org/sparql/	focus	http://purl.uniprot.org/core/Protein
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/Q3SCC9	http://identifiers.org/uniprot/Q3SCC9	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/Q3SCC9
+http://metadb.riken.jp/sparql	focus	http://metadb.riken.jp/db/SciNetS_ria245i/cria245u86578i
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/OTOGA11655	https://omabrowser.org/oma/info/OTOGA11655	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/OTOGA11655
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/V8NQG4	http://identifiers.org/uniprot/V8NQG4	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/V8NQG4
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/I3KLG7	http://identifiers.org/uniprot/I3KLG7	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/I3KLG7
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/ORENI21022	https://omabrowser.org/oma/info/ORENI21022	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/ORENI21022
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/MUSPF06520	https://omabrowser.org/oma/info/MUSPF06520	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/MUSPF06520
+http://bio2rdf.org/sparql	focus	http://bio2rdf.org/uniprot_vocabulary:Resource
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/LOXAF06960	https://omabrowser.org/oma/info/LOXAF06960	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/LOXAF06960
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F6TFU5	http://identifiers.org/uniprot/F6TFU5	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F6TFU5
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G1T948	http://identifiers.org/uniprot/G1T948	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G1T948
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G1MW49	http://identifiers.org/uniprot/G1MW49	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G1MW49
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G3R6N8	http://identifiers.org/uniprot/G3R6N8	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G3R6N8
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/I3MIK7	http://identifiers.org/uniprot/I3MIK7	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/I3MIK7
+http://bio2rdf.org/sparql	focus	http://bio2rdf.org/sgd_vocabulary:Pathway
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/U3IAY2	http://identifiers.org/uniprot/U3IAY2	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/U3IAY2
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/K7GRI1	http://identifiers.org/uniprot/K7GRI1	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/K7GRI1
+https://sparql.omabrowser.org/sparql	focus	http://purl.org/net/orth#Protein
+http://bio2rdf.org/sparql	inst	http://bio2rdf.org/uniprot:Q58IU6	http://bio2rdf.org/uniprot:Q58IU6	http://bio2rdf.org/goa_vocabulary:GO-Annotation	Interleukin
+http://bio2rdf.org/sparql	inst	http://bio2rdf.org/uniprot:Q58IU6	http://bio2rdf.org/uniprot:Q58IU6	http://bio2rdf.org/uniprot_vocabulary:Resource	Interleukin
+http://bio2rdf.org/sparql	focus	http://bio2rdf.org/uniprot:Q58IU6
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/U3JQV1	http://identifiers.org/uniprot/U3JQV1	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/U3JQV1
+https://query.wikidata.org/sparql	inst	https://en.wikipedia.org/wiki/Interleukin	https://en.wikipedia.org/wiki/Interleukin	http://schema.org/Article	Interleukin
+https://query.wikidata.org/sparql	focus	https://en.wikipedia.org/wiki/Interleukin
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/NOMLE03236	https://omabrowser.org/oma/info/NOMLE03236	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/NOMLE03236
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/PONAB11933	https://omabrowser.org/oma/info/PONAB11933	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/PONAB11933
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/L5LWV9	http://identifiers.org/uniprot/L5LWV9	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/L5LWV9
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/I3IXS5	http://identifiers.org/uniprot/I3IXS5	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/I3IXS5
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F7I3A3	http://identifiers.org/uniprot/F7I3A3	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F7I3A3
+http://bio2rdf.org/sparql	inst	http://bio2rdf.org/clinicaltrials_resource:911b7db8c33901c04d6b40e114f52e49	http://bio2rdf.org/clinicaltrials_resource:911b7db8c33901c04d6b40e114f52e49	http://bio2rdf.org/clinicaltrials_vocabulary:Resource	Interleukin
+http://bio2rdf.org/sparql	inst	http://bio2rdf.org/clinicaltrials_resource:911b7db8c33901c04d6b40e114f52e49	http://bio2rdf.org/clinicaltrials_resource:911b7db8c33901c04d6b40e114f52e49	http://bio2rdf.org/clinicaltrials_vocabulary:Drug	Interleukin
+http://bio2rdf.org/sparql	focus	http://bio2rdf.org/clinicaltrials_resource:911b7db8c33901c04d6b40e114f52e49
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/PANTR34433	https://omabrowser.org/oma/info/PANTR34433	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/PANTR34433
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/CALJA13696	https://omabrowser.org/oma/info/CALJA13696	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/CALJA13696
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/AILME07844	https://omabrowser.org/oma/info/AILME07844	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/AILME07844
+https://dba-rdf.biosciencedbc.jp/sparql	focus	http://togodb.biosciencedbc.jp/ontology/InohMoleculeroleOntology
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/B2BHG3	http://identifiers.org/uniprot/B2BHG3	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/B2BHG3
+http://sparql.uniprot.org/sparql/	inst	http://purl.uniprot.org/annotation/PRO_5008955661	http://purl.uniprot.org/annotation/PRO_5008955661	http://purl.uniprot.org/core/Chain_Annotation	Interleukin
+http://sparql.uniprot.org/sparql/	focus	http://purl.uniprot.org/annotation/PRO_5008955661
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/SHEEP07210	https://omabrowser.org/oma/info/SHEEP07210	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/SHEEP07210
+http://bio2rdf.org/sparql	focus	http://bio2rdf.org/clinicaltrials_vocabulary:Resource
+http://dbpedia.org/resource/Interleukin	plain	http://navi.first.lifesciencedb.jp/fanavi/sparql	Interleukin
+http://dbpedia.org/resource/Interleukin	focus	http://navi.first.lifesciencedb.jp/fanavi/sparql
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/BOVIN05714	https://omabrowser.org/oma/info/BOVIN05714	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/BOVIN05714
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/HUMAN22844	https://omabrowser.org/oma/info/HUMAN22844	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/HUMAN22844
+http://navi.first.lifesciencedb.jp/fanavi/sparql	inst	http://id.nlm.nih.gov/mesh/T022144	http://id.nlm.nih.gov/mesh/T022144	http://id.nlm.nih.gov/mesh/vocab#Term	Interleukin
+http://navi.first.lifesciencedb.jp/fanavi/sparql	focus	http://id.nlm.nih.gov/mesh/T022144
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/M4A5P7	http://identifiers.org/uniprot/M4A5P7	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/M4A5P7
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G1LN44	http://identifiers.org/uniprot/G1LN44	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G1LN44
+http://vulcan.cs.uga.edu/sparql	focus	http://om.cs.uga.edu/prokino/2.0/#Pathway
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/GASAC16276	https://omabrowser.org/oma/info/GASAC16276	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/GASAC16276
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/PANTR34543	https://omabrowser.org/oma/info/PANTR34543	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/PANTR34543
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/TAEGU09143	https://omabrowser.org/oma/info/TAEGU09143	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/TAEGU09143
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H3C7G0	http://identifiers.org/uniprot/H3C7G0	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H3C7G0
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F1PI19	http://identifiers.org/uniprot/F1PI19	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F1PI19
+http://metadb.riken.jp/sparql	focus	http://metadb.riken.jp/db/SciNetS_ria360i/cria360u7i
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H2TB60	http://identifiers.org/uniprot/H2TB60	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H2TB60
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/GORGO15186	https://omabrowser.org/oma/info/GORGO15186	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/GORGO15186
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F1MZV7	http://identifiers.org/uniprot/F1MZV7	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F1MZV7
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G3HJ60	http://identifiers.org/uniprot/G3HJ60	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G3HJ60
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/Q8JFF4	http://identifiers.org/uniprot/Q8JFF4	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/Q8JFF4
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G3QY93	http://identifiers.org/uniprot/G3QY93	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G3QY93
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G1PH22	http://identifiers.org/uniprot/G1PH22	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G1PH22
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F6SGE0	http://identifiers.org/uniprot/F6SGE0	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F6SGE0
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/W5M4Q2	http://identifiers.org/uniprot/W5M4Q2	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/W5M4Q2
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F1RRG3	http://identifiers.org/uniprot/F1RRG3	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F1RRG3
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/MYOLU00436	https://omabrowser.org/oma/info/MYOLU00436	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/MYOLU00436
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/POEFO15280	https://omabrowser.org/oma/info/POEFO15280	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/POEFO15280
+http://sparql.orthodb.org/sparql	focus	http://purl.orthodb.org/Uniprot
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/CALJA13753	https://omabrowser.org/oma/info/CALJA13753	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/CALJA13753
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G5C794	http://identifiers.org/uniprot/G5C794	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G5C794
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/HORSE09192	https://omabrowser.org/oma/info/HORSE09192	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/HORSE09192
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/SARHA05516	https://omabrowser.org/oma/info/SARHA05516	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/SARHA05516
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/B2BLM0	http://identifiers.org/uniprot/B2BLM0	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/B2BLM0
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/W5PRB6	http://identifiers.org/uniprot/W5PRB6	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/W5PRB6
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H2PE90	http://identifiers.org/uniprot/H2PE90	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H2PE90
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H0YUU2	http://identifiers.org/uniprot/H0YUU2	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H0YUU2
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/Q58IU6	http://identifiers.org/uniprot/Q58IU6	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/Q58IU6
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F7C7H2	http://identifiers.org/uniprot/F7C7H2	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F7C7H2
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G7P680	http://identifiers.org/uniprot/G7P680	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G7P680
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H0YUU7	http://identifiers.org/uniprot/H0YUU7	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H0YUU7
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H0YVW7	http://identifiers.org/uniprot/H0YVW7	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H0YVW7
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H0YUU5	http://identifiers.org/uniprot/H0YUU5	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H0YUU5
+http://sparql.orthodb.org/sparql	focus	http://purl.orthodb.org/OrthoGroup
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://www.w3.org/2000/01/rdf-schema#Class
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H3C5V2	http://identifiers.org/uniprot/H3C5V2	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H3C5V2
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G1K380	http://identifiers.org/uniprot/G1K380	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G1K380
+http://bio2rdf.org/sparql	class	http://bio2rdf.org/clinicaltrials_vocabulary:Drug	http://bio2rdf.org/clinicaltrials_vocabulary:Drug
+http://bio2rdf.org/sparql	focus	http://bio2rdf.org/clinicaltrials_vocabulary:Drug
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/FICAL03136	https://omabrowser.org/oma/info/FICAL03136	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/FICAL03136
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/M3YXC9	http://identifiers.org/uniprot/M3YXC9	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/M3YXC9
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G3WVA1	http://identifiers.org/uniprot/G3WVA1	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G3WVA1
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G3WVA0	http://identifiers.org/uniprot/G3WVA0	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G3WVA0
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/ANAPL13562	https://omabrowser.org/oma/info/ANAPL13562	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/ANAPL13562
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/PELSI08399	https://omabrowser.org/oma/info/PELSI08399	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/PELSI08399
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/MONDO09283	https://omabrowser.org/oma/info/MONDO09283	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/MONDO09283
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H0XTU6	http://identifiers.org/uniprot/H0XTU6	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H0XTU6
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/TAKRU02130	https://omabrowser.org/oma/info/TAKRU02130	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/TAKRU02130
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G1RE48	http://identifiers.org/uniprot/G1RE48	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G1RE48
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G1NDN8	http://identifiers.org/uniprot/G1NDN8	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G1NDN8
+https://dba-rdf.biosciencedbc.jp/sparql	inst	http://togodb.biosciencedbc.jp/entry/inoh_moleculerole_ontology/7	http://togodb.biosciencedbc.jp/entry/inoh_moleculerole_ontology/7	http://togodb.biosciencedbc.jp/ontology/InohMoleculeroleOntology	Interleukin
+https://dba-rdf.biosciencedbc.jp/sparql	focus	http://togodb.biosciencedbc.jp/entry/inoh_moleculerole_ontology/7
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/Q5W7F5	http://identifiers.org/uniprot/Q5W7F5	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/Q5W7F5
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/CHICK10439	https://omabrowser.org/oma/info/CHICK10439	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/CHICK10439
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/CHICK10438	https://omabrowser.org/oma/info/CHICK10438	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/CHICK10438
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/ICTTR11347	https://omabrowser.org/oma/info/ICTTR11347	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/ICTTR11347
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F7EGQ8	http://identifiers.org/uniprot/F7EGQ8	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F7EGQ8
+http://navi.first.lifesciencedb.jp/fanavi/sparql	focus	http://id.nlm.nih.gov/mesh/vocab#Term
+http://bio2rdf.org/sparql	focus	http://bio2rdf.org/goa_vocabulary:GO-Annotation
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/MUSPF15408	https://omabrowser.org/oma/info/MUSPF15408	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/MUSPF15408
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F7HLQ0	http://identifiers.org/uniprot/F7HLQ0	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F7HLQ0
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/L5LR16	http://identifiers.org/uniprot/L5LR16	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/L5LR16
+http://sparql.orthodb.org/sparql	inst	http://purl.orthodb.org/odbgene/61622_0_000e42	http://purl.orthodb.org/odbgene/61622_0_000e42	http://purl.orthodb.org/Gene	Interleukin
+http://sparql.orthodb.org/sparql	focus	http://purl.orthodb.org/odbgene/61622_0_000e42
+http://sparql.orthodb.org/sparql	inst	http://purl.orthodb.org/odbgroup/1521691at2759	http://purl.orthodb.org/odbgroup/1521691at2759	http://purl.orthodb.org/OrthoGroup	Interleukin
+http://sparql.orthodb.org/sparql	focus	http://purl.orthodb.org/odbgroup/1521691at2759
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H6SGV5	http://identifiers.org/uniprot/H6SGV5	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H6SGV5
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F7BM40	http://identifiers.org/uniprot/F7BM40	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F7BM40
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/FELCA04416	https://omabrowser.org/oma/info/FELCA04416	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/FELCA04416
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F7CP74	http://identifiers.org/uniprot/F7CP74	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F7CP74
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/Q3SCC7	http://identifiers.org/uniprot/Q3SCC7	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/Q3SCC7
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H0X431	http://identifiers.org/uniprot/H0X431	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H0X431
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/M3W5A3	http://identifiers.org/uniprot/M3W5A3	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/M3W5A3
+http://sparql.wikipathways.org	focus	http://vocabularies.wikipathways.org/gpml#Pathway
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/AILME08088	https://omabrowser.org/oma/info/AILME08088	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/AILME08088
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/CAVPO15624	https://omabrowser.org/oma/info/CAVPO15624	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/CAVPO15624
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G3T284	http://identifiers.org/uniprot/G3T284	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G3T284
+http://data.allie.dbcls.jp/sparql	focus	http://purl.org/allie/ontology/201108#LongForm
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/K7GNZ5	http://identifiers.org/uniprot/K7GNZ5	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/K7GNZ5
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/I3M6N0	http://identifiers.org/uniprot/I3M6N0	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/I3M6N0
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/F7ER44	http://identifiers.org/uniprot/F7ER44	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/F7ER44
+http://sparql.uniprot.org/sparql/	class	http://purl.uniprot.org/core/Structured_Name	http://purl.uniprot.org/core/Structured_Name
+http://sparql.uniprot.org/sparql/	focus	http://purl.uniprot.org/core/Structured_Name
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/DANRE08064	https://omabrowser.org/oma/info/DANRE08064	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/DANRE08064
+https://omabrowser.org/oma/info/XENTR15304	plain	https://sparql.omabrowser.org/sparql	Interleukin
+https://omabrowser.org/oma/info/XENTR15304	focus	https://sparql.omabrowser.org/sparql
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/MYOLU00481	https://omabrowser.org/oma/info/MYOLU00481	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/MYOLU00481
+http://sparql.wikipathways.org	class	http://vocabularies.wikipathways.org/wp#Pathway	Pathway
+http://sparql.wikipathways.org	focus	http://vocabularies.wikipathways.org/wp#Pathway
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G1LH25	http://identifiers.org/uniprot/G1LH25	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G1LH25
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/PAPAN14393	https://omabrowser.org/oma/info/PAPAN14393	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/PAPAN14393
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/Q32PM5	http://identifiers.org/uniprot/Q32PM5	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/Q32PM5
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/PONAB11891	https://omabrowser.org/oma/info/PONAB11891	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/PONAB11891
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/M3WQ79	http://identifiers.org/uniprot/M3WQ79	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/M3WQ79
+https://query.wikidata.org/sparql	inst	https://en.wikipedia.org/wiki/Pathway	https://en.wikipedia.org/wiki/Pathway	http://schema.org/Article	Pathway
+https://query.wikidata.org/sparql	focus	https://en.wikipedia.org/wiki/Pathway
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/MONDO09785	https://omabrowser.org/oma/info/MONDO09785	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/MONDO09785
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/RABIT05450	https://omabrowser.org/oma/info/RABIT05450	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/RABIT05450
+http://sparql.orthodb.org/sparql	inst	http://purl.uniprot.org/uniprot/M4M653	http://purl.uniprot.org/uniprot/M4M653	http://purl.orthodb.org/Uniprot	Interleukin
+http://sparql.orthodb.org/sparql	focus	http://purl.uniprot.org/uniprot/M4M653
+http://sparql.uniprot.org/sparql/	inst	http://purl.uniprot.org/uniprot/F7CP74	http://purl.uniprot.org/uniprot/F7CP74	http://purl.uniprot.org/core/Protein	Interleukin
+http://sparql.uniprot.org/sparql/	focus	http://purl.uniprot.org/uniprot/F7CP74
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/LOXAF14292	https://omabrowser.org/oma/info/LOXAF14292	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/LOXAF14292
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/TETNG07093	https://omabrowser.org/oma/info/TETNG07093	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/TETNG07093
+http://sparql.uniprot.org/sparql/	inst	http://purl.uniprot.org/uniprot/M3WQ79#SIPA0A8C5C839477B66	http://purl.uniprot.org/uniprot/M3WQ79#SIPA0A8C5C839477B66	http://purl.uniprot.org/core/Structured_Name	Interleukin
+http://sparql.uniprot.org/sparql/	focus	http://purl.uniprot.org/uniprot/M3WQ79#SIPA0A8C5C839477B66
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/PIGXX17620	https://omabrowser.org/oma/info/PIGXX17620	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/PIGXX17620
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/NOMLE11122	https://omabrowser.org/oma/info/NOMLE11122	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/NOMLE11122
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G3SXC9	http://identifiers.org/uniprot/G3SXC9	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G3SXC9
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/E9PX58	http://identifiers.org/uniprot/E9PX58	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/E9PX58
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G5BLT5	http://identifiers.org/uniprot/G5BLT5	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G5BLT5
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/G3VK15	http://identifiers.org/uniprot/G3VK15	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/G3VK15
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/Q1AN26	http://identifiers.org/uniprot/Q1AN26	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/Q1AN26
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H0VLF2	http://identifiers.org/uniprot/H0VLF2	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H0VLF2
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/CHLSB16650	https://omabrowser.org/oma/info/CHLSB16650	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/CHLSB16650
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/CANLF06227	https://omabrowser.org/oma/info/CANLF06227	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/CANLF06227
+http://sparql.uniprot.org/sparql/	class	http://purl.uniprot.org/core/Sequence	http://purl.uniprot.org/core/Sequence
+http://sparql.uniprot.org/sparql/	focus	http://purl.uniprot.org/core/Sequence
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/SHEEP07158	https://omabrowser.org/oma/info/SHEEP07158	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/SHEEP07158
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/GORGO15233	https://omabrowser.org/oma/info/GORGO15233	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/GORGO15233
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/K7GL29	http://identifiers.org/uniprot/K7GL29	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/K7GL29
+http://sparql.uniprot.org/sparql/	class	http://purl.uniprot.org/core/Chain_Annotation	http://purl.uniprot.org/core/Chain_Annotation
+http://sparql.uniprot.org/sparql/	focus	http://purl.uniprot.org/core/Chain_Annotation
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/MELGA09676	https://omabrowser.org/oma/info/MELGA09676	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/MELGA09676
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/M3Z119	http://identifiers.org/uniprot/M3Z119	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/M3Z119
+http://www.semantic-systems-biology.org/biogateway/endpoint	inst	http://identifiers.org/uniprot/H2QQ45	http://identifiers.org/uniprot/H2QQ45	http://www.w3.org/2000/01/rdf-schema#Class	Interleukin
+http://www.semantic-systems-biology.org/biogateway/endpoint	focus	http://identifiers.org/uniprot/H2QQ45
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/FELCA04459	https://omabrowser.org/oma/info/FELCA04459	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/FELCA04459
+http://sparql.uniprot.org/sparql/	inst	http://purl.uniprot.org/uniparc/UPI0004F9F7A8	http://purl.uniprot.org/uniparc/UPI0004F9F7A8	http://purl.uniprot.org/core/Sequence	Interleukin
+http://sparql.uniprot.org/sparql/	focus	http://purl.uniprot.org/uniparc/UPI0004F9F7A8
+https://sparql.omabrowser.org/sparql	inst	https://omabrowser.org/oma/info/HORSE09245	https://omabrowser.org/oma/info/HORSE09245	http://purl.org/net/orth#Protein	Interleukin
+https://sparql.omabrowser.org/sparql	focus	https://omabrowser.org/oma/info/HORSE09245
