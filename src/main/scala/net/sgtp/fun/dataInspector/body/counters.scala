@@ -36,7 +36,7 @@ class counters {
   
   
   def dump()={
-    println("Endpoints (O/T): "+endPointOpened+"/"+endPointTerminated+" Queries (I/C/R/N/F) "+queriesIssued+"/"+queriesCompleted+"/"+queriesWithResults+"/"+queriesNoResult+"/"+queriesFailed)
+    //println("Endpoints (O/T): "+endPointOpened+"/"+endPointTerminated+" Queries (I/C/R/N/F) "+queriesIssued+"/"+queriesCompleted+"/"+queriesWithResults+"/"+queriesNoResult+"/"+queriesFailed)
   }
   
 }

@@ -1,11 +1,9 @@
-package net.sgtp.fun.dataInspector.io
+package net.sgtp.fun.dataInspector.body
 
 import java.util.concurrent.ConcurrentHashMap
 import net.sgtp.fun.dataInspector.model._
-import net.sgtp.fun.dataInspector.body.counters
 import java.io.File
 import java.io.PrintWriter
-
 import collection.JavaConversions._
 /**
  * Simple class based on a synchronized collection.
@@ -15,10 +13,10 @@ import collection.JavaConversions._
  */
 class NodesMemory(whereToWrite:String) {
   val counters=new counters()
-  val nodes: ConcurrentHashMap[String,CommonMatureNode] = new ConcurrentHashMap  
+  val nodes: ConcurrentHashMap[String,AbstractNode] = new ConcurrentHashMap  
   //println("Simple writer to: "+whereToWrite)
   dump()
-  def process(mn:CommonMatureNode):Boolean={
+  def process(mn:AbstractNode):Boolean={
     if(!nodes.containsKey(mn.uri)) {
       nodes.put(mn.uri,mn)
       true

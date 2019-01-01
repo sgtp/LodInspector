@@ -1,8 +1,8 @@
 package net.sgtp.fun.dataInspector.body
 
-import net.sgtp.fun.dataInspector.io.NodesMemory
 import net.sgtp.fun.dataInspector.model._
 import scala.collection.parallel._
+import net.sgtp.fun.dataInspector.analysisForTriplestores.endpointAnalyzer
 
 class NetworkSeeder(endpoints:List[String],searchStrings:List[String],ops:options,cyOut:NodesMemory) {
   def exec()={
@@ -19,9 +19,10 @@ class NetworkSeeder(endpoints:List[String],searchStrings:List[String],ops:option
               val roughResult=eAnalyzer.retrieveRoughResults(q._1,q._2)
               if(roughResult.triples.size>0) {
                 if(ops.verbose) println("Found triples "+roughResult.triples.size+" in "+roughResult.endpoint+" for "+roughResult.query)
-                val matureNodes=NodeFactory.extractFromRoughResults(roughResult);
-                matureNodes.foreach(mn=>{val res=cyOut.process(mn); if(res) cyOut.dump()})
-                matureNodes.foreach(x=>{val pm=x.getProfiled(eAnalyzer); val res=cyOut.process(pm); if(res) cyOut.dump() })
+                val matureNodes=NodeFactory.extractFromRoughResults(eAnalyzer,roughResult,cyOut)
+                matureNodes.foreach(x=>cyOut.process(x))
+                //matureNodes.foreach(mn=>{val res=cyOut.process(mn); if(res) cyOut.dump()})
+                //matureNodes.foreach(x=>{val pm=x.getProfiled(eAnalyzer); val res=cyOut.process(pm); if(res) cyOut.dump() })
       } 
         }
       )

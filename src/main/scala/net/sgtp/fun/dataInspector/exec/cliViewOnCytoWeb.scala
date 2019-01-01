@@ -1,12 +1,10 @@
 package net.sgtp.fun.dataInspector.exec
 
-import net.sgtp.fun.dataInspector.io.OptionsParser
 import net.sgtp.fun.dataInspector.body.endpointSelector
-import net.sgtp.fun.dataInspector.body.endpointAnalyzer
+import net.sgtp.fun.dataInspector.analysisForTriplestores.endpointAnalyzer
 import net.sgtp.fun.dataInspector.body.counters
 import net.sgtp.fun.dataInspector.body.NetworkSeeder
-import net.sgtp.fun.dataInspector.io.NodesMemory
-
+import net.sgtp.fun.dataInspector.body.NodesMemory
 import scala.concurrent.{Await, Future}
 import scala.collection.parallel._
 

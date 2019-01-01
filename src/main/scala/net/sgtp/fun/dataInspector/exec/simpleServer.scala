@@ -15,12 +15,11 @@ import akka.stream.scaladsl.Source
 import akka.http.scaladsl.model.HttpEntity.{Chunked, ChunkStreamPart}
 import java.io.File
 import scala.concurrent.Future
-import net.sgtp.fun.dataInspector.io.NodesMemory
+import net.sgtp.fun.dataInspector.body.NodesMemory
 import net.sgtp.fun.dataInspector.body.endpointSelector
 import net.sgtp.fun.dataInspector.body.NetworkSeeder
 import net.sgtp.fun.dataInspector.body.counters
 import scala.collection.parallel._
-import net.sgtp.fun.dataInspector.io.OptionsParser
 import net.sgtp.fun.dataInspector.body.Manifest
 import java.net.URLDecoder
 

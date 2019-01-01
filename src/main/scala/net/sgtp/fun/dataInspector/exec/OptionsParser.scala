@@ -1,4 +1,4 @@
-package net.sgtp.fun.dataInspector.io
+package net.sgtp.fun.dataInspector.exec
 import net.sgtp.fun.dataInspector.body.options
 /**
  * Command line parser

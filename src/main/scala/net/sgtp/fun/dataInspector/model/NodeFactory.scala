@@ -2,6 +2,9 @@ package net.sgtp.fun.dataInspector.model
 
 import org.apache.jena.rdf.model._
 import collection.JavaConversions._
+import net.sgtp.fun.dataInspector.body.NodesMemory
+import net.sgtp.fun.dataInspector.analysisForTriplestores.endpointAnalyzer
+
 
 object NodeFactory {
   def typeProp=ResourceFactory.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
@@ -9,7 +12,7 @@ object NodeFactory {
   def rdfClassRes=ResourceFactory.createResource("http://www.w3.org/2000/01/rdf-schema#Class")
   def statRes=ResourceFactory.createResource("http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement")
   
-  def extractFromRoughResults(rRes:roughTriplesResult):List[CommonMatureNode]={
+  def extractFromRoughResults(ea:endpointAnalyzer,rRes:roughTriplesResult,cyOut:NodesMemory):List[AbstractNode]={
     //Common preps
     val endpoint=rRes.endpoint
     val locationFound=rRes.locationFound
@@ -30,22 +33,23 @@ object NodeFactory {
       val nodeNameProp=""
       val res=resourceNodesWithType.flatMap(in=>{
         in._1 match {
-          case "class" =>List(new ClassMatureModel(endpoint,in._2.getURI,nodeName,nodeNameProp,"","",true))
+          case "class" =>List(ClassModel.create(ea,0,false,endpoint,in._2.getURI,nodeName,nodeNameProp))
           case "inst" =>{
             val classes=triples.listObjectsOfProperty(in._2, typeProp).filter(x=>x.isURIResource()).map(y=>y.asResource()).toList
             val classesURIs=classes.map(x=>x.getURI)
-            val head=List(new InstMatureModel(endpoint,in._2.getURI,nodeName,nodeNameProp,classesURIs,true))
-            val tail=classes.map(cl=>{new ClassMatureModel(endpoint,cl.getURI,"","","","",false)})
+            val head=List(new InstanceModel(0,false,false,endpoint,in._2.getURI,nodeName,nodeNameProp,classesURIs))
+            val tail=classes.map(cl=>{ClassModel.create(ea,1,false,endpoint,cl.getURI)})
             head++tail
           }
-          case "plain" =>List(new PlainMatureModel(endpoint,in._2.getURI,nodeName,nodeNameProp,true))
+          case "plain" =>List(new PlainNodeModel(0,false,false,endpoint,in._2.getURI,nodeName,nodeNameProp))
         }
       })
       res
     }
     else {
-      List[CommonMatureNode]()
+      List[AbstractNode]()
     }
+    
     //Can be an instance -> NodeId, NodeName, ClassId (fill with ClassName) -> Out class
     
     //Can be plain -> NodeId, NodeName
@@ -75,8 +79,17 @@ object NodeFactory {
 }
 
 
+
  /*
-   
+ Overall logic to keep in mind as reference
+ * 
+ * class MatureResult(rRes:roughTriplesResult) {
+   val aboutURI=rRes.locationFound match {
+     case "value" => rRes.triples.listSubjects().next().getURI
+     case "res"  => rRes.triples.listSubjects().next().getURI
+     case "prop" => rRes.triples.listStatements().next().getPredicate().getURI()
+   }
+   val endpoint=rRes.endpoint
    val name=rRes.locationFound match {
       case "value" => {}
       
@@ -85,6 +98,7 @@ object NodeFactory {
     rRes.locationFound match {
       case "value" => {
          println("Found in value")
+         if(rRes.triples.contains(null,ResourceFactory.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),ResourceFactory.createResource("http://www.w3.org/2002/07/owl#Class"))) println("=> Class")
          else if(rRes.triples.contains(null,ResourceFactory.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),ResourceFactory.createResource("http://www.w3.org/2002/07/owl#ObjectProperty"))) println("=> Relation")
          else if(rRes.triples.contains(null,ResourceFactory.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),ResourceFactory.createResource("http://www.w3.org/2002/07/owl#DatatypeProperty"))) println("=> Attribute")
          else if(rRes.triples.contains(null,ResourceFactory.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),null)) println("=> Instance")
@@ -95,6 +109,7 @@ object NodeFactory {
       case "res" => {
         println("Found in res")
         //TODO this won't work, need find triples
+        if(rRes.triples.contains(null,ResourceFactory.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),ResourceFactory.createResource("http://www.w3.org/2002/07/owl#Class"))) println("=> Class")
         if(rRes.triples.contains(null,ResourceFactory.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),ResourceFactory.createResource("http://www.w3.org/2002/07/owl#ObjectProperty"))) println("=> Relation")
         if(rRes.triples.contains(null,ResourceFactory.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),ResourceFactory.createResource("http://www.w3.org/2002/07/owl#DatatypeProperty"))) println("=> Attribute")
         //entity could be  res, attr, or prop
@@ -107,4 +122,6 @@ object NodeFactory {
         //entity could be prop or attr
         
       }
-*/
+    }  
+ */
+ 
