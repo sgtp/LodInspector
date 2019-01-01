@@ -1,22 +1,22 @@
 package net.sgtp.fun.dataInspector.model
 
-import net.sgtp.fun.dataInspector.body.endpointAnalyzer
+import net.sgtp.fun.dataInspector.analysisForTriplestores.endpointAnalyzer
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
 
-object ClassMatureModel {
-  def create(ea:endpointAnalyzer,distance:Int,canBeDeleted:Boolean,endpoint:String,nodeURI:String,nodeName:String,nodeNameProp:String):ClassMatureModel={
+object ClassModel {
+  def create(ea:endpointAnalyzer,distance:Int,canBeDeleted:Boolean,endpoint:String,nodeURI:String,nodeName:String,nodeNameProp:String):ClassModel={
     val name=Future {nodeName}
-    new ClassMatureModel(ea,distance,false,canBeDeleted,endpoint,nodeURI,name,nodeNameProp,"","")  
+    new ClassModel(ea,distance,false,canBeDeleted,endpoint,nodeURI,name,nodeNameProp,"","")  
   }
-  def create(ea:endpointAnalyzer,distance:Int,canBeDeleted:Boolean,endpoint:String,uri:String):ClassMatureModel= {
+  def create(ea:endpointAnalyzer,distance:Int,canBeDeleted:Boolean,endpoint:String,uri:String):ClassModel= {
     val name=Future {ea.getName(uri,"")}
-    new ClassMatureModel(ea,distance,false,canBeDeleted,endpoint,uri,name,"","","")
+    new ClassModel(ea,distance,false,canBeDeleted,endpoint,uri,name,"","","")
   }
 }
 
-class ClassMatureModel  (
+class ClassModel  (
   val ea:endpointAnalyzer,
   distance:Int,
   complete:Boolean,

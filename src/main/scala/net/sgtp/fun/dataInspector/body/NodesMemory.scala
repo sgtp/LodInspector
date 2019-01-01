@@ -1,11 +1,9 @@
-package net.sgtp.fun.dataInspector.io
+package net.sgtp.fun.dataInspector.body
 
 import java.util.concurrent.ConcurrentHashMap
 import net.sgtp.fun.dataInspector.model._
-import net.sgtp.fun.dataInspector.body.counters
 import java.io.File
 import java.io.PrintWriter
-
 import collection.JavaConversions._
 /**
  * Simple class based on a synchronized collection.

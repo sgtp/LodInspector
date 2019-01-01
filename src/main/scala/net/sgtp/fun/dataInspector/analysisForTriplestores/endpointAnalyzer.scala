@@ -1,9 +1,10 @@
-package net.sgtp.fun.dataInspector.body
+package net.sgtp.fun.dataInspector.analysisForTriplestores
 
 import net.sgtp.fun.dataInspector.model._
-import org.apache.jena.query._;
+import org.apache.jena.query._
 import org.apache.jena.rdf.model._
 import org.apache.jena.rdf._
+import net.sgtp.fun.dataInspector.body.counters
 
 class endpointAnalyzer(verbose:Boolean,endpoint:String,queryTimeout1:Int,queryTimeout2:Int,counters:counters) {
   def rdfsLabelString="http://www.w3.org/2000/01/rdf-schema#label"  

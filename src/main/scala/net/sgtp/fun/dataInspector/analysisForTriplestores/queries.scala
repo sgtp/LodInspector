@@ -1,4 +1,4 @@
-package net.sgtp.fun.dataInspector.body
+package net.sgtp.fun.dataInspector.analysisForTriplestores
 
 object queries {
   

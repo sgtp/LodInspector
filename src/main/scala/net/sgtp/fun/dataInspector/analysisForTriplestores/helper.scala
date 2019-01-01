@@ -1,7 +1,8 @@
-package net.sgtp.fun.dataInspector.body
+package net.sgtp.fun.dataInspector.analysisForTriplestores
 
-import org.apache.jena.query._;
+import org.apache.jena.query._
 import org.apache.jena.rdf.model._
+import net.sgtp.fun.dataInspector.body.counters
 
 object helper {
   def getTriplesPerQuery(verbose:Boolean=false,endpoint:String,queryString:String,queryTimeout1:Int,queryTimeout2:Int,counters:counters):Model={

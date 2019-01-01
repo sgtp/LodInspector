@@ -1,6 +1,6 @@
 package net.sgtp.fun.dataInspector.model
 
-import net.sgtp.fun.dataInspector.body.endpointAnalyzer
+import net.sgtp.fun.dataInspector.analysisForTriplestores.endpointAnalyzer
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._

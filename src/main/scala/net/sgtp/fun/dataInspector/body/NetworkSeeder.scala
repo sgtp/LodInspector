@@ -1,8 +1,8 @@
 package net.sgtp.fun.dataInspector.body
 
-import net.sgtp.fun.dataInspector.io.NodesMemory
 import net.sgtp.fun.dataInspector.model._
 import scala.collection.parallel._
+import net.sgtp.fun.dataInspector.analysisForTriplestores.endpointAnalyzer
 
 class NetworkSeeder(endpoints:List[String],searchStrings:List[String],ops:options,cyOut:NodesMemory) {
   def exec()={

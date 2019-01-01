@@ -1,9 +1,9 @@
 package net.sgtp.fun.dataInspector.model
 
 import java.net.URL
-import net.sgtp.fun.dataInspector.body.endpointAnalyzer
+import net.sgtp.fun.dataInspector.analysisForTriplestores.endpointAnalyzer
 
-class InstMatureModel(
+class InstanceModel(
   val dist:Int,
   val compl:Boolean,
   canBeDeleted:Boolean,

@@ -1,9 +1,9 @@
 package net.sgtp.fun.dataInspector.model
 
-import net.sgtp.fun.dataInspector.body.endpointAnalyzer
+import net.sgtp.fun.dataInspector.analysisForTriplestores.endpointAnalyzer
 
 
-class PlainMatureModel(
+class PlainNodeModel(
    distance:Int,
    completed:Boolean,
    canBeDeleted:Boolean,
