@@ -4,5 +4,5 @@ package net.sgtp.fun.dataInspector.body
    */
 object Manifest {
   val projectName="LOD Inspector"
-  val version="0.0.2 (BH-Christmas)"
+  val version="0.0.3 (NYD 2019)"
 }
