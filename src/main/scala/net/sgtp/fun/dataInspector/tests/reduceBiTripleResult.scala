@@ -2,7 +2,7 @@ package net.sgtp.fun.dataInspector.tests
 
 import collection.JavaConversions._
 import org.apache.jena.rdf.model._
-import net.sgtp.fun.dataInspector.model.NodeFactory
+import net.sgtp.fun.dataInspector.analysisForTriplestores.datasourceSeederForTriplestores
 
 object reduceBiTripleResult extends App {
   def typeProp=ResourceFactory.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
@@ -11,7 +11,7 @@ object reduceBiTripleResult extends App {
   
   val input=ModelFactory.createDefaultModel().read("file:///Users/andrea/code/LODInspector/resources/test/bigResultSSB.nt"); 
   println("Initial: "+input.size)
-  val res=NodeFactory.reduceTriples(input)
-  println("Reduced: "+res.size)
-  
+  //val res=new datasourceSeederForTriplestores().reduceTriples(input)
+  //println("Reduced: "+res.size)
+  //TODO to be rewrittem
 }

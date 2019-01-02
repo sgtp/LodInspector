@@ -11,7 +11,7 @@ object queries {
 
   def countInstancesPerClass(value:String)="select (count(distinct(?s)) as ?res) where {?s a <"+value+">}"
   
-  def getValueForProp(uri:String,prop:String)="select ?o where {<"+uri+"> <http://www.w3.org/2000/01/rdf-schema#label> ?o}"
+  def getValueForProp(uri:String,prop:String)="select ?res where {<"+uri+"> <http://www.w3.org/2000/01/rdf-schema#label> ?res}"
   //val totalEntities="select (count(distinct(?x)) as ?nrow) where {?x ?p ?o}"
   //val typedEntities="select (count(distinct(?x)) as ?nrow) where {?x a ?o}"
   //val literalProperties="select distinct ?p where {?s ?p ?o . filter (isLiteral(?o)) }"

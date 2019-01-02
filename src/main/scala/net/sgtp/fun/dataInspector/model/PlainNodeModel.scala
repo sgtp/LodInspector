@@ -1,10 +1,10 @@
 package net.sgtp.fun.dataInspector.model
 
-import net.sgtp.fun.dataInspector.analysisForTriplestores.endpointAnalyzer
+import net.sgtp.fun.dataInspector.analysisForTriplestores.datasourceQueryAnswererForTriplestores
 
 
 class PlainNodeModel(
-   distance:Int,
+   distanceFromUserFocus:Int,
    completed:Boolean,
    canBeDeleted:Boolean,
    nodeId:String,
@@ -13,16 +13,16 @@ class PlainNodeModel(
    nameProp:String,
   
 
-) extends AbstractNode(distance, completed,canBeDeleted,ep,nodeId) {
+) extends AbstractDataElement(distanceFromUserFocus, completed,canBeDeleted,ep,nodeId) {
    
-  def getCySer:List[String]={
-    val res=endpoint+"\tplain\t"+uri+"\t"+name
-    val res2=endpoint+"\tfocus\t"+uri
-    if(distance==0) List(res,res2)
+  def getCytoSerialization:List[String]={
+    val res=dataSource+"\tplain\t"+uri+"\t"+name
+    val res2=dataSource+"\tfocus\t"+uri
+    if(distanceFromUserFocus==0) List(res,res2)
     else List(res)
   } 
   
-  def getProfiled(ea:endpointAnalyzer):AbstractNode={this}
+  def getProfiled(ea:datasourceQueryAnswererForTriplestores):AbstractDataElement={this}
 }
 
 ////

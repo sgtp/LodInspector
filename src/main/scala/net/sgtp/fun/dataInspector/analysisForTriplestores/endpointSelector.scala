@@ -1,4 +1,4 @@
-package net.sgtp.fun.dataInspector.body
+package net.sgtp.fun.dataInspector.analysisForTriplestores
 
 import org.json4s._
 import org.json4s.native.JsonMethods._

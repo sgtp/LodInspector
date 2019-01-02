@@ -5,14 +5,19 @@ import org.apache.jena.query._
 import org.apache.jena.rdf.model._
 import org.apache.jena.rdf._
 import net.sgtp.fun.dataInspector.body.counters
+import net.sgtp.fun.dataInspector.analysis.datasourceQueryAnswerer
+import net.sgtp.fun.dataInspector.body.Feature
+import net.sgtp.fun.dataInspector.body.Feature._
+import net.sgtp.fun.dataInspector.modelForTriplestores.roughTriplesResult
 
-class endpointAnalyzer(verbose:Boolean,endpoint:String,queryTimeout1:Int,queryTimeout2:Int,counters:counters) {
-  def rdfsLabelString="http://www.w3.org/2000/01/rdf-schema#label"  
-  def retrieveRoughResults(location:String,searchString:String)={
+class datasourceQueryAnswererForTriplestores(verbose:Boolean,endpoint:String,queryTimeout1:Int,queryTimeout2:Int,counters:counters) extends datasourceQueryAnswerer {
+  
+  
+  def retrieveRoughResults(location:Feature,searchString:String):roughTriplesResult={
     val queryString=location match {
-      case "value" => queries.searchForValueWithLiteral(searchString)
-      case "res"  =>queries.searchForResourcesForLiteral(searchString)
-      case "prop" =>queries.searchForPropertiesForLiteral(searchString)
+      case VALUE => queries.searchForValueWithLiteral(searchString)
+      case RESOURCE  =>queries.searchForResourcesForLiteral(searchString)
+      case PROPERTY =>queries.searchForPropertiesForLiteral(searchString)
     }  
      //println("Query: "+queryString)
      val triples=helper.getTriplesPerQuery(verbose,endpoint,queryString,queryTimeout1,queryTimeout2,counters)
@@ -29,18 +34,18 @@ class endpointAnalyzer(verbose:Boolean,endpoint:String,queryTimeout1:Int,queryTi
   }
   
   def getName(uri:String,nameProp:String):String={
-    val labelString=if(nameProp.length>1) nameProp
-    else rdfsLabelString
+    val labelString=if(nameProp.length>2) nameProp
+    else helper.rdfsLabelString
     
     val queryString=queries.getValueForProp(uri, labelString)
+    println("QQQ=>"+queryString)
     val label=helper.selectSingleLiteral(verbose,endpoint,queryString,queryTimeout1,queryTimeout2,counters)
+    println("RRR=>"+label)
     label
   }
   
   
-  def fillResultItem()={}
-  
-  def profileResultItem()={}
+
   
   
 }

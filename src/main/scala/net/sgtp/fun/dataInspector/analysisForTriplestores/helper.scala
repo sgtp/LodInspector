@@ -5,6 +5,12 @@ import org.apache.jena.rdf.model._
 import net.sgtp.fun.dataInspector.body.counters
 
 object helper {
+  def typeProp=ResourceFactory.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
+  def classRes=ResourceFactory.createResource("http://www.w3.org/2002/07/owl#Class")
+  def rdfClassRes=ResourceFactory.createResource("http://www.w3.org/2000/01/rdf-schema#Class")
+  def statRes=ResourceFactory.createResource("http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement")
+  def rdfsLabelString="http://www.w3.org/2000/01/rdf-schema#label"  
+  
   def getTriplesPerQuery(verbose:Boolean=false,endpoint:String,queryString:String,queryTimeout1:Int,queryTimeout2:Int,counters:counters):Model={
     counters.recordOpen()
     val m=ModelFactory.createDefaultModel()
@@ -71,9 +77,9 @@ object helper {
     catch {
       case e=>{
        if(verbose) {
-          println(endpoint+"\t: is not viable for "+queryString)
+          println(endpoint+"\t: is not viable for "+queryString+" reason: "+e.getMessage)
           counters.recordFailue()
-          println(e.getMessage)
+          
       }
       ""
       }

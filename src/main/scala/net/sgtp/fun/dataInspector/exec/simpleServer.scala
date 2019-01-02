@@ -16,13 +16,13 @@ import akka.http.scaladsl.model.HttpEntity.{Chunked, ChunkStreamPart}
 import java.io.File
 import scala.concurrent.Future
 import net.sgtp.fun.dataInspector.body.NodesMemory
-import net.sgtp.fun.dataInspector.body.endpointSelector
-import net.sgtp.fun.dataInspector.body.NetworkSeeder
+import net.sgtp.fun.dataInspector.analysisForTriplestores.endpointSelector
+import net.sgtp.fun.dataInspector.body.ExecutionEngine
 import net.sgtp.fun.dataInspector.body.counters
 import scala.collection.parallel._
 import net.sgtp.fun.dataInspector.body.Manifest
 import java.net.URLDecoder
-
+import net.sgtp.fun.dataInspector.body.DataSourceType._
 
 /** 
  * Very simple server to support the Data Inspector
@@ -72,7 +72,8 @@ object simpleServer extends App {
                val availableEndpoints= if(myArgs.contains("e")) List[String](myArgs.get("e").get)
                else endpointSelector.listUpInUmaka(ops.yummyScore).toList
                availableEndpoints.foreach(println)
-               val seeder=new NetworkSeeder(availableEndpoints,searchStrings,ops,cyOut)
+               val availableEndpointsTypes=availableEndpoints.map(x=>(x,ENDPOINT))
+               val seeder=new ExecutionEngine(availableEndpointsTypes,searchStrings,ops,cyOut)
                seeder.exec()
                
             }
@@ -90,11 +91,11 @@ object simpleServer extends App {
       } 
         case HttpRequest(GET, _, _, _, _) => {
           val file="resources/web"+hr.uri.path.toString()
-          println(file)
+          println("HTTP GET: "+file)
          
           
           val fileContent= scala.io.Source.fromFile(file, "UTF8").mkString
-          println(fileContent)
+          //println(fileContent)
           
           HttpResponse(entity = HttpEntity.fromFile(ContentTypes.`text/html(UTF-8)`, new File(file), 4096))
           

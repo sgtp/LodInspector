@@ -1,36 +1,32 @@
 package net.sgtp.fun.dataInspector.body
 
+import net.sgtp.fun.dataInspector.body.DataSourceType._
 import net.sgtp.fun.dataInspector.model._
-import scala.collection.parallel._
-import net.sgtp.fun.dataInspector.analysisForTriplestores.endpointAnalyzer
+import net.sgtp.fun.dataInspector.analysisForTriplestores.datasourceSeederForTriplestores
 
-class NetworkSeeder(endpoints:List[String],searchStrings:List[String],ops:options,cyOut:NodesMemory) {
+import scala.collection.parallel._
+import net.sgtp.fun.dataInspector.analysisForTriplestores.datasourceQueryAnswererForTriplestores
+
+class ExecutionEngine(datasources:List[(String,DataSourceType)],searchStrings:List[String],ops:options,profilerWorkingMemory:NodesMemory) {
   def exec()={
-  val forkJoinPool = new java.util.concurrent.ForkJoinPool(ops.parThreads)
-  val parExp=endpoints.par
-  parExp.tasksupport=new ForkJoinTaskSupport(forkJoinPool)
-  parExp.foreach(ep=>{
-    val eAnalyzer=new endpointAnalyzer(ops.verbose,ep,ops.queryTimeOut1,ops.queryTimeOut2,cyOut.counters)
-    cyOut.counters.endPointOpened+=1;
-      searchStrings.par.foreach(
-        str=>{
-            val queryToProcess=List(("value",str),("res", str),("prop",str)) // Not par here as two are very slow
-            queryToProcess.foreach(q=>{
-              val roughResult=eAnalyzer.retrieveRoughResults(q._1,q._2)
-              if(roughResult.triples.size>0) {
-                if(ops.verbose) println("Found triples "+roughResult.triples.size+" in "+roughResult.endpoint+" for "+roughResult.query)
-                val matureNodes=NodeFactory.extractFromRoughResults(eAnalyzer,roughResult,cyOut)
-                matureNodes.foreach(x=>cyOut.process(x))
-                //matureNodes.foreach(mn=>{val res=cyOut.process(mn); if(res) cyOut.dump()})
-                //matureNodes.foreach(x=>{val pm=x.getProfiled(eAnalyzer); val res=cyOut.process(pm); if(res) cyOut.dump() })
-      } 
-        }
-      )
-     cyOut.counters.endPointTerminated+=1
-   }) 
-  
-  
+    val forkJoinPool = new java.util.concurrent.ForkJoinPool(ops.parThreads)
+    val parExp=datasources.par
+    parExp.tasksupport=new ForkJoinTaskSupport(forkJoinPool)
+    parExp.foreach(ds=>{
+      val dsQueryAnswerer=ds._2 match {
+        case ENDPOINT => new datasourceQueryAnswererForTriplestores(ops.verbose,ds._1,ops.queryTimeOut1,ops.queryTimeOut2,profilerWorkingMemory.counters)
+      }
+      profilerWorkingMemory.counters.endPointOpened+=1;
+      val parSearchStrings=searchStrings.par
+      val dsSeeder=ds._2 match {
+        case ENDPOINT => new datasourceSeederForTriplestores(dsQueryAnswerer,ops,profilerWorkingMemory)
+      }  
     
-   }) 
+      //TODO rewrite below to get somre results out
+      parSearchStrings.foreach(searchTerm=>{
+        val nodes=dsSeeder.seedFromSearchTerm(searchTerm)
+        
+      }) 
+  }) 
   }
 }

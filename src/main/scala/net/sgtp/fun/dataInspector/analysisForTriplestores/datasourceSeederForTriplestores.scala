@@ -1,44 +1,58 @@
-package net.sgtp.fun.dataInspector.model
+package net.sgtp.fun.dataInspector.analysisForTriplestores
 
+import net.sgtp.fun.dataInspector.analysis.datasourceSeeder
+import net.sgtp.fun.dataInspector.model.AbstractDataElement
+import net.sgtp.fun.dataInspector.body.options
+import net.sgtp.fun.dataInspector.model.ClassModel
+import net.sgtp.fun.dataInspector.model.InstanceModel
+import net.sgtp.fun.dataInspector.model.PlainNodeModel
+import net.sgtp.fun.dataInspector.body.Feature._
+import net.sgtp.fun.dataInspector.body.NodesMemory
 import org.apache.jena.rdf.model._
 import collection.JavaConversions._
-import net.sgtp.fun.dataInspector.body.NodesMemory
-import net.sgtp.fun.dataInspector.analysisForTriplestores.endpointAnalyzer
+import net.sgtp.fun.dataInspector.modelForTriplestores.roughTriplesResult
 
 
-object NodeFactory {
-  def typeProp=ResourceFactory.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
-  def classRes=ResourceFactory.createResource("http://www.w3.org/2002/07/owl#Class")
-  def rdfClassRes=ResourceFactory.createResource("http://www.w3.org/2000/01/rdf-schema#Class")
-  def statRes=ResourceFactory.createResource("http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement")
-  
-  def extractFromRoughResults(ea:endpointAnalyzer,rRes:roughTriplesResult,cyOut:NodesMemory):List[AbstractNode]={
-    //Common preps
-    val endpoint=rRes.endpoint
-    val locationFound=rRes.locationFound
+class datasourceSeederForTriplestores(tsQA:datasourceQueryAnswererForTriplestores,opts:options,wm:NodesMemory) extends datasourceSeeder(tsQA,opts,wm) {
+  def seedFromSearchTerm(searchTerm:String,ops:options=opts):Unit={
+    val queryToProcess=List((VALUE,searchTerm),(PROPERTY, searchTerm),(RESOURCE,searchTerm)) // Not par here as two are very slow
+    queryToProcess.foreach(q=>{
+      val roughResult=tsQA.retrieveRoughResults(q._1,q._2)
+        if(roughResult.hasResults) {
+          if(opts.verbose) println("Found  "+roughResult.resultsSize+" results ("+roughResult.resultsSizeMeasure+") in "+roughResult.dataSource+" for "+roughResult.query)
+          val matureNodes=extractFromRoughResults(roughResult)
+          matureNodes.foreach(x=>wm.process(x))
+          
+         }
+      
+      })
+  }  
+        
+   
+  def extractFromRoughResults(rRes:roughTriplesResult):List[AbstractDataElement]={
+    val endpoint=rRes.dataSource
+    val locationFound=rRes.featureFound
     val triples=reduceTriples(rRes.triples)
     
     val resourceNodesFound=triples.listSubjects().toList
     val resourceNodesWithType=resourceNodesFound.map(sRes=>{
-      if(triples.contains(sRes,typeProp,classRes) || triples.contains(sRes,typeProp,rdfClassRes)) ("class",sRes)
-      else if(triples.contains(sRes,typeProp,null)) ("inst",sRes)
+      if(triples.contains(sRes,helper.typeProp,helper.classRes) || triples.contains(sRes,helper.typeProp,helper.rdfClassRes)) ("class",sRes)
+      else if(triples.contains(sRes,helper.typeProp,null)) ("inst",sRes)
       else ("plain",sRes)
     }).toList
     
-    
-    
     //Can be a class -> ClassId, ClassName
-    if(locationFound.equals("value")) { 
+    if(locationFound.equals(VALUE)) { 
       val nodeName=rRes.query
       val nodeNameProp=""
       val res=resourceNodesWithType.flatMap(in=>{
         in._1 match {
-          case "class" =>List(ClassModel.create(ea,0,false,endpoint,in._2.getURI,nodeName,nodeNameProp))
+          case "class" =>List(ClassModel.create(tsQA,0,false,endpoint,in._2.getURI,nodeName,nodeNameProp))
           case "inst" =>{
-            val classes=triples.listObjectsOfProperty(in._2, typeProp).filter(x=>x.isURIResource()).map(y=>y.asResource()).toList
+            val classes=triples.listObjectsOfProperty(in._2, helper.typeProp).filter(x=>x.isURIResource()).map(y=>y.asResource()).toList
             val classesURIs=classes.map(x=>x.getURI)
             val head=List(new InstanceModel(0,false,false,endpoint,in._2.getURI,nodeName,nodeNameProp,classesURIs))
-            val tail=classes.map(cl=>{ClassModel.create(ea,1,false,endpoint,cl.getURI)})
+            val tail=classes.map(cl=>{ClassModel.create(tsQA,1,false,endpoint,cl.getURI)})
             head++tail
           }
           case "plain" =>List(new PlainNodeModel(0,false,false,endpoint,in._2.getURI,nodeName,nodeNameProp))
@@ -47,7 +61,7 @@ object NodeFactory {
       res
     }
     else {
-      List[AbstractNode]()
+      List[AbstractDataElement]()
     }
     
     //Can be an instance -> NodeId, NodeName, ClassId (fill with ClassName) -> Out class
@@ -58,29 +72,31 @@ object NodeFactory {
         
 
     
-  }
-  
-  
-  def reduceTriples(in:Model)={
-    val statementResources=in.listSubjectsWithProperty(typeProp,statRes).toList
+  }     
+        
+        
+        
+        
+   def reduceTriples(in:Model)={
+    val statementResources=in.listSubjectsWithProperty(helper.typeProp,helper.statRes).toList
     statementResources.foreach(ss=>{
       val res=in.removeAll(ss, null, null);
     })
     //println("After stat removal")
-    val objectsClasses=in.listStatements().toList.filter(xx=>xx.getPredicate.equals(typeProp)).map(x=>x.getObject).filter(y=>y.isURIResource()).map(z=>z.asResource()).toSet.toList
+    val objectsClasses=in.listStatements().toList.filter(xx=>xx.getPredicate.equals(helper.typeProp)).map(x=>x.getObject).filter(y=>y.isURIResource()).map(z=>z.asResource()).toSet.toList
     if(objectsClasses.size>0) {
-      val sampleSources=objectsClasses.map(oRes=>in.listSubjectsWithProperty(typeProp, oRes).next())  
+      val sampleSources=objectsClasses.map(oRes=>in.listSubjectsWithProperty(helper.typeProp, oRes).next())  
       val res=ModelFactory.createDefaultModel().add(in.listStatements().toList.filter(x=>sampleSources.contains(x.getSubject)))
       res
     }
     else in;
 
   }
+      
 }
 
 
-
- /*
+/*
  Overall logic to keep in mind as reference
  * 
  * class MatureResult(rRes:roughTriplesResult) {
@@ -124,4 +140,4 @@ object NodeFactory {
       }
     }  
  */
- 
+

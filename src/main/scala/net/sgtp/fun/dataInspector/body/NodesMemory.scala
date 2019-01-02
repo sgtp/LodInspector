@@ -13,10 +13,10 @@ import collection.JavaConversions._
  */
 class NodesMemory(whereToWrite:String) {
   val counters=new counters()
-  val nodes: ConcurrentHashMap[String,AbstractNode] = new ConcurrentHashMap  
+  val nodes: ConcurrentHashMap[String,AbstractDataElement] = new ConcurrentHashMap  
   //println("Simple writer to: "+whereToWrite)
   dump()
-  def process(mn:AbstractNode):Boolean={
+  def process(mn:AbstractDataElement):Boolean={
     if(!nodes.containsKey(mn.uri)) {
       nodes.put(mn.uri,mn)
       true
@@ -42,7 +42,7 @@ class NodesMemory(whereToWrite:String) {
     writer.write("#\tnqn\t"+counters.queriesNoResult+"\n")
     writer.write("#\tnqf\t"+counters.queriesFailed+"\n")
     nodes.elements.foreach(el=>{
-      val text=el.getCySer
+      val text=el.getCytoSerialization
       writer.write(text.mkString("\n")+"\n")
       })
     writer.close()
@@ -57,7 +57,7 @@ class NodesMemory(whereToWrite:String) {
                   "#\tnqn\t"+counters.queriesNoResult+"\n"+
                   "#\tnqf\t"+counters.queriesFailed+"\n"
                   
-     val resBody=nodes.elements.map(el=>el.getCySer.mkString("\n")).mkString("\n")
+     val resBody=nodes.elements.map(el=>el.getCytoSerialization.mkString("\n")).mkString("\n")
      resHeader+resBody
   }
   //resources/web/outCy.txt

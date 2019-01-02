@@ -1,12 +1,13 @@
 package net.sgtp.fun.dataInspector.exec
 
-import net.sgtp.fun.dataInspector.body.endpointSelector
-import net.sgtp.fun.dataInspector.analysisForTriplestores.endpointAnalyzer
+import net.sgtp.fun.dataInspector.analysisForTriplestores.endpointSelector
+import net.sgtp.fun.dataInspector.analysisForTriplestores.datasourceQueryAnswererForTriplestores
 import net.sgtp.fun.dataInspector.body.counters
-import net.sgtp.fun.dataInspector.body.NetworkSeeder
+import net.sgtp.fun.dataInspector.body.ExecutionEngine
 import net.sgtp.fun.dataInspector.body.NodesMemory
 import scala.concurrent.{Await, Future}
 import scala.collection.parallel._
+import net.sgtp.fun.dataInspector.body.DataSourceType._
 
 //import collection.JavaConversions._
 
@@ -42,7 +43,9 @@ object cliViewOnCytoWeb extends App {
   if(ops.verbose) println("Searching each endpoint for: "+searchTerms.mkString(" "))
   
    val cyOut=new NodesMemory("resources/web/outCy.txt")
-   val seeder=new NetworkSeeder(endpoints,searchTerms,ops,cyOut)
+                 val availableEndpointsTypes=endpoints.map(x=>(x,ENDPOINT))
+
+   val seeder=new ExecutionEngine(availableEndpointsTypes,searchTerms,ops,cyOut)
    seeder.exec()
   
   
