@@ -2,6 +2,44 @@ package net.sgtp.fun.dataInspector.model
 
 import java.net.URL
 import net.sgtp.fun.dataInspector.analysisForTriplestores.datasourceQueryAnswererForTriplestores
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+
+object InstanceModel {
+  def create(
+      ea:datasourceQueryAnswererForTriplestores,
+      distance:Int,
+      canBeDeleted:Boolean,
+      endpoint:String,
+      nodeURI:String,
+      nodeName:String,
+      nodeNameProp:String,
+      classId:List[String]):InstanceModel={
+        val name=Future {nodeName}
+        new InstanceModel(distance,false,canBeDeleted,endpoint,nodeURI,name,nodeNameProp,classId)  
+  }
+  def create(
+      ea:datasourceQueryAnswererForTriplestores,
+      distance:Int,
+      canBeDeleted:Boolean,
+      endpoint:String,
+      nodeURI:String,
+      classId:String):InstanceModel= {
+        val name=Future {ea.getName(nodeURI,"")}
+        new InstanceModel(distance,false,canBeDeleted,endpoint,nodeURI,name,"",List(classId))
+  }
+  
+    //create(0,false,false,endpoint,in._2.getURI,nodeName,nodeNameProp,classesURIs)
+
+  
+}
+/**
+ *  val distanceFromUserFocus:Int,      //The distance from the original search
+    val completed:Boolean=false,
+    val canBeDeleted:Boolean,
+    val dataSource:String, 
+    val uri:String,
+ */
 
 class InstanceModel(
   val dist:Int,
@@ -9,14 +47,17 @@ class InstanceModel(
   canBeDeleted:Boolean,
   val ep:String,
   val instanceId:String,
-  val instanceName:String,
+  val instanceName:Future[String],
   val instanceNameProp:String,
   val classIds:List[String],
 ) extends AbstractDataElement(dist,compl,canBeDeleted,ep,instanceId) {
 
+  
   //TODO name as Future?
   def getCytoSerialization:List[String]={
-    val res=classIds.map(classId=>dataSource+"\tinst\t"+uri+"\t"+classId+"\t"+instanceName)
+    val nameString=if(instanceName.isCompleted) instanceName.value.get.get
+    else uri
+    val res=classIds.map(classId=>dataSource+"\tinst\t"+uri+"\t"+classId+"\t"+nameString)
     val res2=dataSource+"\tset\t"+uri+"\tfocus\t"+1
     if(distanceFromUserFocus==0) res ++ List(res2)
     else res

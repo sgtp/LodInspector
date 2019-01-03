@@ -38,13 +38,19 @@ class datasourceQueryAnswererForTriplestores(verbose:Boolean,endpoint:String,que
     else helper.rdfsLabelString
     
     val queryString=queries.getValueForProp(uri, labelString)
-    println("QQQ=>"+queryString)
     val label=helper.selectSingleLiteral(verbose,endpoint,queryString,queryTimeout1,queryTimeout2,counters)
-    println("RRR=>"+label)
     label
   }
   
-  
+  def getInstancesForClass(uri:String,number:Int):List[String]={
+    val queryString=queries.getNoInstancesForClass(uri,number)
+    //TEST
+    println(queryString)
+    val result=helper.selectMultipleResources(verbose,endpoint,queryString,queryTimeout1,queryTimeout2,counters)
+    //TEST
+    result.foreach(x=>println("I sampling: "+x))
+    result
+  }
 
   
   

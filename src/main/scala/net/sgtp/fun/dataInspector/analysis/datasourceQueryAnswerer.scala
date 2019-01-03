@@ -28,6 +28,9 @@ abstract class datasourceQueryAnswerer {
    * 
    */
   def getName(uri:String,nameProp:String):String
+  
+  
+  def getInstancesForClass(uri:String,number:Int):List[String]
 }
 
 

@@ -62,7 +62,7 @@ object simpleServer extends App {
            val cyOut=new NodesMemory(dataFile)
            sessionMaps.put(randomDir, cyOut)
            if(ops.verbose) {
-             println("Starting computation for search strings:")
+             println("Search strings:")
              searchStrings.foreach(println)
              ops.print()
            }
@@ -71,7 +71,11 @@ object simpleServer extends App {
                
                val availableEndpoints= if(myArgs.contains("e")) List[String](myArgs.get("e").get)
                else endpointSelector.listUpInUmaka(ops.yummyScore).toList
-               availableEndpoints.foreach(println)
+               if(ops.verbose) {
+                 println("Endpoints to inspect:")
+                 availableEndpoints.foreach(println)
+               }
+               
                val availableEndpointsTypes=availableEndpoints.map(x=>(x,ENDPOINT))
                val seeder=new ExecutionEngine(availableEndpointsTypes,searchStrings,ops,cyOut)
                seeder.exec()

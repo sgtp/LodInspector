@@ -16,8 +16,11 @@ var resultUrl="";
 
 function submitFunction() {
 	searchText=document.getElementById("entities").value;
+	endpointParam=document.getElementById("endpointToSearch").value;
 	encodedSearchText=encodeURI(searchText);
-	searchUrl="params?search="+encodedSearchText;
+	encodedEndpointParam=encodeURI(endpointParam);
+	if(endpointParam=="") searchUrl="params?search="+encodedSearchText
+	else searchUrl="params?search="+encodedSearchText+"&e="+encodedEndpointParam;
 	//alert(searchUrl);
 	resultUrl=httpGet(searchUrl)
 	//alert(res)
@@ -41,11 +44,11 @@ function submitFunction() {
 <style rel='stylesheet' type='text/css'>
 div#page { 	
     width: 1000px;
-    height: 820px;
+    height: 850px;
 }
 div#header {  	
     width: 1000px;
-    height: 150px;
+    height: 180px;
     background: #FFFFFF;
     
 }
@@ -86,6 +89,7 @@ div#footer {
 	<div id="header">
 		<h1>YummyData Playground</h1>
 		<form id="searchForm" name="searchForm">
+			<input size="100" type="text" id="endpointToSearch" name="endpointToSearch" placeholder="The endpoint (leave empty to query Uamaka)"  /><br/>
 			<input size="100" type="text" id="entities" name="entities" placeholder="List a set of things you know or are interested in"  /><br/>
 			<i>only a view on the server script now!</i>
 			<button type="button" onclick="submitFunction()">Go!</button> 
@@ -318,6 +322,7 @@ function processInstance(ep,elements) {
 	else {
 		//alert('Changing type to class for node '+nodeId+' ('+ep+')') //test
 		node[0].data({type:'instance'});
+		node[0].data({name: nodeName});
 	}
 	//Same for class
 	nodeC=cy.getElementById(classId);

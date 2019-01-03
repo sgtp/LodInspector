@@ -14,19 +14,24 @@ import net.sgtp.fun.dataInspector.modelForTriplestores.roughTriplesResult
 
 
 class datasourceSeederForTriplestores(tsQA:datasourceQueryAnswererForTriplestores,opts:options,wm:NodesMemory) extends datasourceSeeder(tsQA,opts,wm) {
-  def seedFromSearchTerm(searchTerm:String,ops:options=opts):Unit={
-    val queryToProcess=List((VALUE,searchTerm),(PROPERTY, searchTerm),(RESOURCE,searchTerm)) // Not par here as two are very slow
-    queryToProcess.foreach(q=>{
-      val roughResult=tsQA.retrieveRoughResults(q._1,q._2)
+  val getSeederStrategies=List(VALUE,PROPERTY,RESOURCE)
+  
+  
+  def seedFromSearchTerm(searchTerm:String,strategy:Feature,ops:options=opts):List[AbstractDataElement]={
+    
+    
+      val roughResult=tsQA.retrieveRoughResults(strategy,searchTerm)
         if(roughResult.hasResults) {
           if(opts.verbose) println("Found  "+roughResult.resultsSize+" results ("+roughResult.resultsSizeMeasure+") in "+roughResult.dataSource+" for "+roughResult.query)
           val matureNodes=extractFromRoughResults(roughResult)
-          matureNodes.foreach(x=>wm.process(x))
-          
+          matureNodes.foreach(x=>wm.addIfNew(x))
+          matureNodes
          }
-      
-      })
+        else List[AbstractDataElement]()
+     
   }  
+ 
+  
         
    
   def extractFromRoughResults(rRes:roughTriplesResult):List[AbstractDataElement]={
@@ -51,7 +56,7 @@ class datasourceSeederForTriplestores(tsQA:datasourceQueryAnswererForTriplestore
           case "inst" =>{
             val classes=triples.listObjectsOfProperty(in._2, helper.typeProp).filter(x=>x.isURIResource()).map(y=>y.asResource()).toList
             val classesURIs=classes.map(x=>x.getURI)
-            val head=List(new InstanceModel(0,false,false,endpoint,in._2.getURI,nodeName,nodeNameProp,classesURIs))
+            val head=List(InstanceModel.create(tsQA, 0, false, endpoint, in._2.getURI, nodeName, nodeNameProp, classesURIs) )
             val tail=classes.map(cl=>{ClassModel.create(tsQA,1,false,endpoint,cl.getURI)})
             head++tail
           }

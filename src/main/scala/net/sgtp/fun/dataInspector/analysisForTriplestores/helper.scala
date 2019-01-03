@@ -3,6 +3,7 @@ package net.sgtp.fun.dataInspector.analysisForTriplestores
 import org.apache.jena.query._
 import org.apache.jena.rdf.model._
 import net.sgtp.fun.dataInspector.body.counters
+import scala.collection.JavaConversions._
 
 object helper {
   def typeProp=ResourceFactory.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
@@ -85,4 +86,38 @@ object helper {
       }
     }
    }
+   
+   
+    def selectMultipleResources(verbose:Boolean=false,endpoint:String,queryString:String,queryTimeout1:Int,queryTimeout2:Int,counters:counters):List[String]={
+    counters.recordOpen()
+    val query=QueryFactory.create(queryString)  
+    val qexec = QueryExecutionFactory.sparqlService(endpoint, query)
+    try {
+      val resSet=qexec.execSelect()
+      if(resSet.hasNext()) {
+        //TODO ugly way, to fix (Java conversions?)
+        var res = scala.collection.mutable.Buffer[String]()
+        while(resSet.hasNext()) res+=resSet.next().getResource("res").getURI
+        counters.recordSuccessWithResults()
+        res.toList
+        
+      }
+      else {
+        counters.recordSucessNoResult() 
+        List[String]()
+      }
+    }
+    catch {
+      case e=>{
+       if(verbose) {
+          println(endpoint+"\t: is not viable for "+queryString+" reason: "+e.getMessage)
+          counters.recordFailue()
+          
+      }
+      List[String]()
+      }
+    }
+   }
+   
+   
 }

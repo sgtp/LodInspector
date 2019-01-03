@@ -1,6 +1,7 @@
 package net.sgtp.fun.dataInspector.body
 
 import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.ConcurrentSkipListSet
 import net.sgtp.fun.dataInspector.model._
 import java.io.File
 import java.io.PrintWriter
@@ -14,9 +15,11 @@ import collection.JavaConversions._
 class NodesMemory(whereToWrite:String) {
   val counters=new counters()
   val nodes: ConcurrentHashMap[String,AbstractDataElement] = new ConcurrentHashMap  
+  //val knownURIs: ConcurrentSkipListSet[String]=new ConcurrentSkipListSet
   //println("Simple writer to: "+whereToWrite)
   dump()
-  def process(mn:AbstractDataElement):Boolean={
+  
+  def addIfNew(mn:AbstractDataElement):Boolean={
     if(!nodes.containsKey(mn.uri)) {
       nodes.put(mn.uri,mn)
       true
@@ -61,5 +64,5 @@ class NodesMemory(whereToWrite:String) {
      resHeader+resBody
   }
   //resources/web/outCy.txt
-  
+  def isKnown(uri:String) = nodes.containsKey(uri)
 }
