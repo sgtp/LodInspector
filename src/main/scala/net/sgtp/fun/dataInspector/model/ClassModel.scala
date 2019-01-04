@@ -55,10 +55,11 @@ class ClassModel  (
     val res1=List(dataSource+"\tclass\t"+uri+"\t"+nodeDisplay)
     val res2=if(distanceFromUserFocus==0) res1++List(dataSource+"\tset\t"+uri+"\tfocus\t"+1)
     else res1
+    //println("Distance from User focus in class "+uri+" = "+distanceFromUserFocus) //TEST
     val res3=if(noOfInstances.isCompleted) res2++List(dataSource+"\tset\t"+uri+"\tsize\t"+noOfInstances.value.get.get)
     else res2
     //test
-    println(res3)
+    //println(res3)
     //test
     res3
   }

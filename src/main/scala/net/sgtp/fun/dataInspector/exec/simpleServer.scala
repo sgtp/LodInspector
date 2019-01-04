@@ -90,6 +90,7 @@ object simpleServer extends App {
            val query=hr.uri.query(java.nio.charset.Charset.defaultCharset(), Uri.ParsingMode.Strict)
            val myArgs=query.toMap
            val seed=query.get("seed").get
+           println(sessionMaps.get(seed).get.dumpToString())
            HttpResponse(entity = sessionMaps.get(seed).get.dumpToString())
     
       } 

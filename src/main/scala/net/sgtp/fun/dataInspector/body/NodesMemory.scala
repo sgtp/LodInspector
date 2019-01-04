@@ -25,6 +25,20 @@ class NodesMemory(whereToWrite:String) {
       true
     }
     else {
+      //println("Not adding "+mn.uri+" as this alredy existed")
+      //val oldNode=nodes.get(mn.uri)
+      //println("Kept: "+nodes.get(mn.uri).distanceFromUserFocus)
+      false
+    }
+    
+  }
+  
+  def addAndUpdate(mn:AbstractDataElement):Boolean={
+    if(!nodes.containsKey(mn.uri)) {
+      nodes.put(mn.uri,mn)
+      true
+    }
+    else {
       val oldN=nodes.get(mn.uri)
       if(!oldN.equals(mn)) {
          nodes.put(mn.uri,mn) 
@@ -33,7 +47,7 @@ class NodesMemory(whereToWrite:String) {
       else false
     }
   }
-  
+    
   def dump() {
     //TODO use the strihg from below and write to file
     (new File(whereToWrite)).delete()

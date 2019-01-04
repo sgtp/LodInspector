@@ -30,9 +30,12 @@ class ExecutionEngine(datasources:List[(String,DataSourceType)],searchStrings:Li
       parSearchStrings.foreach(searchTerm=>{
         val seederStrategies=dsSeeder.getSeederStrategies
         seederStrategies.foreach(ss=>{
+          if(ops.verbose) println("Seeder: issuing search for \""+searchTerm+"\" on "+ds._1+" ("+ds._2+") as "+ss)
           val newNodes=dsSeeder.seedFromSearchTerm(searchTerm,ss)
+          newNodes.foreach(x=>profilerWorkingMemory.addIfNew(x))
+          //newNodes.foreach(x=>println("New node: "+x.uri+" distance "+x.distanceFromUserFocus)) //TEST
           val newIndirectNodes=newNodes.filter(x=>x.distanceFromUserFocus>0).filter(x=>x.isInstanceOf[ClassModel])
-          newIndirectNodes.foreach(x=>println("New node: "+x.uri))
+          //newIndirectNodes.foreach(x=>println("New indirect node: "+x.uri)) //TEST
           //Future {
             newIndirectNodes.foreach(nc=>{
               val demoInstances=dsQueryAnswerer.getInstancesForClass(nc.uri,2)

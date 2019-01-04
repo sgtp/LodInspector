@@ -1,11 +1,17 @@
 package net.sgtp.fun.dataInspector.analysisForTriplestores
 
 object queries {
+  //Simplified query (some endpoints having issues with the longer one
+  
+  /** Simplified variant
+  def searchForValueWithLiteral(value:String)="construct{?s ?p ?o} where { { ?s ?p2 \""+value+"\" . ?s ?p ?o }"
+  */             
+ 
   
   def searchForValueWithLiteral(value:String)="construct{?s ?p ?o} where { { ?s ?p2 \""+value+"\" . ?s ?p ?o }"+
-                    "UNION { ?s ?p2 \""+value+"\"^^<http://www.w3.org/2001/XMLSchema#String> . ?s ?p ?o }" +
+                    "UNION { ?s ?p2 \""+value+"\"^^<http://www.w3.org/2001/XMLSchema#string> . ?s ?p ?o }" +
                     "UNION { ?s ?p2 \""+value+"\"@en . ?s ?p ?o }}"
-                    
+   
   def searchForPropertiesForLiteral(value:String)="construct {?s ?p ?o} where { ?s ?p ?o . FILTER (strends (str(?s), \""+value+"\"))}"
   def searchForResourcesForLiteral(value:String)="construct {?s ?p ?o} where { ?s ?p ?o . FILTER (strends (str(?p), \""+value+"\"))}"
 

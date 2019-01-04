@@ -14,9 +14,10 @@ object InstanceModel {
       nodeURI:String,
       nodeName:String,
       nodeNameProp:String,
-      classId:List[String]):InstanceModel={
+      classIds:List[String]):InstanceModel={
         val name=Future {nodeName}
-        new InstanceModel(distance,false,canBeDeleted,endpoint,nodeURI,name,nodeNameProp,classId)  
+        //println("Instance "+nodeURI+" directly created with distance "+distance)
+        new InstanceModel(distance,false,canBeDeleted,endpoint,nodeURI,name,nodeNameProp,classIds)  
   }
   def create(
       ea:datasourceQueryAnswererForTriplestores,
@@ -57,6 +58,7 @@ class InstanceModel(
   def getCytoSerialization:List[String]={
     val nameString=if(instanceName.isCompleted) instanceName.value.get.get
     else uri
+    println("Distance from User focus in instance "+uri+" = "+distanceFromUserFocus) //TEST
     val res=classIds.map(classId=>dataSource+"\tinst\t"+uri+"\t"+classId+"\t"+nameString)
     val res2=dataSource+"\tset\t"+uri+"\tfocus\t"+1
     if(distanceFromUserFocus==0) res ++ List(res2)
