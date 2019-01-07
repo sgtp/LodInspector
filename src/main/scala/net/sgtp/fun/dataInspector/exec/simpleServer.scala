@@ -69,7 +69,7 @@ object simpleServer extends App {
            //Asynch block
            Future {             
                
-               val availableEndpoints= if(myArgs.contains("e")) List[String](myArgs.get("e").get)
+               val availableEndpoints= if(myArgs.contains("e")) myArgs.get("e").get.split(" ").toList
                else endpointSelector.listUpInUmaka(ops.yummyScore).toList
                if(ops.verbose) {
                  println("Endpoints to inspect:")

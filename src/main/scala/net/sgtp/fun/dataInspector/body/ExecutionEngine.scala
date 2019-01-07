@@ -5,6 +5,7 @@ import net.sgtp.fun.dataInspector.model._
 import net.sgtp.fun.dataInspector.analysisForTriplestores.datasourceSeederForTriplestores
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
+import net.sgtp.fun.dataInspector.analysisForTriplestores.InstanceIntraLinkerForTS
 
 import scala.collection.parallel._
 import net.sgtp.fun.dataInspector.analysisForTriplestores.datasourceQueryAnswererForTriplestores
@@ -36,12 +37,17 @@ class ExecutionEngine(datasources:List[(String,DataSourceType)],searchStrings:Li
           //newNodes.foreach(x=>println("New node: "+x.uri+" distance "+x.distanceFromUserFocus)) //TEST
           val newIndirectNodes=newNodes.filter(x=>x.distanceFromUserFocus>0).filter(x=>x.isInstanceOf[ClassModel])
           //newIndirectNodes.foreach(x=>println("New indirect node: "+x.uri)) //TEST
-          //Future {
+          Future {
             newIndirectNodes.foreach(nc=>{
               val demoInstances=dsQueryAnswerer.getInstancesForClass(nc.uri,2)
               demoInstances.par.foreach(di=>{val res=InstanceModel.create(dsQueryAnswerer,2,true,ds._1,di,nc.uri); profilerWorkingMemory.addIfNew(res)})
             })  
-          //}
+          }
+          if(Feature.isSwarmable(ss)) {
+            val swarmer=new InstanceIntraLinkerForTS(dsQueryAnswerer,profilerWorkingMemory)  
+            Future {swarmer.swarm()}
+          }
+          
         })
        
         

@@ -26,7 +26,13 @@ object queries {
     val res="construct {?s ?p ?o} where {?s ?p ?o . values ?s {"+idString+"}}"
     res
   }
-    
+  
+  def getAllStatementsAndClassesForListOfIds(ids:List[String]):String={
+    val asURIs=ids.map(x=>"<"+x+">")
+    val idString=asURIs.mkString(" ")
+    val res="construct {?s ?p ?o . ?o a ?c} where {?s ?p ?o . ?o a ?c . values ?s {"+idString+"}}"
+    res
+  }  
   
   
   //val totalEntities="select (count(distinct(?x)) as ?nrow) where {?x ?p ?o}"

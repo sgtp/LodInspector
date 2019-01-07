@@ -45,10 +45,10 @@ class datasourceQueryAnswererForTriplestores(verbose:Boolean,endpoint:String,que
   def getInstancesForClass(uri:String,number:Int):List[String]={
     val queryString=queries.getNoInstancesForClass(uri,number)
     //TEST
-    println(queryString)
+    //println(queryString)
     val result=helper.selectMultipleResources(verbose,endpoint,queryString,queryTimeout1,queryTimeout2,counters)
     //TEST
-    result.foreach(x=>println("I sampling: "+x))
+    //result.foreach(x=>println("I sampling: "+x))
     result
   }
   
@@ -64,6 +64,18 @@ class datasourceQueryAnswererForTriplestores(verbose:Boolean,endpoint:String,que
     
   }
 
+  
+  def getRelationsAndTargetClassesForInstanceList(instances:List[String])={
+    val groups=instances.grouped(10).toList
+    val results=groups.map(group=>{
+      val queryString=queries.getAllStatementsAndClassesForListOfIds(group)
+      val res=helper.getTriplesPerQuery(verbose,endpoint,queryString,queryTimeout1,queryTimeout2,counters)
+      res
+    })
+    val fullResult=results.foldLeft(ModelFactory.createDefaultModel()){(x,c)=>x.add(c)}
+    fullResult
+    
+  }
   
   
 }
