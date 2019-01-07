@@ -1,0 +1,6 @@
+#	eo	0
+#	ec	0
+#	nq	0
+#	nqr	0
+#	nqn	0
+#	nqf	0

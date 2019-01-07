@@ -133,6 +133,9 @@ function class2Shape(cl) {
 	else if(cl==='plain') {
 		return('star');
 	}
+	else if(cl==='attribute') {
+		return('tag');
+	}
 	else return('star');	
 }
 
@@ -186,6 +189,8 @@ cy = cytoscape({
 	.selector('edge')
       .style({
         'width': 3,
+        'label': 'data(name)',
+        'width': 'data(size)',
         'line-color': '#ccc',
         'target-arrow-color': '#ccc',
         'target-arrow-shape': 'triangle'
@@ -303,6 +308,36 @@ function setAttribute(ep,elements) {
 	}
 }
 
+function setClassAttribute(ep,elements) {
+	nodeId=elements[2];
+	attributesId=elements[3];
+	sourceCoverage=elements[4];
+	propCoverage=elements[5];
+	example=elements[6];
+	
+	attrNodeId=nodeId+"_"+attributesId;
+	//The attribute 
+	attributeNode=cy.getElementById(attrNodeId);
+	if(attributeNode.length==0) {
+		//alert('Adding instance node '+nodeId+' ('+ep+')') // test
+		cy.add({
+    		group: 'nodes',
+    		data: { endpoint: ep , id: attrNodeId, type: 'attribute', name: "e.g.:"+example+"_"+propCoverage+"%", size:propCoverage/10}
+	  	})
+	}
+	//The edge
+	rel=cy.edges('edge[source = \"'+nodeId+'\"][target = \"'+attrNodeId+'\"][type=\"attribute\"]');
+	if(rel.length==0) {
+		console.log('edge found');
+		cy.add({
+    		group: 'edges',
+    		data: { id: nodeId+'_attributesId_'+attrNodeId, endpoint: ep , source: nodeId, target: attrNodeId, type: 'attribute', name: attributesId+"_"+sourceCoverage+"%", size:propCoverage/10 }
+	  	})
+	}
+	
+
+		
+}
 
 function processInstance(ep,elements) {
 //http://dbpedia.org/sparql	inst	node5	node2	name_node2
@@ -343,7 +378,7 @@ function processInstance(ep,elements) {
 		console.log('edge found');
 		cy.add({
     		group: 'edges',
-    		data: { id: nodeId+'_instOf_'+classId, endpoint: ep , source: nodeId, target: classId, type: 'instanceOf', name: 'instanceOf'}
+    		data: { id: nodeId+'_instOf_'+classId, endpoint: ep , source: nodeId, target: classId, type: 'instanceOf', name: 'instanceOf', size:1}
 	  	})
 	}
 	else {
@@ -384,6 +419,7 @@ parseGraph = function (){
 	 				if(command=='class') { processClass(ep,elements); } 
 	 				if(command=='inst') {processInstance(ep,elements);}
 	 				if(command=='set') {setAttribute(ep,elements);}
+	 				if(command=='attr') {setClassAttribute(ep,elements);}
 	  			}
 	
 	  		}   

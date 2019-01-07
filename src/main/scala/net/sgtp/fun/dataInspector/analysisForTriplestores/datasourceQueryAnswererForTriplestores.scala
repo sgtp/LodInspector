@@ -51,6 +51,18 @@ class datasourceQueryAnswererForTriplestores(verbose:Boolean,endpoint:String,que
     result.foreach(x=>println("I sampling: "+x))
     result
   }
+  
+  def collectStatementsForInstancesList(instances:List[String])={
+    val groups=instances.grouped(10).toList
+    val results=groups.map(group=>{
+      val queryString=queries.getAllStatementsForListOfIds(group)
+      val res=helper.getTriplesPerQuery(verbose,endpoint,queryString,queryTimeout1,queryTimeout2,counters)
+      res
+    })
+    val fullResult=results.foldLeft(ModelFactory.createDefaultModel()){(x,c)=>x.add(c)}
+    fullResult
+    
+  }
 
   
   

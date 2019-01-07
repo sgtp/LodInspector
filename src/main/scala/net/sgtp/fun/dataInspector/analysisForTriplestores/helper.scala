@@ -33,6 +33,8 @@ object helper {
       m}}
   }
   
+
+  
   def selectSingleValueQuery(verbose:Boolean=false,endpoint:String,queryString:String,queryTimeout1:Int,queryTimeout2:Int,counters:counters):Int={
     counters.recordOpen()
     val query=QueryFactory.create(queryString)  
