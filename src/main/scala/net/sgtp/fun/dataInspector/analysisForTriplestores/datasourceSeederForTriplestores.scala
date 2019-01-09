@@ -3,7 +3,7 @@ package net.sgtp.fun.dataInspector.analysisForTriplestores
 import net.sgtp.fun.dataInspector.analysis.datasourceSeeder
 import net.sgtp.fun.dataInspector.model.AbstractDataElement
 import net.sgtp.fun.dataInspector.body.options
-import net.sgtp.fun.dataInspector.model.ClassModel
+import net.sgtp.fun.dataInspector.modelForTriplestores.ClassModelTriplestoresImpl
 import net.sgtp.fun.dataInspector.model.InstanceModel
 import net.sgtp.fun.dataInspector.model.PlainNodeModel
 import net.sgtp.fun.dataInspector.body.Feature._
@@ -14,8 +14,8 @@ import net.sgtp.fun.dataInspector.modelForTriplestores.roughTriplesResult
 
 
 class datasourceSeederForTriplestores(tsQA:datasourceQueryAnswererForTriplestores,opts:options,wm:NodesMemory) extends datasourceSeeder(tsQA,opts,wm) {
-  val getSeederStrategies=List(VALUE,PROPERTY,RESOURCE)
-  
+  val getFastNodeSeederStrategies=List(VALUE,PROPERTY)
+  val getComplementarySeederStrategies=List(PROPERTY,RESOURCE)
   
   def seedFromSearchTerm(searchTerm:String,strategy:Feature,ops:options=opts):List[AbstractDataElement]={
     
@@ -52,12 +52,12 @@ class datasourceSeederForTriplestores(tsQA:datasourceQueryAnswererForTriplestore
       val nodeNameProp=""
       val res=resourceNodesWithType.flatMap(in=>{
         in._1 match {
-          case "class" =>List(ClassModel.create(tsQA,0,false,endpoint,in._2.getURI,nodeName,nodeNameProp))
+          case "class" =>List(ClassModelTriplestoresImpl.create(tsQA,0,false,endpoint,in._2.getURI,nodeName,nodeNameProp))
           case "inst" =>{
             val classes=triples.listObjectsOfProperty(in._2, helper.typeProp).filter(x=>x.isURIResource()).map(y=>y.asResource()).toList
             val classesURIs=classes.map(x=>x.getURI)
             val head=List(InstanceModel.create(tsQA, 0, false, endpoint, in._2.getURI, nodeName, nodeNameProp, classesURIs) )
-            val tail=classes.map(cl=>{ClassModel.create(tsQA,1,false,endpoint,cl.getURI)})
+            val tail=classes.map(cl=>{ClassModelTriplestoresImpl.create(tsQA,1,false,endpoint,cl.getURI)})
             head++tail
           }
           case "plain" =>List(new PlainNodeModel(0,false,false,endpoint,in._2.getURI,nodeName,nodeNameProp))

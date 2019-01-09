@@ -10,5 +10,6 @@ import net.sgtp.fun.dataInspector.body.Feature._
  */
 abstract class datasourceSeeder(val dsQA:datasourceQueryAnswerer,val ops:options,val wm:NodesMemory) {
   def seedFromSearchTerm(searchTerm:String,strategy:Feature,ops:options=ops):List[AbstractDataElement]  
-  val getSeederStrategies:List[Feature]
+  val getFastNodeSeederStrategies:List[Feature]
+  val getComplementarySeederStrategies:List[Feature]
 }

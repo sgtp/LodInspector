@@ -39,6 +39,7 @@ object simpleServer extends App {
   override def main(args: Array[String]) {
     println("Starting "+Manifest.projectName+" v."+Manifest.version+" (web server interface)")
     val sessionMaps=collection.mutable.Map[String, NodesMemory]()
+    val computationMaps=collection.mutable.Map[String,Future[Unit]]() //TODO Maybe some more complex threads tracking is needed
     //TODO however this works...
     implicit val system = ActorSystem()
     implicit val materializer = ActorMaterializer()
@@ -67,7 +68,7 @@ object simpleServer extends App {
              ops.print()
            }
            //Asynch block
-           Future {             
+           val overallEndpointComputationFuture=Future {             
                
                val availableEndpoints= if(myArgs.contains("e")) myArgs.get("e").get.split(" ").toList
                else endpointSelector.listUpInUmaka(ops.yummyScore).toList
@@ -81,6 +82,9 @@ object simpleServer extends App {
                seeder.exec()
                
             }
+           computationMaps.put(randomDir, overallEndpointComputationFuture)
+           
+           
            
            println("writing to: "+dataFile)
            //HttpResponse(entity = dataUrl)
@@ -90,8 +94,18 @@ object simpleServer extends App {
            val query=hr.uri.query(java.nio.charset.Charset.defaultCharset(), Uri.ParsingMode.Strict)
            val myArgs=query.toMap
            val seed=query.get("seed").get
-           println(sessionMaps.get(seed).get.dumpToString())
+           //println(sessionMaps.get(seed).get.dumpToString()) //TODO use for debug
            HttpResponse(entity = sessionMaps.get(seed).get.dumpToString())
+    
+      } 
+         case HttpRequest(GET, Uri.Path("/status"), _, _, _) =>  {
+           val response="<h1>Computations</h1>"
+           val computationsSummary=sessionMaps.keySet.map(sessionId=>{
+             "<h2>"+sessionId+"</h2>"
+             
+           }).mkString(" ")
+           
+           HttpResponse(entity = HttpEntity(ContentTypes.`text/html(UTF-8)`, response+computationsSummary))
     
       } 
         case HttpRequest(GET, _, _, _, _) => {

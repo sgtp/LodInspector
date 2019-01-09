@@ -19,7 +19,7 @@ object helper {
     val qexec = QueryExecutionFactory.sparqlService(endpoint, query)
     //qexec.setTimeout(queryTimeout1,queryTimeout2)
     try {
-      val innerModel=qexec.execConstruct()
+      val innerModel=qexec.execConstructDataset().getDefaultModel
       if(innerModel.size>0) counters.recordSuccessWithResults()
       else counters.recordSucessNoResult()
        m.add(innerModel)

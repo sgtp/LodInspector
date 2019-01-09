@@ -29,7 +29,9 @@ class ExecutionEngine(datasources:List[(String,DataSourceType)],searchStrings:Li
     
       //TODO rewrite below to get somre results out
       parSearchStrings.foreach(searchTerm=>{
-        val seederStrategies=dsSeeder.getSeederStrategies
+        val seederStrategies=dsSeeder.getFastNodeSeederStrategies
+        val complementarySeederStrategies=dsSeeder.getComplementarySeederStrategies
+        
         seederStrategies.foreach(ss=>{
           if(ops.verbose) println("Seeder: issuing search for \""+searchTerm+"\" on "+ds._1+" ("+ds._2+") as "+ss)
           val newNodes=dsSeeder.seedFromSearchTerm(searchTerm,ss)
@@ -37,21 +39,48 @@ class ExecutionEngine(datasources:List[(String,DataSourceType)],searchStrings:Li
           //newNodes.foreach(x=>println("New node: "+x.uri+" distance "+x.distanceFromUserFocus)) //TEST
           val newIndirectNodes=newNodes.filter(x=>x.distanceFromUserFocus>0).filter(x=>x.isInstanceOf[ClassModel])
           //newIndirectNodes.foreach(x=>println("New indirect node: "+x.uri)) //TEST
-          Future {
+         Future { //TODO removing futures until we implement a randomized delay or something not to overload servers
             newIndirectNodes.foreach(nc=>{
               val demoInstances=dsQueryAnswerer.getInstancesForClass(nc.uri,2)
               demoInstances.par.foreach(di=>{val res=InstanceModel.create(dsQueryAnswerer,2,true,ds._1,di,nc.uri); profilerWorkingMemory.addIfNew(res)})
             })  
           }
+          println("swarm test") //TODO swarmer should start after a few classes are there. Should consider classes for distance 0 instances (or directly distance 0 instances)
           if(Feature.isSwarmable(ss)) {
+            println("swarmable")
             val swarmer=new InstanceIntraLinkerForTS(dsQueryAnswerer,profilerWorkingMemory)  
-            Future {swarmer.swarm()}
+            Future { //TODO removing futures until we implement a randomized delay or something not to overload servers
+              swarmer.swarm()
+            }
           }
           
         })
-       
+         complementarySeederStrategies.foreach(ss=>{
+         //TODO copy and paste now: but same as above. Move to function and factorize
+            if(ops.verbose) println("Seeder: issuing search for \""+searchTerm+"\" on "+ds._1+" ("+ds._2+") as "+ss)
+          val newNodes=dsSeeder.seedFromSearchTerm(searchTerm,ss)
+          newNodes.foreach(x=>profilerWorkingMemory.addIfNew(x))
+          //newNodes.foreach(x=>println("New node: "+x.uri+" distance "+x.distanceFromUserFocus)) //TEST
+          val newIndirectNodes=newNodes.filter(x=>x.distanceFromUserFocus>0).filter(x=>x.isInstanceOf[ClassModel])
+          //newIndirectNodes.foreach(x=>println("New indirect node: "+x.uri)) //TEST
+         Future { //TODO removing futures until we implement a randomized delay or something not to overload servers
+            newIndirectNodes.foreach(nc=>{
+              val demoInstances=dsQueryAnswerer.getInstancesForClass(nc.uri,2)
+              demoInstances.par.foreach(di=>{val res=InstanceModel.create(dsQueryAnswerer,2,true,ds._1,di,nc.uri); profilerWorkingMemory.addIfNew(res)})
+            })  
+          }
+          println("swarm test") //TODO swarmer should start after a few classes are there. Should consider classes for distance 0 instances (or directly distance 0 instances)
+          if(Feature.isSwarmable(ss)) { //TODO means nothing now. Never happens
+            println("swarmable")
+            val swarmer=new InstanceIntraLinkerForTS(dsQueryAnswerer,profilerWorkingMemory)  
+            Future { //TODO removing futures until we implement a randomized delay or something not to overload servers
+              swarmer.swarm()
+            }
+          }
+        })
         
       }) 
+      
   }) 
   }
 }

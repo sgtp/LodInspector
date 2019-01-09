@@ -13,7 +13,7 @@ class InstanceIntraLinkerForTS(val qa:datasourceQueryAnswererForTriplestores,val
     var seenNodes=new ConcurrentSkipListSet[String]()
     var pendingEdges=new ConcurrentSkipListSet[(String,String,String,String)]() //TODO extremely bad! We should index via map. But first let's see if the overall idea yields interesting insights
     
-    val startingClasses=wm.nodes.values().toList.filter(_.distanceFromUserFocus==0).map(_.uri)
+    val startingClasses=wm.nodes.values().toList.filter(_.distanceFromUserFocus<2).map(_.uri)
     swarmStep(startingClasses)
     
     def swarmStep(classes:List[String]):Unit={

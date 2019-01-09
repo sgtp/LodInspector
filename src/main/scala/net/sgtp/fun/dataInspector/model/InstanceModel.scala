@@ -58,7 +58,7 @@ class InstanceModel(
   def getCytoSerialization:List[String]={
     val nameString=if(instanceName.isCompleted) instanceName.value.get.get
     else uri
-    println("Distance from User focus in instance "+uri+" = "+distanceFromUserFocus) //TEST
+    //println("Distance from User focus in instance "+uri+" = "+distanceFromUserFocus) //TEST
     val res=classIds.map(classId=>dataSource+"\tinst\t"+uri+"\t"+classId+"\t"+nameString)
     val res2=dataSource+"\tset\t"+uri+"\tfocus\t"+1
     if(distanceFromUserFocus==0) res ++ List(res2)
